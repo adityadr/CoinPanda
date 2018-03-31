@@ -1,0 +1,322 @@
+h1{
+	color:#fff;
+}
+ul{
+	height: 100;
+}
+a {
+  text-decoration: none;
+  color: #ffa000;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+}
+a:hover {
+  color: #e69000;
+}
+#currency-container{
+	border: 1px solid #ccc;
+	margin-top:20px;
+}
+#currency-header-container h1, #portfolio-header-container h1 {
+    margin: 15px;
+}
+.currency_box .changeItem{
+    float: right;
+    font-size: 1em;
+}
+.currency_box .editItem, .currency_box .deleteItem {
+    cursor:pointer;
+}
+#consolidated-table{
+    padding: 15px;
+    background: #fff;
+}
+#consolidated-table table td{
+	text-align: left;
+}
+#portfolio-container{
+	border: 1px solid #ccc;
+}
+#currency-header-container, #portfolio-header-container{
+	background-color: #1a2130;
+    font-size: 3em;
+    color: #fff;
+}
+#investment-stats .box_parent{
+    padding: 1em;
+}
+#investment-stats .box{
+	border: 1px solid #e4e4e4;
+    border-radius: 2px;
+    box-shadow: 0 1px 0 0 rgba(0,0,0,.05);
+    background-color: #fff;
+    padding: 1em;
+}
+#investment-stats span{
+	color: #ffa000;
+	font-size: 3em;
+}
+#investment-stats .header{
+	color: #000000;
+	font-size: 28px;
+}
+#currency-stats .currency_box{
+	border: 1px solid #e4e4e4;
+    border-radius: 2px;
+    box-shadow: 0 1px 0 0 rgba(0,0,0,.05);
+    background-color: #fff;
+    padding: 1em;
+}
+#currency-stats{
+	margin-bottom: 15px;
+}
+#currency-stats .icon{
+    font-size: 4em;
+}
+#currency-stats .label{
+    font-size: 1em;
+}
+#currency-stats .value{
+	color: #969fa6;
+	font-size: 1.5em;
+}
+#currency-stats .divider{
+	margin: 1em 0;
+    border-top: 1px solid #ccc;
+}
+.form {
+  background: rgba(19, 35, 47, 0.9);
+  padding: 40px;
+  max-width: 600px;
+  margin: 40px auto;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
+          box-shadow: 0 4px 10px 4px rgba(19, 35, 47, 0.3);
+   height: 720px;
+}
+
+.tab-group {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px 0;
+}
+.tab-group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.tab-group li a {
+  display: block;
+  text-decoration: none;
+  padding: 15px;
+  background: rgba(160, 179, 176, 0.25);
+  color: #a0b3b0;
+  font-size: 20px;
+  float: left;
+  width: 50%;
+  text-align: center;
+  cursor: pointer;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
+}
+.tab-group li a:hover {
+  background: #e69000;
+  color: #ffffff;
+}
+.tab-group .active a {
+  background: #ffa000;
+  color: #ffffff;
+}
+
+.tab-content > div:last-child {
+  display: none;
+}
+
+label {
+  position: absolute;
+  -webkit-transform: translateY(6px);
+          transform: translateY(6px);
+  left: 13px;
+  color: rgba(255, 255, 255, 0.5);
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+  -webkit-backface-visibility: hidden;
+  pointer-events: none;
+  font-size: 22px;
+}
+label .req {
+  margin: 2px;
+  color: #ffa000;
+}
+
+label.active {
+  -webkit-transform: translateY(50px);
+          transform: translateY(50px);
+  left: 2px;
+  font-size: 14px;
+}
+label.active .req {
+  opacity: 0;
+}
+
+label.highlight {
+  color: #ffffff;
+}
+
+input, textarea {
+  font-size: 22px;
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 5px 10px;
+  background: none;
+  background-image: none;
+  border: 1px solid #a0b3b0;
+  color: #ffffff;
+  border-radius: 0;
+  -webkit-transition: border-color .25s ease, -webkit-box-shadow .25s ease;
+  transition: border-color .25s ease, -webkit-box-shadow .25s ease;
+  transition: border-color .25s ease, box-shadow .25s ease;
+  transition: border-color .25s ease, box-shadow .25s ease, -webkit-box-shadow .25s ease;
+}
+input:focus, textarea:focus {
+  outline: 0;
+  border-color: #ffa000;
+}
+
+textarea {
+  border: 2px solid #a0b3b0;
+  resize: vertical;
+}
+
+.field-wrap {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+
+<!-- Added for the changes of Specific page : Start --->
+<style>
+* {
+    box-sizing: border-box;
+}
+
+.columns {
+    float: left;
+    width: 50%;
+    padding: 8px;
+}
+
+.price {
+    list-style-type: none;
+    border: 1px solid #eee;
+    margin: 0;
+    padding: 0;
+    -webkit-transition: 0.3s;
+    transition: 0.3s;
+}
+
+.price:hover {
+    box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2)
+}
+
+.price .header {
+    background-color: #111;
+    color: white;
+    font-size: 25px;
+}
+
+.price li {
+    border-bottom: 1px solid #eee;
+    padding: 20px;
+    text-align: center;
+}
+
+.price li2 {
+    border-bottom: 1px solid #eee;
+    padding: 20px;
+    text-align: center;
+	height: 50%;
+}
+
+.price .grey {
+    background-color: #eee;
+    font-size: 20px;
+}
+
+.button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+@media only screen and (max-width: 600px) {
+    .columns {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .box_parent {
+        width: 100%;
+    }
+	
+	@media only screen and (max-width: 600px) {
+    h2 {
+        width: 100%;
+    }
+}
+
+
+<!-- Added for the changes of Specific page : End --->
+
+
+
+
+
+.top-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.top-row > div {
+  float: left;
+  width: 48%;
+  margin-right: 4%;
+}
+.top-row > div:last-child {
+  margin: 0;
+}
+
+.button {
+  border: 0;
+  outline: none;
+  border-radius: 0;
+  padding: 15px 0;
+  font-size: 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .1em;
+  background: #ffa000;
+  color: #ffffff;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  -webkit-appearance: none;
+}
+.button:hover, .button:focus {
+  background: #e69000;
+}
+
+.button-block {
+  display: block;
+  width: 100%;
+}
+
+.forgot {
+  margin-top: -20px;
+  text-align: right;
+}

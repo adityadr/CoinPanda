@@ -1,0 +1,416 @@
+
+/*CSS file for HomePage*/
+
+
+html{
+    line-height:1.15;
+    -ms-text-size-adjust:100%;
+    -webkit-text-size-adjust:100%;
+    color:#fff;
+    font:17px/1.4 'Open Sans',sans-serif;
+    text-align:center
+}
+body{
+    margin:0;
+}
+.logo{
+    width :300px;
+    height :100px;
+}
+.banner-image {
+	padding: 0 2em;
+	display: table;
+	background: url("../img/Background.gif");
+}
+.banner-image img {
+  float: left;
+  height: auto;
+  max-width:100%;
+  padding: 2em;
+	  
+}
+
+h1{
+    font-size:3em;
+    line-height:1.2em;
+    margin:0 .5em .75em
+}
+a{
+    background-color:transparent;
+    -webkit-text-decoration-skip:objects;
+    color:#069;
+    text-decoration:none
+}
+strong{
+    font-weight:bolder
+}
+
+a:active,a:focus,a:hover{
+    text-decoration:underline
+}
+::-moz-selection{
+    background-color:#b3d4fc;
+    text-shadow:none
+}
+::selection{
+    background-color:#b3d4fc;
+    text-shadow:none
+}
+h2{
+    font-size:2em;
+    margin: 10px;
+}
+h3{
+    color:#555;
+    font-size:1.25em;
+    margin:0 0 .5em
+}
+p{
+    margin:0 0 2em
+}
+/*styling for feature grids*/
+.grid{
+    margin:0 -15px;
+    letter-spacing:-.31em;
+    word-spacing:-.43em;
+    text-rendering:optimizespeed
+}
+.grid-cell{
+    display: inline-block;
+    letter-spacing: normal;
+    text-align: center;
+    text-rendering: auto;
+    vertical-align: top;
+    width: 20%;
+    word-spacing: normal;
+    background: #f9f9f9 none repeat scroll 0 0;
+    border: 1px solid #ffa000;
+    margin-bottom: 20px;
+    padding: 35px 20px 65px;
+    margin: 10px;
+    min-height: 150px;
+}
+.grid-cell img{
+	display:block;
+	margin:auto;
+	float:none;
+	}
+.grid-cell>*{
+    padding:0 15px
+}
+
+/*styling for testimonial sections*/
+.testimonials{
+	padding:2em;
+}
+.testimonial_left{
+	width:50%;
+	float:left;
+	border: 1px solid #6b6b6b;
+	height: 100%;
+}
+.testimonial_left .single-testimonial {
+	height:100%;
+	display: table-cell;
+}
+/*styling for testimonial images*/
+img.single-testimonial-profile{
+	width:100px;
+	height:100px;
+	border: 1px transparent;
+    border-radius: 50%;
+}
+.testimonial_left img.single-testimonial-profile{
+	width: 282px;
+    height: 286px;
+}
+.testimonial_left .single-testimonial-title {
+    margin-top: 20px;
+}
+.testimonial_right{
+	width:45%;
+	margin-left: 20px;
+	float:left;
+}
+.testimonial_right .bottom{
+	margin-top: 30px;
+}
+
+.testimonial{
+	width:100%;
+	float:left;
+	height: 323px;
+	padding:20px;
+	}
+	
+.single-testimonial {
+    background: #F9F9F9 none repeat scroll 0 0;
+    border: 1px solid #6b6b6b;
+    padding: 15px 15px 15px 0px;
+    position: relative;
+}
+.single-testimonial-icon {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    text-align: center;
+    top: 0;
+    width: 150px;
+}
+.single-testimonial-details {
+    padding-left: 20px;
+	text-align:left;
+}
+.single-testimonial-profile {
+    float: left;
+    margin: 0 10px 0 0;
+}
+.single-testimonial-details > .single-testimonial-post {
+    color: #9b9b9b;
+    font-size: 14px;
+    font-weight: 700;
+    margin: 0;
+}
+.single-testimonial-details > p {
+    font-size: 14px;
+    margin: 10px;
+}
+.single-testimonial-title {
+    color: #4a90e2;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0;
+    padding: 5px 0;
+}
+
+/*styling for list styling*/
+.inline-block-list{
+    list-style-type:none;
+    margin:0;
+    padding:0
+}
+.inline-block-list li{
+    display:inline-block;
+    margin:0 0 0 1.5em;
+    padding:0;
+    vertical-align:top
+}
+.inline-block-list li:first-child{
+    margin-left:0
+}
+.clearfix:after,.clearfix:before{
+    content:' ';
+    display:table
+	
+}
+/*clearfix is used to fix issues related to floating child elements within a parent element */
+.clearfix:after{
+    clear:both
+}
+.clearfix{
+    *zoom:1
+}
+.container{
+    margin:0 auto;
+    max-width:100%;
+}
+
+/*styling for site header section*/
+.site-header{
+    padding: 1em 0 0 1em;
+	background-color:#000;
+}
+.site-logo{
+    color:#fff;
+    float:left;
+    font-size:25px;
+    font-weight:700;
+    line-height:32px;
+    text-decoration:none;
+    text-shadow:2px 2px 0 #000;
+    text-transform:uppercase;
+}
+.site-nav{
+    float: right;
+    list-style-type: none;
+    margin: 0 2em;
+    padding: 2em 0;
+}
+.site-nav a{
+    color:#ffa000;
+    display:block;
+    text-decoration:none;
+    text-transform:uppercase
+}
+
+/*styling for nav links dropdown*/
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #000;
+	text-align:left;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+}
+.dropdown-content li{
+    margin: 0;
+	padding: 4px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+/*styling for site navigation*/
+.site-nav a:active,.site-nav a:focus,.site-nav a:hover{
+    color:#fff
+}
+.left{
+	float:left;
+}
+.right{
+	float:right;
+}
+
+/*styling for promo section*/
+.site-promo .description{
+    color:#ddd;
+    font-size:1.7em;
+	margin-top: 12%;
+	text-align: left;
+	margin-bottom: 2em;
+	text-align:left;
+}
+.site-promo h2{
+	text-align: left;
+}
+.last-update{
+    color:#999;
+    display:block;
+    font-size:.75em;
+    margin-top:10px
+}
+.site-section{
+    background-color:#f9f9f9;
+    color:#333;
+    overflow:hidden;
+    padding:2em 0;
+    margin: 0 auto;
+    width:100%;
+}
+.site-section-desc{
+    background:#1a2130 none repeat scroll 0 0;
+    color:#fff;
+    text-align:center;
+    padding:2em 0 3em;
+}
+.site-section-desc .content{
+    max-width:720px;
+    margin:auto;
+    padding: 2em;
+}
+
+/*styling for site footer*/
+.site-footer a,.site-section-desc .content a{
+    color:#ffa000
+}
+.site-section-desc .content .new{
+    text-align:left
+}
+.site-footer{
+    font-size:.875em;
+    padding:2em;
+	background: #000;
+}
+.site-footer p{
+	margin: 0;
+}
+
+
+/*styling for media queries to make website responsive across device sizes*/
+@media only screen and (max-width:1120px){
+	.site-nav{
+		float:none;
+	}
+	.logo {
+		float: left;
+	}
+	.banner-image img{
+		float:none;
+	}
+    .site-nav li{
+        margin:0 .5em
+    }
+    .site-header{
+        padding-top:40px
+    }
+	 .grid-cell{
+        width:35%
+    }
+	.testimonial{
+		height:auto;
+		padding: 0px;
+	}
+	.testimonials {
+		padding: 0em;
+	}
+	.testimonial_right, .testimonial_left{
+		float:none;
+		margin: auto;
+		display:block;
+		width:auto;
+		margin: 30px;
+	}
+	.site-promo .description {
+		margin-top: 0%; 
+		float: left;
+	}
+	.testimonial_left img.single-testimonial-profile {
+		width: 100px;
+		height: 100px;
+		margin-bottom: 30px;
+	}
+}
+@media only screen and (max-width:600px){
+    html{
+        font-size:14px
+    }
+    .last-update,.site-footer{
+        font-size:1em
+    }
+    .inline-block-list li{
+        margin:0;
+		width: 100%;
+    }
+    .inline-block-list li:last-child{
+        margin:0
+    }
+}
+@media only screen and (max-width:460px){
+    .grid-cell{
+		width: 50%;
+		margin: 1em 0;
+		padding: 1em;
+    }
+	.site-nav a {
+		padding: 0 1em;
+	}
+	.site-nav{
+		float:none;
+		margin:0;
+	}
+}
+@media only screen and (max-width:420px){
+    h1{
+        font-size:2.5em
+    }
+    html{
+        font-size:13px
+    }
+}

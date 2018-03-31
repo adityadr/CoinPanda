@@ -1,0 +1,86 @@
+body {
+    background-color: #F7F7F9;
+}
+#currency-container{
+	border: 1px solid #ccc;
+	margin-top:20px;
+	background: #fff;
+}
+#currency-header-container h1, #portfolio-header-container h1 {
+    margin: 15px;
+}
+.currency_box .changeItem{
+    float: right;
+    font-size: 1em;
+}
+.currency_box .editItem, .currency_box .deleteItem {
+    cursor:pointer;
+}
+#consolidated-table{
+    padding: 15px;
+}
+#consolidated-table table td{
+	text-align: left;
+}
+#portfolio-container{
+	border: 1px solid #ccc;
+}
+#currency-header-container, #portfolio-header-container{
+	background-color: #1a2130;
+    font-size: 3em;
+    color: #fff;
+}
+#investment-stats .box_parent{
+    padding: 1em;
+}
+#investment-stats .box{
+	border: 1px solid #e4e4e4;
+    border-radius: 2px;
+    box-shadow: 0 1px 0 0 rgba(0,0,0,.05);
+    background-color: #fff;
+    padding: 1em;
+}
+#investment-stats span{
+	color: #ffa000;
+	font-size: 2em;
+}
+#investment-stats .header{
+	color: #969fa6;
+	font-size: 1.5em;
+	margin-top: 0px;
+}
+#currency-stats .currency_box{
+	border: 1px solid #e4e4e4;
+    border-radius: 2px;
+    box-shadow: 0 1px 0 0 rgba(0,0,0,.05);
+    background-color: #fff;
+    padding: 1em;
+}
+#currency-stats .breaker{
+    height: 15px;
+    width: 100%;
+}
+#currency-stats{
+	margin-bottom: 15px;
+}
+#currency-stats .icon{
+    font-size: 4em;
+}
+#currency-stats .label{
+    font-size: 1em;
+}
+#currency-stats .value{
+	color: #969fa6;
+	font-size: 1.5em;
+}
+#currency-stats .divider{
+	margin: 1em 0;
+    border-top: 1px solid #ccc;
+}
+#piechart div{
+	margin:auto;
+	float:none;
+}
+.modal-body {
+    //max-width: 300px;
+}
