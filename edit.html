@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang=en-us>
+   <head>
+      <meta charset=utf-8>
+      <link rel="shortcut icon" type="image/png" href="img/Favicon.png">
+      <title>CoinPanda || Home</title>
+      <meta name=description content="">
+      <meta name=viewport content="width=device-width,initial-scale=1">
+      <link rel=stylesheet href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">
+      <!-- Latest compiled and minified CSS -->
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <link rel="stylesheet" href="font/cryptocoins.css" />
+      <link rel="stylesheet" href="css/style.css" />
+      <link rel="stylesheet" href="css/home.css" />
+   </head>
+<body>
+    <div class="siteNavbar navbar navbar-inverse navbar-static-top" role="navigation">
+     <div class="container">
+        <div class="navbar-header">
+           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+           <span class="sr-only">Toggle navigation</span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+           <span class="icon-bar"></span>
+           </button>
+           <a class="site-logo navbar-left" href="#"> 
+              <img class="logo" src="img/LogowithName.png">
+           </a>
+        </div>
+        <div class="collapse navbar-collapse">
+           <ul class="nav navbar-nav navbar-right">
+              <li>
+                 <a href="#" class="hidden-xs">My Portfolio</a>
+                 <a href="#" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">My Portfolio</a>
+              </li>
+              <li>
+                 <a href="#products" class="hidden-xs">Exchange comparison</a>
+                 <a href="#products" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">Exchange comparison</a>
+              </li>
+              <li>
+                 <a href="#overview" class="hidden-xs">About</a>
+                 <a href="#overview" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">About</a>
+              </li>>
+        </li>
+             <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Hi John Doe! <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                 <li><a href="#" target="_blank">Profile</a></li>
+                 <li><a href="#" target="_blank">Logout</a></li>
+              </ul>
+           </li>
+           </ul>
+        </div>
+        <!--/.nav-collapse -->
+     </div>
+  </div>
+  <div id="wrap" class="container">
+      <h1>Edit Profile</h1>
+    	<hr>
+  	<div class="row">
+        <!-- left column -->
+        <div class="col-md-3">
+          <div class="text-center">
+            <img src="img/alpha.jpeg" height="148px" width="150px"  class="avatar img-circle" alt="avatar">
+            <h6>Upload a different photo...</h6>
+
+            <input type="file" class="form-control">
+          </div>
+        </div>
+
+        <!-- edit form column -->
+        <div class="col-md-9 personal-info">
+          <h3>Personal info</h3>
+
+          <form class="form-horizontal" role="form">
+            <div class="form-group">
+              <label class="col-lg-3 control-label">First name:</label>
+              <div class="col-lg-8">
+                <input class="form-control" type="text" value="Jane">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-lg-3 control-label">Last name:</label>
+              <div class="col-lg-8">
+                <input class="form-control" type="text" value="Bishop">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-lg-3 control-label">Company:</label>
+              <div class="col-lg-8">
+                <input class="form-control" type="text" value="">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-lg-3 control-label">Address 1: </label>
+              <div class="col-lg-8">
+                <input class="form-control" type="text" value="Jane">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-lg-3 control-label">Address 2:</label>
+              <div class="col-lg-8">
+                <input class="form-control" type="text" value="Jane">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-lg-3 control-label">Email:</label>
+              <div class="col-lg-8">
+                <input class="form-control" type="text" value="janesemail@gmail.com">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-lg-3 control-label">Time Zone:</label>
+              <div class="col-lg-8">
+                <div class="ui-select">
+                  <select id="user_time_zone" class="form-control">
+                    <option value="Hawaii">(GMT-10:00) Hawaii</option>
+                    <option value="Alaska">(GMT-09:00) Alaska</option>
+                    <option value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp; Canada)</option>
+                    <option value="Arizona">(GMT-07:00) Arizona</option>
+                    <option value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp; Canada)</option>
+                    <option value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central Time (US &amp; Canada)</option>
+                    <option value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp; Canada)</option>
+                    <option value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-3 control-label">Username:</label>
+              <div class="col-md-8">
+                <input class="form-control" type="text" value="janeuser">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-3 control-label">Password:</label>
+              <div class="col-md-8">
+                <input class="form-control" type="password" value="11111122333">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-3 control-label">Confirm password:</label>
+              <div class="col-md-8">
+                <input class="form-control" type="password" value="11111122333">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-md-3 control-label"></label>
+              <div class="col-md-8">
+                <input type="button" class="btn btn-primary"  value="Save Changes">
+                <span></span>
+                <input type="reset" class="btn btn-default" value="Cancel">
+              </div>
+            </div>
+          </form>
+        </div>
+    </div>
+  </div>
+  <footer class="site-footer footer"><p>&copy; Developed by Team #23 </p></footer>
+     <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+</body>
+</html>
