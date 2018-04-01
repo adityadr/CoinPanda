@@ -2,13 +2,13 @@
 <html lang=en-us>
    <head>
       <meta charset=utf-8>
-      <link rel="shortcut icon" type="image/png" href="img/Favicon.png">
+      <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='img/Favicon.png') }}">
       <title>CoinPanda || Home</title>
       <meta name=description content="">
       <meta name=viewport content="width=device-width,initial-scale=1">
       <link rel=stylesheet href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">
       <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-      <link rel="stylesheet" href="css/style.css" />
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
     	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
    </head>
    <body>
@@ -22,7 +22,7 @@
                <span class="icon-bar"></span>
                </button>
                <a class="site-logo navbar-left" href="#">
-               		<img class="logo" src="img/LogowithName.png">
+               		<img class="logo" src="{{ url_for('static', filename='img/LogowithName.png') }}">
                </a>
             </div>
             <div class="collapse navbar-collapse">
@@ -64,7 +64,7 @@
          <!--Mascot image section-->
          <div class="site-promo">
             <div class="banner-image" class="left">
-               <img src="img/1.png">
+               <img src="{{ url_for('static', filename='img/1.png') }}">
                <div class="banner-image-text description">
                   <h2> Welcome! Let's stack some coins</h2>
                   Hi, I'm Chulbul. I'm here to guide you at every step to mint some coins. Come join us at CoinPanda and become a member of this growing community.
@@ -79,7 +79,7 @@
 		         <div class="featuresBody col-md-12 col-lg-12">
 		            <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12">
 		            	<div class="grid-cell">
-			               <img src="img/trusted.png"> </br>
+			               <img src="{{ url_for('static', filename='img/trusted.png') }}"> </br>
 			               <h3>
 			                  Trusted
 			               </h3>
@@ -90,7 +90,7 @@
 		            </div>
 		            <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12">
 		            	<div class="grid-cell">
-			               <img src="img/HighAvailability.png"> </br>
+			               <img src="{{ url_for('static', filename='img/HighAvailability.png') }}"> </br>
 			               <h3>
 			                  High Availability
 			               </h3>
@@ -100,7 +100,7 @@
 		            <div class="visible-sm clearfix"></div>
 		            <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12">
 		            	<div class="grid-cell">
-			               <img src="img/ExchangeIndependent.png"> </br>
+			               <img src="{{ url_for('static', filename='img/ExchangeIndependent.png') }}"> </br>
 			               <h3>
 			                  Simple Integration
 			               </h3>
@@ -109,7 +109,7 @@
 		            </div>
 		            <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12">
 		            	<div class="grid-cell">
-			               <img src="img/SimpleIntegration.png"> </br>
+			               <img src="{{ url_for('static', filename='img/SimpleIntegration.png') }}"> </br>
 			               <h3>
 			                  Portfolio Management
 			               </h3>
@@ -139,7 +139,7 @@
                <div class="testimonial_left_parent col-md-6 col-lg-6 col-sm-12 col-xs-12">
                   <div class="testimonial_left col-md-12 col-lg-12 col-sm-12 col-xs-12">
                      <div class="single-testimonial-details">
-                        <img class="single-testimonial-profile" src="img/alpha.jpeg" alt="">
+                        <img class="single-testimonial-profile" src="{{ url_for('static', filename='img/alpha.jpeg') }}" alt="">
                         <h4 class="single-testimonial-title">Prakash Raj</h4>
                         <p class="single-testimonial-post">Mollywood Actor</p>
                         <p>We use CoinPanda to get timely exchange rates for our browser users. we're using Bitcoin "under the hood" in Brave Payments to allow browser users to contribute to their favorite publishers. They all want to have accurate exchange information for their fiat currency, and CoinPanda lets us provide that to them.</p>
@@ -151,7 +151,7 @@
                	 <div class="visible-sm visible-xs" style="height:20px;"></div>
                  <div class="top single-testimonial">
                      <div class="single-testimonial-details">
-                        <img class="single-testimonial-profile" src="img/apu.jpeg" alt="">
+                        <img class="single-testimonial-profile" src="{{ url_for('static', filename='img/apu.jpeg') }}" alt="">
                         <h4 class="single-testimonial-title">I.Aproove </h4>
                         <p class="single-testimonial-post">Student, Texas A&M</p>
                         <p>CoinPanda is a great service and the team are very supportive and responsive. Their new API offers quite a high level of customization to fit your needs. Highly recommended.</p>
@@ -162,7 +162,7 @@
                   <div class="visible-sm visible-xs" style="height:20px;"></div>
                   <div class="bottom single-testimonial">
                      <div class="single-testimonial-details">
-                        <img class="single-testimonial-profile" src="img/adi.jpg" alt="">
+                        <img class="single-testimonial-profile" src="{{ url_for('static', filename='img/adi.jpg') }}" alt="">
                         <h4 class="single-testimonial-title">Johnny Sins</h4>
                         <p class="single-testimonial-post">Investment banker</p>
                         <p>Their easy-to-use API enables our users to work in whatever currency they prefer. They provide realtime data with extreme reliability.</p>
@@ -200,7 +200,7 @@
       				<ul>
       					<li>
       						<div class="left-chat">
-      							<img src="img\adi.jpg">
+      							<img src="{{ url_for('static', filename='img/adi.jpg') }}">
       							<p>Lorem ipsum dolor sit ameeserunt.
       							</p>
       							<span>2 min</span>
@@ -208,49 +208,49 @@
       					</li>
       					<li>
       						<div class="right-chat">
-      							<img src="img\apu.jpeg">
+      							<img src="{{ url_for('static', filename='img/apu.jpeg') }}">
       							<p>Lorem ipsum dolor sit ameeserunt.</p>
       							<span>2 min</span>
       						</div>
       					</li>
       					<li>
       						<div class="left-chat">
-      							<img src="img\adi.jpg">
+      							<img src="{{ url_for('static', filename='img/adi.jpg') }}">
       							<p>Lorem ipsum dolor sit ameeserunt.</p>
       							<span>2 min</span>
       						</div>
       					</li>
       					<li>
       						<div class="right-chat">
-      							<img src="img\apu.jpeg">
+      							<img src="{{ url_for('static', filename='img/apu.jpeg') }}">
       							<p>Lorem ipsum dolor sit ameeserunt.</p>
       							<span>2 min</span>
       						</div>
       					</li>
       					<li>
       						<div class="left-chat">
-      							<img src="img\adi.jpg">
+      							<img src="{{ url_for('static', filename='img/adi.jpg') }}">
       							<p>Lorem ipsum dolor sit ameeserunt.</p>
       							<span>2 min</span>
       						</div>
       					</li>
       					<li>
       						<div class="right-chat">
-      							<img src="img\apu.jpeg">
+      							<img src="{{ url_for('static', filename='img/apu.jpeg') }}">
       							<p>Lorem ipsum dolor sit ameeserunt.</p>
       							<span>2 min</span>
       						</div>
       					</li>
       					<li>
       						<div class="left-chat">
-      							<img src="img\adi.jpg">
+      							<img src="{{ url_for('static', filename='img/adi.jpg') }}">
       							<p>Lorem ipsum dolor sit ameeserunt.</p>
       							<span>2 min</span>
       						</div>
       					</li>
       					<li>
       						<div class="right-chat">
-      							<img src="img\apu.jpeg">
+      							<img src="{{ url_for('static', filename='img/apu.jpeg') }}">
       							<p>Lorem ipsum dolor sit ameeserunt.</p>
       							<span>2 min</span>
       						</div>
@@ -268,12 +268,11 @@
       	</div>
       </div>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-      <script src="js/bootstrap.min.js"></script>
-      <script src="js/chat.js"></script>
+      <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
        <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
    </body>
 </html>
