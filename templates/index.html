@@ -1,65 +1,8 @@
-<!doctype html>
-<html lang=en-us>
-   <head>
-      <meta charset=utf-8>
-      <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='img/Favicon.png') }}">
-      <title>CoinPanda || Home</title>
-      <meta name=description content="">
-      <meta name=viewport content="width=device-width,initial-scale=1">
-      <link rel=stylesheet href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">
-      <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-      <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
-    	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-   </head>
-   <body>
-      <div class="siteNavbar navbar navbar-inverse navbar-static-top" role="navigation">
-         <div class="container">
-            <div class="navbar-header">
-               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-               <span class="sr-only">Toggle navigation</span>
-               <span class="icon-bar"></span>
-               <span class="icon-bar"></span>
-               <span class="icon-bar"></span>
-               </button>
-               <a class="site-logo navbar-left" href="#">
-               		<img class="logo" src="{{ url_for('static', filename='img/LogowithName.png') }}">
-               </a>
-            </div>
-            <div class="collapse navbar-collapse">
-               <ul class="nav navbar-nav navbar-right">
-                  <li>
-                     <a href="#" class="hidden-xs">Features</a>
-                     <a href="#" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">Features</a>
-                  </li>
-                  <li>
-                     <a href="#products" class="hidden-xs">About</a>
-                     <a href="#products" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">About</a>
-                  </li>
-                  <li>
-                     <a href="#overview" class="hidden-xs">Testimonials</a>
-                     <a href="#overview" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">Testimonials</a>
-                  </li>
-                  <li class="dropdown">
-					   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Learn More <span class="caret"></span></a>
-					   <ul class="dropdown-menu">
-					      <li>
-					         <a href="https://bitcoin.org/en/" target="_blank">Bitcoin</a>
-					      </li>
-					      <li><a href="https://en.wikipedia.org/wiki/Cryptocurrency" target="_blank">Cryptocurrency</a></li>
-					      <li><a href="https://litecoin.org/" target="_blank">Litecoin</a></li>
-					      <li><a href="https://www.ethereum.org/" target="_blank">Ethereum</a></li>
-					      <li><a href="https://ripple.com/" target="_blank">Ripple</a></li>
-					   </ul>
-					</li>
-                  <li>
-                     <a href="#overview" class="hidden-xs">Sign-in</a>
-                     <a href="#overview" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">Sign-in</a>
-                  </li>
-               </ul>
-            </div>
-            <!--/.nav-collapse -->
-         </div>
-      </div>
+   {% extends "template_website.html" %}
+   {% block title %} 
+      CoinPanda | Home 
+   {% endblock %}
+   {% block body %}
       <div class="bg-container-fluid">
          <!--Mascot image section-->
          <div class="site-promo">
@@ -173,12 +116,6 @@
             <div class="clearfix"></div>
          </div>
       </div>
-      <!--Section for website footer-->
-      <div class="clearfix"></div>
-      <!--- Footer -->
-      <footer class="site-footer footer"><p>&copy; Developed by Team #23 </p></footer>
-      <!--Chat window -->
-
       <div class="main-section">
       	<div class="row border-chat">
       		<div class="col-md-12 col-sm-12 col-xs-12 first-section">
@@ -267,12 +204,7 @@
       		</div>
       	</div>
       </div>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-      <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+   {% endblock %}
+   {% block javascript %}
       <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
-       <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-   </body>
-</html>
+   {% endblock %}
