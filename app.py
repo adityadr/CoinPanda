@@ -17,10 +17,33 @@ mysql.init_app(app)
 def main():
     return render_template('index.html')
 
-@app.route('/showSignUp')
-def showSignUp():
-    return render_template('signup.html')
+@app.route('/login')
+def login():
+    return render_template('login.html')
 
+@app.route('/contact')
+def contact():
+    return render_template('ContactUs.html')
+
+@app.route('/compare')
+def compare():
+    return render_template('compare.html')
+
+@app.route('/dashboard')
+def dashboard():
+    return render_template('home.html')
+
+@app.route('/currency_specific')
+def currency_specific():
+    return render_template('currency_specific.html')
+
+@app.route('/profile')
+def profile():
+    return render_template('edit.html')
+
+@app.route('/404')
+def error():
+    return render_template('404.html')
 
 @app.route('/signUp',methods=['POST','GET'])
 def signUp():

@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang=en-us>
+   <head>
+      <meta charset=utf-8>
+      <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='img/Favicon.png') }}">
+      <title>CoinPanda || Home</title>
+      <meta name=description content="">
+      <meta name=viewport content="width=device-width,initial-scale=1">
+      <link rel=stylesheet href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">
+      <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" />
+    	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+   </head>
+   <body>
+      <div class="siteNavbar navbar navbar-inverse navbar-static-top" role="navigation">
+         <div class="container">
+            <div class="navbar-header">
+               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+               <span class="sr-only">Toggle navigation</span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               <span class="icon-bar"></span>
+               </button>
+               <a class="site-logo navbar-left" href="#">
+               		<img class="logo" src="{{ url_for('static', filename='img/LogowithName.png') }}">
+               </a>
+            </div>
+            <div class="collapse navbar-collapse">
+               <ul class="nav navbar-nav navbar-right">
+                  <li>
+                     <a href="#" class="hidden-xs">Features</a>
+                     <a href="#" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">Features</a>
+                  </li>
+                  <li>
+                     <a href="#products" class="hidden-xs">About</a>
+                     <a href="#products" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">About</a>
+                  </li>
+                  <li>
+                     <a href="#overview" class="hidden-xs">Testimonials</a>
+                     <a href="#overview" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">Testimonials</a>
+                  </li>
+                  <li class="dropdown">
+					   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Learn More <span class="caret"></span></a>
+					   <ul class="dropdown-menu">
+					      <li>
+					         <a href="https://bitcoin.org/en/" target="_blank">Bitcoin</a>
+					      </li>
+					      <li><a href="https://en.wikipedia.org/wiki/Cryptocurrency" target="_blank">Cryptocurrency</a></li>
+					      <li><a href="https://litecoin.org/" target="_blank">Litecoin</a></li>
+					      <li><a href="https://www.ethereum.org/" target="_blank">Ethereum</a></li>
+					      <li><a href="https://ripple.com/" target="_blank">Ripple</a></li>
+					   </ul>
+					</li>
+                  <li>
+                     <a href="#overview" class="hidden-xs">Sign-in</a>
+                     <a href="#overview" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">Sign-in</a>
+                  </li>
+               </ul>
+            </div>
+            <!--/.nav-collapse -->
+         </div>
+      </div>
+      <div class="bg-container-fluid">
+         <!--Mascot image section-->
+         <div class="site-promo">
+            <div class="banner-image" class="left">
+               <img src="{{ url_for('static', filename='img/1.png') }}">
+               <div class="banner-image-text description">
+                  <h2> Welcome! Let's stack some coins</h2>
+                  Hi, I'm Chulbul. I'm here to guide you at every step to mint some coins. Come join us at CoinPanda and become a member of this growing community.
+               </div>
+            </div>
+         </div>
+      </div>
+      <!--Section for website features-->
+      <div class="site-section" id="Features">
+         <h2>Key benefits and features</h2>
+         	<div class="container-fluid">
+		         <div class="featuresBody col-md-12 col-lg-12">
+		            <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12">
+		            	<div class="grid-cell">
+			               <img src="{{ url_for('static', filename='img/trusted.png') }}"> </br>
+			               <h3>
+			                  Trusted
+			               </h3>
+			               <p>
+			                  The world's longest operating bitcoin price index, used by leading businesses.
+			               </p>
+			            </div>
+		            </div>
+		            <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12">
+		            	<div class="grid-cell">
+			               <img src="{{ url_for('static', filename='img/HighAvailability.png') }}"> </br>
+			               <h3>
+			                  High Availability
+			               </h3>
+			               <p>Enterprise grade cloud infrastructure providing approximately 100% uptime.</p>
+			            </div>
+		            </div>
+		            <div class="visible-sm clearfix"></div>
+		            <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12">
+		            	<div class="grid-cell">
+			               <img src="{{ url_for('static', filename='img/ExchangeIndependent.png') }}"> </br>
+			               <h3>
+			                  Simple Integration
+			               </h3>
+			               <p>Works seamlessly across various Crypto currencies..</p>
+			            </div>
+		            </div>
+		            <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12">
+		            	<div class="grid-cell">
+			               <img src="{{ url_for('static', filename='img/SimpleIntegration.png') }}"> </br>
+			               <h3>
+			                  Portfolio Management
+			               </h3>
+			               <p>Easy-to-use interface to keep track of your investments.</p>
+			            </div>
+		            </div>
+		         </div>
+		     </div>
+      </div>
+      <!--Section for website description-->
+      <div class="site-section site-section-desc"  id="About">
+         <h2>About Us</h2>
+         <div class="container aboutBody">
+         	<div class="col-centered col-md-8 col-lg-8 text-left">
+	            <p class=new>Investment is an old business, but there is a new buzzword in town – “Cryptocurrencies”. Suddenly, everyone wants to invest in this new market. Although, there are plethora of crypto currency exchange platforms operating from various parts of the globe, each of these platforms offer different exchange rates and incentives to the user. This makes investment in cryptos a cumbersome effort despite of its popularity.</p>
+	            </br>
+	            <p class=new>At CoinPanda, we try to mend this gap. We aim to make investment in cryptocurrencies an easy and a smooth affair for our users. We bring details and data from all the exchange platforms together for our users on a single screen in a simplified manner. Our users can leverage our unique feature of crypto platforms comparisons which will facilitate and ease their investment decisions. Moreover, for naive users it is the perfect place to learn about cryptocurrencies and understand trends behind the blockchain technology.</p>
+        	</div>
+         </div>
+      </div>
+      <!--Section for user testimonials-->
+      <div class=site-section id="Testimonials">
+         <h2>Testimonials</h2>
+         <div class="testimonials row">
+            <div class="testimonial col-md-12 col-lg-12 clearfix">
+               <!--Section for left, large testimonial-->
+               <div class="testimonial_left_parent col-md-6 col-lg-6 col-sm-12 col-xs-12">
+                  <div class="testimonial_left col-md-12 col-lg-12 col-sm-12 col-xs-12">
+                     <div class="single-testimonial-details">
+                        <img class="single-testimonial-profile" src="{{ url_for('static', filename='img/alpha.jpeg') }}" alt="">
+                        <h4 class="single-testimonial-title">Prakash Raj</h4>
+                        <p class="single-testimonial-post">Mollywood Actor</p>
+                        <p>We use CoinPanda to get timely exchange rates for our browser users. we're using Bitcoin "under the hood" in Brave Payments to allow browser users to contribute to their favorite publishers. They all want to have accurate exchange information for their fiat currency, and CoinPanda lets us provide that to them.</p>
+                     </div>
+                  </div>
+               </div>
+               <!--Section for right, top testimonial-->
+               <div class="testimonial_right col-md-6 col-lg-6 col-sm-12 col-xs-12">
+               	 <div class="visible-sm visible-xs" style="height:20px;"></div>
+                 <div class="top single-testimonial">
+                     <div class="single-testimonial-details">
+                        <img class="single-testimonial-profile" src="{{ url_for('static', filename='img/apu.jpeg') }}" alt="">
+                        <h4 class="single-testimonial-title">I.Aproove </h4>
+                        <p class="single-testimonial-post">Student, Texas A&M</p>
+                        <p>CoinPanda is a great service and the team are very supportive and responsive. Their new API offers quite a high level of customization to fit your needs. Highly recommended.</p>
+                     </div>
+                  </div>
+                  <!--Section for right, bottom testimonial-->
+                  <div class="visible-lg" style="height:32px;"></div>
+                  <div class="visible-sm visible-xs" style="height:20px;"></div>
+                  <div class="bottom single-testimonial">
+                     <div class="single-testimonial-details">
+                        <img class="single-testimonial-profile" src="{{ url_for('static', filename='img/adi.jpg') }}" alt="">
+                        <h4 class="single-testimonial-title">Johnny Sins</h4>
+                        <p class="single-testimonial-post">Investment banker</p>
+                        <p>Their easy-to-use API enables our users to work in whatever currency they prefer. They provide realtime data with extreme reliability.</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="clearfix"></div>
+         </div>
+      </div>
+      <!--Section for website footer-->
+      <div class="clearfix"></div>
+      <!--- Footer -->
+      <footer class="site-footer footer"><p>&copy; Developed by Team #23 </p></footer>
+      <!--Chat window -->
+
+      <div class="main-section">
+      	<div class="row border-chat">
+      		<div class="col-md-12 col-sm-12 col-xs-12 first-section">
+      			<div class="row">
+      				<div class="col-md-8 col-sm-6 col-xs-6 left-first-section">
+      					<p>Chat</p>
+      				</div>
+      				<div class="col-md-4 col-sm-6 col-xs-6 right-first-section">
+      					<a href="#"><i class="fa fa-minus" aria-hidden="true"></i></a>
+      					<a href="#"><i class="fa fa-clone" aria-hidden="true"></i></a>
+      					<a href="#"><i class="fa fa-times" aria-hidden="true"></i></a>
+      				</div>
+      			</div>
+      		</div>
+      	</div>
+      	<div class="row border-chat">
+      		<div class="col-md-12 col-sm-12 col-xs-12 second-section">
+      			<div class="chat-section">
+      				<ul>
+      					<li>
+      						<div class="left-chat">
+      							<img src="{{ url_for('static', filename='img/adi.jpg') }}">
+      							<p>Lorem ipsum dolor sit ameeserunt.
+      							</p>
+      							<span>2 min</span>
+      						</div>
+      					</li>
+      					<li>
+      						<div class="right-chat">
+      							<img src="{{ url_for('static', filename='img/apu.jpeg') }}">
+      							<p>Lorem ipsum dolor sit ameeserunt.</p>
+      							<span>2 min</span>
+      						</div>
+      					</li>
+      					<li>
+      						<div class="left-chat">
+      							<img src="{{ url_for('static', filename='img/adi.jpg') }}">
+      							<p>Lorem ipsum dolor sit ameeserunt.</p>
+      							<span>2 min</span>
+      						</div>
+      					</li>
+      					<li>
+      						<div class="right-chat">
+      							<img src="{{ url_for('static', filename='img/apu.jpeg') }}">
+      							<p>Lorem ipsum dolor sit ameeserunt.</p>
+      							<span>2 min</span>
+      						</div>
+      					</li>
+      					<li>
+      						<div class="left-chat">
+      							<img src="{{ url_for('static', filename='img/adi.jpg') }}">
+      							<p>Lorem ipsum dolor sit ameeserunt.</p>
+      							<span>2 min</span>
+      						</div>
+      					</li>
+      					<li>
+      						<div class="right-chat">
+      							<img src="{{ url_for('static', filename='img/apu.jpeg') }}">
+      							<p>Lorem ipsum dolor sit ameeserunt.</p>
+      							<span>2 min</span>
+      						</div>
+      					</li>
+      					<li>
+      						<div class="left-chat">
+      							<img src="{{ url_for('static', filename='img/adi.jpg') }}">
+      							<p>Lorem ipsum dolor sit ameeserunt.</p>
+      							<span>2 min</span>
+      						</div>
+      					</li>
+      					<li>
+      						<div class="right-chat">
+      							<img src="{{ url_for('static', filename='img/apu.jpeg') }}">
+      							<p>Lorem ipsum dolor sit ameeserunt.</p>
+      							<span>2 min</span>
+      						</div>
+      					</li>
+      				</ul>
+      			</div>
+      		</div>
+      	</div>
+      	<div class="row border-chat">
+      		<div class="col-md-12 col-sm-12 col-xs-12 third-section">
+      			<div class="text-bar">
+      				<input type="text" placeholder="Write messege"><a href="#"><i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+      			</div>
+      		</div>
+      	</div>
+      </div>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+      <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+      <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+       <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+   </body>
+</html>
