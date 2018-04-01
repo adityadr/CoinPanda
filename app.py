@@ -15,7 +15,7 @@ mysql.init_app(app)
 
 @app.route('/')
 def main():
-    return render_template('index.html')
+    return render_template('index.html',title='CoinPanda | Home')
 
 @app.route('/login')
 def login():
