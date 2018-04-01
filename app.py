@@ -1,8 +1,8 @@
 from flask import Flask, render_template, json, request
-from flask_mysql import MySQL
+from flaskext.mysql import MySQL
 from werkzeug import generate_password_hash, check_password_hash
 
-mysql = MySQL()
+mysql = MySQL() 
 app = Flask(__name__)
 
 # MySQL configurations
@@ -55,4 +55,4 @@ def signUp():
         conn.close()
 
 if __name__ == "__main__":
-    app.run(port=5002)
+    app.run(port=8080, host='0.0.0.0',debug=True)
