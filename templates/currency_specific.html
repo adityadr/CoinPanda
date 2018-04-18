@@ -1,147 +1,63 @@
-<!doctype html>
-<html lang=en-us>
-   <head>
-      <meta charset=utf-8>
-      <link rel="shortcut icon" type="image/png" href="img/Favicon.png">
-      <title>CoinPanda || Currency Trend</title>
-      <meta name=description content="">
-      <meta name=viewport content="width=device-width,initial-scale=1">
-      <link rel=stylesheet href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">
-      <link rel="stylesheet" href="css/bootstrap.css" />
-      <link rel="stylesheet" href="css/style.css" />
-      <link rel="stylesheet" href="css/currency.css" />
-   </head>
-   <body>
-      <div class="siteNavbar navbar navbar-inverse navbar-static-top" role="navigation">
-         <div class="container">
-            <div class="navbar-header">
-               <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-               <span class="sr-only">Toggle navigation</span>
-               <span class="icon-bar"></span>
-               <span class="icon-bar"></span>
-               <span class="icon-bar"></span>
-               </button>
-               <a class="site-logo navbar-left" href="#"> 
-               		<img class="logo" src="img/LogowithName.png">
-               </a>
-            </div>
-            <div class="collapse navbar-collapse">
-               <ul class="nav navbar-nav navbar-right">
-                  <li>
-                     <a href="#" class="hidden-xs">Features</a>
-                     <a href="#" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">Features</a>
-                  </li>
-                  <li>
-                     <a href="#products" class="hidden-xs">About</a>
-                     <a href="#products" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">About</a>
-                  </li>
-                  <li>
-                     <a href="#overview" class="hidden-xs">Testimonials</a>
-                     <a href="#overview" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">Testimonials</a>
-                  </li>
-                  <li class="dropdown">
-					   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Learn More <span class="caret"></span></a>
-					   <ul class="dropdown-menu">
-					      <li>
-					         <a href="https://bitcoin.org/en/" target="_blank">Bitcoin</a>
-					      </li>
-					      <li><a href="https://en.wikipedia.org/wiki/Cryptocurrency" target="_blank">Cryptocurrency</a></li>
-					      <li><a href="https://litecoin.org/" target="_blank">Litecoin</a></li>
-					      <li><a href="https://www.ethereum.org/" target="_blank">Ethereum</a></li>
-					      <li><a href="https://ripple.com/" target="_blank">Ripple</a></li>
-					   </ul>
-					</li>
-                  <li>
-                     <a href="#overview" class="hidden-xs">Sign-in</a>
-                     <a href="#overview" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">Sign-in</a>
-                  </li>
-               </ul>
-            </div>
-            <!--/.nav-collapse -->
+   {% extends "template_app.html" %}
+   {% block css %}
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/currency.css') }}" />
+   {% endblock %}
+   {% block body %}
+     <h2 style="text-align:center">BitCoin Price Trend</h2>
+      <p style="text-align:center">Please see the trend below</p>
+      <div class="clearfix" id="top-container">
+         <div class="columns">
+            <ul class="price">
+               <li class="header">Top 5 exchanges</li>
+               <li><a style="font-size:20px" href="https://www.coinbase.com/join">CoinBase</a></li>
+               <li><a style="font-size:20px" href="https://www.coinmama.com/">CoinMama</a></li>
+               <li><a style="font-size:20px" href="https://www.buybitcoinworldwide.com/exchanges/localbitcoins/">Local bit coins</a></li>
+               <li><a style="font-size:20px" href="https://www.bitquick.co/?a=98201">BitQuick</a></li>
+               <li><a style="font-size:20px" href="https://www.kraken.com/">Kraken</a></li>
+            </ul>
+         </div>
+         <div class="columns">
+            <ul class="price">
+               <li class="header" >Last week trend</li>
+               <p><img src="{{ url_for('static', filename='img/Lastweektrendcharts.png') }}"  style="float:max-height"  width="100%" height="335"></p>
+            </ul>
          </div>
       </div>
-      <div class="container">
-         <h2 style="text-align:center">BitCoin Price Trend</h2>
-					<p style="text-align:center">Please see the trend below</p>
-                    <div class="clearfix" id="top-container">
-					<div class="columns">
-					<ul class="price">
-					<li class="header">Top 5 exchanges</li>
-					<li><a style="font-size:20px" href="https://www.coinbase.com/join">CoinBase</a></li>
-					<li><a style="font-size:20px" href="https://www.coinmama.com/">CoinMama</a></li>
-					<li><a style="font-size:20px" href="https://www.buybitcoinworldwide.com/exchanges/localbitcoins/">Local bit coins</a></li>
-					<li><a style="font-size:20px" href="https://www.bitquick.co/?a=98201">BitQuick</a></li>
-					<li><a style="font-size:20px" href="https://www.kraken.com/">Kraken</a></li>
-					</ul>
-					</div>
-
-					<div class="columns">
-					<ul class="price">
-					<li class="header" >Last week trend</li>
-					<p><img src="img/Lastweektrendcharts.png"  style="float:max-height"  width="100%" height="335"></p>
-					
-					</ul>
-					</div>
-					
-					</div>
-					
-
-				<div style="height:20px" class="clearfix"></div>
-         <div class="clearfix" id="portfolio-container">
-            
-            <div class="clearfix" id="investment-stats">
-               <div class="box_parent col-md-3 col-lg-3 col-sm-6 col-xs-6">
-                  <div class="box">
-                     <h3 class="header">Lowest last 24 hours</h3>
-                     <span class="num">$4980.6</span>
-                  </div>
-               </div>
-               <div class="box_parent col-md-3 col-lg-3 col-sm-6 col-xs-6">
-                  <div class="box">
-                     <h3 class="header">Last 24 hours volume</h3>
-                     <span class="num">$549800.6</span>
-                  </div>
-               </div>
-               <div class="box_parent col-md-3 col-lg-3 col-sm-6 col-xs-6">
-                  <div class="box">
-                     <h3 class="header">Best open price available</h3>
-                     <span class="num">$5498.6</span>
-                  </div>
-               </div>
-               <div class="box_parent col-md-3 col-lg-3 col-sm-6 col-xs-6">
-                  <div class="box">
-                     <h3 class="header">Highest last 24 hours</h3>
-                     <span class="num">$5598.6</span>
-                  </div>
+      <div style="height:20px" class="clearfix"></div>
+      <div class="clearfix" id="portfolio-container">
+         <div class="clearfix" id="investment-stats">
+            <div class="box_parent col-md-3 col-lg-3 col-sm-6 col-xs-6">
+               <div class="box">
+                  <h3 class="header">Lowest last 24 hours</h3>
+                  <span class="num">$4980.6</span>
                </div>
             </div>
-			
-			<div class="box_parent col-md-12 col-lg-12 col-sm-12 col-xs-12"></div>
-                  
-				  <div class="box">
-                     <button type="button" class="btn btn-primary">Buy now!</button>
-                  </div>
-				  <div style="height:20px" class="clearfix"></div>
+            <div class="box_parent col-md-3 col-lg-3 col-sm-6 col-xs-6">
+               <div class="box">
+                  <h3 class="header">Last 24 hours volume</h3>
+                  <span class="num">$549800.6</span>
                </div>
-            <div style="height:20px" class="clearfix"></div>
-            
-         
-
-					
             </div>
-            <!-- tab-content -->
+            <div class="box_parent col-md-3 col-lg-3 col-sm-6 col-xs-6">
+               <div class="box">
+                  <h3 class="header">Best open price available</h3>
+                  <span class="num">$5498.6</span>
+               </div>
+            </div>
+            <div class="box_parent col-md-3 col-lg-3 col-sm-6 col-xs-6">
+               <div class="box">
+                  <h3 class="header">Highest last 24 hours</h3>
+                  <span class="num">$5598.6</span>
+               </div>
+            </div>
          </div>
-         <!-- /form -->
+         <div class="box_parent col-md-12 col-lg-12 col-sm-12 col-xs-12"></div>
+         <div class="box">
+            <button type="button" class="btn btn-primary">Buy now!</button>
+         </div>
+         <div style="height:20px" class="clearfix"></div>
       </div>
-      
-<!--- Footer -->
-      <footer class="site-footer footer"><p>&copy; Developed by Team #23 </p></footer>
-      <!--- End footer -->
-       <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/login.js"></script>
+      <div style="height:20px" class="clearfix"></div>
+   {% endblock %}
    </body>
 </html>

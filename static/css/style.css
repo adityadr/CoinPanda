@@ -148,7 +148,7 @@ img.single-testimonial-profile{
     height: 100%;
 }
 .testimonial{
-	height: 323px;
+	height: 360px;
 }
 
 .single-testimonial {
@@ -156,6 +156,7 @@ img.single-testimonial-profile{
     border: 1px solid #6b6b6b;
     padding: 15px 15px 15px 0px;
     position: relative;
+    height: 45%;
 }
 .single-testimonial-icon {
     height: 100%;

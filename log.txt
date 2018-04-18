@@ -1,0 +1,35 @@
+nohup: ignoring input
+ * Running on http://0.0.0.0:8080/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 596-033-396
+47.218.236.238 - - [18/Apr/2018 04:26:18] "GET /dashboards HTTP/1.1" 200 -
+47.218.236.238 - - [18/Apr/2018 04:26:18] "GET /static/css/404.css HTTP/1.1" 200 -
+47.218.236.238 - - [18/Apr/2018 04:26:18] "GET /static/css/style.css HTTP/1.1" 200 -
+47.218.236.238 - - [18/Apr/2018 04:26:18] "GET /static/img/LogowithName.png HTTP/1.1" 200 -
+47.218.236.238 - - [18/Apr/2018 04:26:18] "GET /static/img/FallingPanda.png HTTP/1.1" 200 -
+47.218.236.238 - - [18/Apr/2018 04:26:18] "GET /static/img/ErrorPageCoin.png HTTP/1.1" 200 -
+47.218.236.238 - - [18/Apr/2018 04:26:19] "GET /static/img/Favicon.png HTTP/1.1" 200 -
+47.218.236.238 - - [18/Apr/2018 04:26:55] "GET /index.html HTTP/1.1" 200 -
+47.218.236.238 - - [18/Apr/2018 04:29:53] "GET /index.html HTTP/1.1" 200 -
+47.218.236.238 - - [18/Apr/2018 04:29:54] "GET /static/img/Favicon.png HTTP/1.1" 200 -
+47.218.236.238 - - [18/Apr/2018 04:29:56] "GET / HTTP/1.1" 200 -
+47.218.236.238 - - [18/Apr/2018 04:29:56] "GET /static/js/chat.js HTTP/1.1" 200 -
+47.218.236.238 - - [18/Apr/2018 04:29:56] "GET /static/img/1.png HTTP/1.1" 200 -
+47.218.236.238 - - [18/Apr/2018 04:29:56] "GET /static/img/trusted.png HTTP/1.1" 200 -
+47.218.236.238 - - [18/Apr/2018 04:29:56] "GET /static/img/ExchangeIndependent.png HTTP/1.1" 200 -
+47.218.236.238 - - [18/Apr/2018 04:29:56] "GET /static/img/HighAvailability.png HTTP/1.1" 200 -
+47.218.236.238 - - [18/Apr/2018 04:29:56] "GET /static/img/SimpleIntegration.png HTTP/1.1" 200 -
+47.218.236.238 - - [18/Apr/2018 04:29:56] "GET /static/img/Background.gif HTTP/1.1" 200 -
+47.218.236.238 - - [18/Apr/2018 04:29:56] "GET /static/img/alpha.jpeg HTTP/1.1" 200 -
+47.218.236.238 - - [18/Apr/2018 04:29:56] "GET /static/img/apu.jpeg HTTP/1.1" 200 -
+47.218.236.238 - - [18/Apr/2018 04:29:56] "GET /static/img/adi.jpg HTTP/1.1" 200 -
+Error on request:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/serving.py", line 270, in run_wsgi
+    execute(self.server.app)
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/serving.py", line 261, in execute
+    write(data)
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/serving.py", line 242, in write
+    self.wfile.write(data)
+IOError: [Errno 32] Broken pipe

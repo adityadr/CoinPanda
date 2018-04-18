@@ -84,3 +84,9 @@ body {
 .modal-body {
     //max-width: 300px;
 }
+tr.more{
+    display: none;
+}
+.bootstrap-datetimepicker-widget {
+  background: #fff;
+}

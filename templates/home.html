@@ -1,7 +1,9 @@
    {% extends "template_app.html" %}
    {% block css %}
-   <link rel="stylesheet" href="font/cryptocoins.css" />
-   <link rel="stylesheet" href="css/home.css" />
+   <link rel="stylesheet" href="{{ url_for('static', filename='font/cryptocoins.css') }}" />
+   <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}" />
+   <link href="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/build/css/bootstrap-datetimepicker.css" rel="stylesheet">
+
    {% endblock %}
    {% block body %}
    <div class="clearfix" id="currency-container">
@@ -13,50 +15,35 @@
                   <thead>
                      <tr>
                         <th>#</th>
-                        <th>Market Currencies</th>
-                        <th>Share %</th>
-                        <th>Volume(B)</th>
-                        <th>Last Price</th>
-                        <th>Premium</th>
+                        <th>Coin</th>
+                        <th>Current price</th>
+                        <th>Source</th>        
+                        <th class="hidden-xs">Volume(B)</th>
+                        <th class="hidden-xs">Last Price</th>
+                        <th class="hidden-xs">Low</th>
                      </tr>
                   </thead>
-                  <tbody>
-                     <tr>
-                        <th scope="row">1</th>
-                        <td><a href="#">Bitcoin</a></td>
-                        <td>29%</td>
-                        <td>36,433</td>
-                        <td>95.3</td>
-                        <td>14</td>
+                  <tbody> 
+                  {% for obj in data1 %}
+                  {% if(loop.index > 5) %}
+                     {% set cl = 'more'%}
+                  {% else %}
+                     {% set cl = ''%}
+                  {% endif %}
+                     <tr class="{{cl}}">
+                        <td scope="row">{{ loop.index }}</td>
+                        <td><a href="#">{{ obj['Cryptocurrency']}}</a></td>
+                        <td>{{obj['Currency']}} {{obj['CurrentRate']}}</td>
+                        <td><a href="#">{{ obj['Source']}}</a></td>
+                        <td class="hidden-xs">{{ (obj['Details']['volume']) | float | round(2) }}</td>
+                        <td class="hidden-xs">{{obj['Details']['last'] | float | round(2) }}</td>
+                        <td class="hidden-xs">{{obj['Details']['low'] | float | round(2) }}</td>
                      </tr>
-                     <tr>
-                        <th scope="row">2</th>
-                        <td><a href="#">Ripple</a></td>
-                        <td>29%</td>
-                        <td>18,733</td>
-                        <td>41</td>
-                        <td>19</td>
-                     </tr>
-                     <tr>
-                        <th scope="row">3</th>
-                        <td><a href="#">Ethereum</a></td>
-                        <td>9%</td>
-                        <td>12</td>
-                        <td>65.94</td>
-                        <td>1234</td>
-                     </tr>
-                     <tr>
-                        <th scope="row">4</th>
-                        <td><a href="#">Litecoin</a></td>
-                        <td>7%</td>
-                        <td>23,453</td>
-                        <td>56,834</td>
-                        <td>4</td>
-                     </tr>
+                  {% endfor %}
                   </tbody>
                </table>
             </div>
-            <div class="btn btn-primary"> View More </div>
+            <div id="view_more" class="btn btn-primary"> View More </div>
             <div style="height:15px" class="clearfix"></div>
          </div>
          <div style="height:20px" class="clearfix"></div>
@@ -68,19 +55,37 @@
                <div class="box_parent col-md-4 col-lg-4 col-sm-6 col-xs-12">
                   <div class="box">
                      <h3 class="header">Total Investment</h3>
-                     <span class="num">$498.6</span>
+                     <span class="num">
+                     {% if data2 and data2|length >0 %}
+                        {{ "%.2f"| format(data2[0] | float)}}
+                     {% else %}
+                        -
+                     {% endif %}
+                     </span>
                   </div>
                </div>
                <div class="box_parent col-md-4 col-lg-4 col-sm-6 col-xs-12">
                   <div class="box">
                      <h3 class="header">Net Worth</h3>
-                     <span class="num">$591.56</span>
+                     <span class="num">
+                        {% if data2 and data2|length >0 %}
+                           {{ "%.2f"| format(data2[1] | float)}}
+                        {% else %}
+                           -
+                        {% endif %}
+                     </span>
                   </div>
                </div>
                <div class="box_parent col-md-4 col-lg-4 col-sm-12 col-xs-12">
                   <div class="box">
                      <h3 class="header">Profit</h3>
-                     <span class="num">$98.6</span>
+                     <span class="num">
+                        {% if data2 and data2|length >0 %}
+                           {{ "%.2f"| format(data2[2] | float)}}
+                        {% else %}
+                           -
+                        {% endif %}
+                     </span>
                   </div>
                </div>
                <div class="box_parent col-md-6 col-lg-6 col-sm-12 col-xs-12">
@@ -98,7 +103,7 @@
             </div>
             <div style="height:20px" class="clearfix"></div>
             <div class="clearfix">
-               <div class="btn btn-lg btn-panda" data-toggle="modal" data-target="#changeInvestment" id="add-investment">
+               <div class="btn btn-lg btn-panda" id="add-investment">
                   <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> &nbsp; 
                   Add Investment
                </div>
@@ -106,196 +111,282 @@
             <div style="height:20px" class="clearfix"></div>
             <div style="height:20px" class="clearfix"></div>
             <div class="clearfix" id="currency-stats">
-               <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6">
+            {% for obj in data5 %}
+               <div class="col-md-3 col-lg-3 col-sm-6 col-xs-12">
                   <div class="currency_box">
                      <div class="changeItem">
-                        <span title="Edit" class="editItem glyphicon glyphicon-pencil" aria-hidden="true"></span> &nbsp; | &nbsp;
-                        <span title="Delete" class="deleteItem glyphicon glyphicon-trash" aria-hidden="true"></span>
+                        <span data-fields='{"coin":"{{obj[1]}}","exchange":"{{obj[2]}}","currency":"{{obj[12]}}","units": {{obj[4]}},"value_unit":{{obj[6]}},"purchased_date":"{{obj[13]}}" }' data-invId="{{obj[11]}}" title="Edit" class="editItem glyphicon glyphicon-pencil" aria-hidden="true"></span> &nbsp; | &nbsp;
+                        <span data-invId="{{obj[11]}}" title="Delete" class="deleteItem glyphicon glyphicon-trash" aria-hidden="true"></span>
                      </div>
                      <div class="clearfix"></div>
                      <div class="item">
-                        <div class="icon" title="Bitcoin"><i class="cc BTC-alt"></i></div>
+                        <div class="icon" title="Bitcoin"><i class="cc {{obj[1]}}-alt"></i></div>
                         <div class="key">
-                              <span class="name">Bitcoin</span>
+                              <span class="name">{{obj[0]}}</span>
                         </div>
                      </div>
                      <span class="num"></span>
                      <div class="changes">
+                        <div style="height:10px" class="clearfix"></div>
                         <div class="value">
-                           $95.3
+                           {{ "%.2f"| format(obj[3]) }}
                         </div>
+                        <div class="value">
+                           {{ "%.2f"| format(obj[4]) }} units
+                        </div>
+                        <div style="height:10px" class="clearfix"></div>
                         <div class="clearfix">
-                           <span class="label label-success pull-left">$26.38</span>
-                           <span class="label label-success pull-right">39.34%</span>
+                        {% if obj[9] > 0 %}
+                           <span class="label label-success pull-left">{{ "%.2f"| format(obj[9]) }}</span>
+                           <span class="label label-success pull-right">{{ "%.2f"| format(obj[10]) }}%</span>
+                        {% else %}
+                           <span class="label label-danger pull-left">{{ "%.2f"| format(obj[9]) }}</span>
+                           <span class="label label-danger pull-right">{{ "%.2f"| format(obj[10]) }}%</span>
+                        {% endif %}
                         </div>
                         <div class="clearfix divider"></div>
                         <div class="clearfix">
                            <div class="before pull-left text-left">
                               <div> Before </div>
-                              <div> $67 </div>
-                              <div> $0.15 </div>
+                              <div>{{ "%.2f"| format(obj[5]) }}</div>
+                              <div>{{ "%.2f"| format(obj[6]) }}</div>
                            </div>
                             <div class="before pull-right text-right">
                               <div> After </div>
-                              <div> $95.3 </div>
-                              <div> $0.21 </div>
+                              <div>{{ "%.2f"| format(obj[7]) }}</div>
+                              <div>{{ "%.2f"| format(obj[8]) }}</div>
                            </div>
                         </div>
                      </div>
                   </div>
                </div>
-               <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6">
-                  <div class="currency_box">
-                     <div class="changeItem">
-                        <span title="Edit" class="editItem glyphicon glyphicon-pencil" aria-hidden="true"></span> &nbsp; | &nbsp;
-                        <span title="Delete" class="deleteItem glyphicon glyphicon-trash" aria-hidden="true"></span>
-                     </div>
-                     <div class="clearfix"></div>
-                     <div class="item">
-                        <div class="icon" title="Bitcoin"><i class="cc XRP-alt"></i></div>
-                        <div class="key">
-                              <span class="name">Ripple</span>
-                        </div>
-                     </div>
-                     <span class="num"></span>
-                     <div class="changes">
-                        <div class="value">
-                           $41.00
-                        </div>
-                        <div class="clearfix">
-                           <span class="label label-danger pull-left">-$6.21</span>
-                           <span class="label label-danger pull-right">-13.8%</span>
-                        </div>
-                        <div class="clearfix divider"></div>
-                        <div class="clearfix">
-                           <div class="before pull-left text-left">
-                              <div> Before </div>
-                              <div> $47.21 </div>
-                              <div> $0.0021 </div>
-                           </div>
-                            <div class="before pull-right text-right">
-                              <div> After </div>
-                              <div> $41 </div>
-                              <div> $0.0018 </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="breaker visible-xs visible-sm clearfix pull-left"></div>
-               <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6">
-                  <div class="currency_box">
-                     <div class="changeItem">
-                        <span title="Edit" class="editItem glyphicon glyphicon-pencil" aria-hidden="true"></span> &nbsp; | &nbsp;
-                        <span title="Delete" class="deleteItem glyphicon glyphicon-trash" aria-hidden="true"></span>
-                     </div>
-                     <div class="clearfix"></div>
-                     <div class="item">
-                        <div class="icon" title="Bitcoin"><i class="cc ETH-alt"></i></div>
-                        <div class="key">
-                              <span class="name">Ethereum</span>
-                        </div>
-                     </div>
-                     <span class="num"></span>
-                     <div class="changes">
-                        <div class="value">
-                           $65.94
-                        </div>
-                        <div class="clearfix">
-                           <span class="label label-success pull-left">$2.75</span>
-                           <span class="label label-success pull-right">4.30%</span>
-                        </div>
-                        <div class="clearfix divider"></div>
-                        <div class="clearfix">
-                           <div class="before pull-left text-left">
-                              <div> Before </div>
-                              <div> $63.22 </div>
-                              <div> $0.1211 </div>
-                           </div>
-                            <div class="before pull-right text-right">
-                              <div> After </div>
-                              <div> $65.94 </div>
-                              <div> $0.263 </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="col-md-3 col-lg-3 col-sm-6 col-xs-6">
-                  <div class="currency_box">
-                     <div class="changeItem">
-                        <span title="Edit" class="editItem glyphicon glyphicon-pencil" aria-hidden="true"></span> &nbsp; | &nbsp;
-                        <span title="Delete" class="deleteItem glyphicon glyphicon-trash" aria-hidden="true"></span>
-                     </div>
-                     <div class="clearfix"></div>
-                     <div class="item">
-                        <div class="icon" title="Bitcoin"><i class="cc LTC-alt"></i></div>
-                        <div class="key">
-                              <span class="name">Litecoin</span>
-                        </div>
-                     </div>
-                     <span class="num"></span>
-                     <div class="changes">
-                        <div class="value">
-                           $57.41
-                        </div>
-                        <div class="clearfix">
-                           <span class="label label-success pull-left">$3.57</span>
-                           <span class="label label-success pull-right">6.89%</span>
-                        </div>
-                        <div class="clearfix divider"></div>
-                        <div class="clearfix">
-                           <div class="before pull-left text-left">
-                              <div> Before </div>
-                              <div> $51.14 </div>
-                              <div> $0.118 </div>
-                           </div>
-                            <div class="before pull-right text-right">
-                              <div> After </div>
-                              <div> $57.41 </div>
-                              <div> $0.126 </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
+                <div class="breaker visible-xs clearfix pull-left"></div>
+                  {% if loop.index%2==0 %}
+                  <div class="breaker visible-sm clearfix pull-left"></div>
+                  {% endif %}
+                  {% if loop.index%4==0 %}
+                  <div class="breaker visible-lg clearfix pull-left"></div>
+                  {% endif %}
+            {% endfor %}
             </div>
+         </div>
+         <div id="changeInvestment" class="modal fade" role="dialog">
+              <div class="modal-dialog">
+                <!-- Modal content-->
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title"> <span class="glyphicon glyphicon-briefcase"></span> &nbsp; Add Investment</h4>
+                  </div>
+                  <div class="modal-body">
+                    <div class="panel-body form-horizontal payment-form col-sm-6 col-xs-12 col-lg-10 col-md-8 col-centered">
+                        <div class="form-group">
+                           <label for="status" class="col-sm-6 control-label">Select coin</label>
+                           <div class="col-sm-6">
+                              <select class="form-control" id="coin" name="status">
+                                 <option>Select</option>
+                                 <option value="BTC">Bitcoin</option>
+                                 <option value="ETH">Ethereum</option>
+                                 <option value="XRP">Ripple</option>
+                                 <option value="LTC">Litecoin</option>
+                              </select>
+                           </div>
+                        </div>
+                        <div class="form-group">
+                           <label for="status" class="col-sm-6 control-label">Select exchange</label>
+                           <div class="col-sm-6">
+                              <select class="form-control" id="exchange" name="status">
+                                 <option>Select</option>
+                                 <option value="BITSTAMP">BITSTAMP</option>
+                                 <option value="CEX">CEX</option>
+                                 <option value="BISQ">BISQ</option>
+                              </select>
+                           </div>
+                        </div>
+                        <div class="form-group">
+                           <label for="status" class="col-sm-6 control-label">Select currency</label>
+                           <div class="col-sm-6">
+                              <select class="form-control" id="currency" name="status">
+                                 <option>Select</option>
+                                 <option value="USD">USD</option>
+                                 <option value="EUR">EUR</option>
+                              </select>
+                           </div>
+                        </div>
+                        <div class="form-group">
+                           <label for="amount" class="col-sm-6 control-label">No of units</label>
+                           <div class="col-sm-6">
+                              <input type="number" class="form-control" id="units" name="amount">
+                           </div>
+                        </div>
+                           <div class="form-group">
+                           <label for="amount" class="col-sm-6 control-label">Value per unit</label>
+                           <div class="col-sm-6">
+                              <input type="number" class="form-control" id="amount" name="amount">
+                           </div>
+                        </div>
+                        <div class="form-group">
+                           <label for="date" class="col-sm-6 control-label">Date purchased</label>
+                           <div class="col-sm-6">
+                           <div class='input-group date' id='date'>
+                                <input type='text' class="form-control" />
+                                <span class="input-group-addon">
+                                    <span class="glyphicon glyphicon-calendar"></span>
+                                </span>
+                            </div>
+
+                           </div>
+                        </div>
+                        <div style="height:10px" class="clearfix"></div>
+                        <div class="form-group">
+                           <div class="">
+                              <button data-invid="" id="save_investment" type="button" class="btn btn-panda">
+                                 <span class="glyphicon glyphicon-ok"></span> Save
+                              </button>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+
+              </div>
          </div>
    {% endblock %}
    {% block javascript %}
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment-with-locales.js"></script>
+    <script src="//cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/src/js/bootstrap-datetimepicker.js"></script>
     <script type="text/javascript">
-      // Load google charts
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
+      $(document).ready(function(){
+         $('#date').datetimepicker({
+          format : 'YYYY-MM-DD HH:mm:ss'
+         });
+         $('#add-investment').on('click', function (e) {
+            $("#coin").val("").attr('disabled',false);
+            $("#exchange").val("").attr('disabled',false);
+            $("#currency").val("").attr('disabled',false);
+            $("#units").val('');
+            $("#amount").val("");
+            $("#date input").val("");
 
-      // Draw the chart and set the chart values
-      function drawChart() {
-           var data1 = google.visualization.arrayToDataTable([
-              ['Cryptocurrency', 'Investment'],
-              ['Bitcoin', 8],
-              ['Ripple', 2],
-              ['Ethereum', 4],
-              ['Litecoin', 2]
-            ]);
-            var data2 = google.visualization.arrayToDataTable([
-              ['Cryptocurrency', 'Profit'],
-              ['Bitcoin', 18],
-              ['Ripple', 12],
-              ['Ethereum', 14],
-              ['Litecoin', 2]
-            ]);
+            $('#changeInvestment .modal-title').html('Add Investment');
+            $('#changeInvestment #save_investment').removeClass('update');
+            $('#changeInvestment').modal('show'); 
+         });
+         $('#changeInvestment #save_investment').on('click', function (e) {
+            var coin = $("#coin").val();
+            var ex = $("#exchange").val();
+            var curr = $("#currency").val();
+            var un = $("#units").val();
+            var am = $("#amount").val();
+            var dat = $("#date input").val();
+            var invId = $(this).data('invid');
+
+            var data = {'coin' : coin , 
+               'exchange' : ex, 
+               'currency' : curr,
+               'units' : un, 
+               'value_unit' : am , 
+               'purchased_date' : dat
+            };
+
+            var msg = "Investment added successfully!";
+            var flag = 0;
+
+            if($('#changeInvestment #save_investment').hasClass('update')){
+               data['invId'] = invId;
+               msg = "Investment edited successfully!";
+               flag = 1;
+            }
            
-           // Optional; add a title and set the width and height of the chart
-           var options = {'width':$('#piechart1').width(), 'height': $('#piechart1').height() >= 300 ? $('#piechart1').height() : 300};
+            console.log(data);
 
-           // Display the chart inside the <div> element with id="piechart"
-           var chart1 = new google.visualization.PieChart(document.getElementById('piechart1'));
-           var chart2 = new google.visualization.PieChart(document.getElementById('piechart2'));
+            $.post('/save_investment/'+ flag , data, function(response) {
+               if($.parseJSON(response).error == 0){
+                  alert(msg);
+                  location.reload();
+               }
+               else
+                  alert("Sorry there was an error processing this request, please try again!");
+            })
+            .fail(function(){
+               alert("Sorry there was an error processing this request, please try again!");
+            });
+         });
+         $('.deleteItem').on('click', function (e) {
+            var conf = confirm(" Are you sure you want to delete this investment");
+            var invId = $(this).data('invid');
 
-           chart1.draw(data1, options);
-           chart2.draw(data2, options);
-      }
+            if(conf){
+               $.post('/delete_investment/' , {'invId':invId}, function(response) {
+               if($.parseJSON(response).error == 0){
+                  alert("Investment deleted successfully!");
+                  location.reload();
+               }
+               else
+                  alert("Sorry there was an error processing this request, please try again!");
+               })
+               .fail(function(){
+                  alert("Sorry there was an error processing this request, please try again!");
+               });
+            }
+         });
+         $('.editItem').on('click', function (e) {
+            //Update modal values
+            var obj =  ($(this).data('fields'));
+            console.log(obj);
+
+            $("#coin").val(obj.coin).attr('disabled',true);
+            $("#exchange").val(obj.exchange).attr('disabled',true);
+            $("#currency").val(obj.currency).attr('disabled',true);
+            $("#units").val(obj.units);
+            $("#amount").val(obj.value_unit);
+            $("#date input").val(obj.purchased_date);
+
+            $('#changeInvestment .modal-title').html('Update Investment');
+            $('#changeInvestment #save_investment').addClass('update');
+            $('#changeInvestment #save_investment').attr('data-invid',$(this).data('invid'));
+            $('#changeInvestment').modal('show');
+         });
+
+         $('#view_more').on('click', function (e) {
+            $('.more').slideDown('slow');
+            $(this).fadeOut();
+         });
+         // Load google charts
+         google.charts.load('current', {'packages':['corechart']});
+         google.charts.setOnLoadCallback(drawChart);
+
+         // Draw the chart and set the chart values
+         function drawChart() {
+              //Chart-1
+              var data1s = [['Cryptocurrency', 'Investment']];
+              {% for obj in data3 %}
+                  data1s.push(['{{obj[0]}}',{{obj[1]}}])
+              {% endfor %}
+              var data1 = google.visualization.arrayToDataTable(data1s);
+
+              //Chart-2
+              var data2s = [['Cryptocurrency', 'Profit']];
+              {% for obj in data4 %}
+                  data2s.push(['{{obj[0]}}',{{obj[1]}}])
+              {% endfor %}
+              var data2 = google.visualization.arrayToDataTable(data2s);
+              
+              // Optional; add a title and set the width and height of the chart
+              var options = {'width':$('#piechart1').width(), 'height': $('#piechart1').height() >= 300 ? $('#piechart1').height() : 300};
+
+              // Display the chart inside the <div> element with id="piechart"
+              var chart1 = new google.visualization.PieChart(document.getElementById('piechart1'));
+              var chart2 = new google.visualization.PieChart(document.getElementById('piechart2'));
+
+              chart1.draw(data1, options);
+              chart2.draw(data2, options);
+         }
+      });
    </script>
    {% endblock %}
    </body>
