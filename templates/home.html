@@ -19,7 +19,7 @@
                         <th>Current price</th>
                         <th>Source</th>        
                         <th class="hidden-xs">Volume(B)</th>
-                        <th class="hidden-xs">Last Price</th>
+                        <th class="hidden-xs">High</th>
                         <th class="hidden-xs">Low</th>
                      </tr>
                   </thead>
@@ -32,12 +32,12 @@
                   {% endif %}
                      <tr class="{{cl}}">
                         <td scope="row">{{ loop.index }}</td>
-                        <td><a href="#">{{ obj['Cryptocurrency']}}</a></td>
+                        <td><a target="_blank" href="/compare?coin={{ obj['Symbol']}}&currency={{obj['Currency']}}">{{ obj['Cryptocurrency']}}</a></td>
                         <td>{{obj['Currency']}} {{obj['CurrentRate']}}</td>
                         <td><a href="#">{{ obj['Source']}}</a></td>
-                        <td class="hidden-xs">{{ (obj['Details']['volume']) | float | round(2) }}</td>
-                        <td class="hidden-xs">{{obj['Details']['last'] | float | round(2) }}</td>
-                        <td class="hidden-xs">{{obj['Details']['low'] | float | round(2) }}</td>
+                        <td class="hidden-xs">{{ (obj['Details']['VOLUME24HOUR']) | float | round(2) }}</td>
+                        <td class="hidden-xs">{{obj['Details']['HIGH24HOUR'] | float | round(2) }}</td>
+                        <td class="hidden-xs">{{obj['Details']['LOW24HOUR'] | float | round(2) }}</td>
                      </tr>
                   {% endfor %}
                   </tbody>
@@ -365,7 +365,7 @@
               //Chart-1
               var data1s = [['Cryptocurrency', 'Investment']];
               {% for obj in data3 %}
-                  data1s.push(['{{obj[0]}}',{{obj[1]}}])
+                  data1s.push(['{{obj[1]}}',{{obj[2]}}])
               {% endfor %}
               var data1 = google.visualization.arrayToDataTable(data1s);
 

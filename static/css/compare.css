@@ -1,0 +1,17 @@
+#compare-container{
+	border: 1px solid #ccc;
+	margin-top:20px;
+	background: #fff;
+}
+#compare-header-container{
+	background-color: #1a2130;
+    font-size: 3em;
+    color: #fff;
+}
+#compare-header-container h1 {
+    margin: 15px;
+} 
+#compare-container-body{
+	padding: 15px;
+	margin-top: 10px;
+}
