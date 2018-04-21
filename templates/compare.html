@@ -5,16 +5,15 @@
    {% block body %}
      <div id="compare-container">
         <div class="clearfix" id="compare-header-container">
-           <h1> Top exchanges for Bitcoin</h1>
+           <h1> Top exchanges for {{coin}}</h1>
         </div>
         <div id="compare-container-body">
             <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2 dropdown">
                <select class="pull-left btn btn-dropdown dropdown-toggle">
-                <option value="BTC">Bitcoin</option>
-                <option value="ETH">Ethereum</option>
-                <option value="XRP">Ripple</option>
-                <option value="LTC">Litecoin</option>
-                <option value="DASH">Dash</option>
+                <option>Select</option>
+                {% for c,coinName in coins.items() %}
+                <option {% if coin == c %} selected=true {% endif %} value="{{c}}">{{coinName}}</option>
+                {% endfor %}
                 </select>
              </div>
              <div class="col-md-10 col-lg-10 col-sm-10 col-xs-10">
@@ -25,14 +24,14 @@
                 <div id="compare-graph"></div>
              </div>
              <div style-"height:20px" class="clearfix"></div>
-             <div class="col-md-8 col-lg-8 col-sm-8 col-xs-8 text-left col-centered currency-analysis-desc">ChulBul says <strong><i>Bitwage</i></strong> is the best place at this time to buy Bitcoin. Get a detailed analysis by following the link below</p>
+             <div class="col-md-8 col-lg-8 col-sm-8 col-xs-12 text-left col-centered currency-analysis-desc">ChulBul says <strong><i>{{minExc}}</i></strong> is the best place at this time to buy {{coin}}. Get a detailed analysis by following the link below</p>
              </div>
              <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2">
              </div>
              <div class="clearfix"></div>
              <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4"></div>
              <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
-                <button type="button" class="btn btn-primary "/>Know more</button>
+                <a href="/currency_specific?coin={{coin}}&exc={{minExc}}&currency={{currency}}" type="button" class="btn btn-primary "/>Know more</a>
              </div>
              <div class="top-padding-30 bottom-padding-30"></div>
         </div>
@@ -43,37 +42,27 @@
     <script type="text/javascript">
         google.charts.load('current', {'packages':['line']});
         google.charts.setOnLoadCallback(drawChart);
+        console.log({{graphData}});
+        console.log('{{minExc}}');
+        //console.log($.parseJSON({{graphCols}}));
 
         function drawChart() {
           var data = new google.visualization.DataTable();
           data.addColumn('number', 'Day');
-          data.addColumn('number', 'Guardians of the Galaxy');
-          data.addColumn('number', 'The Avengers');
-          data.addColumn('number', 'Transformers: Age of Extinction');
-
-          data.addRows([
-            [1,  37.8, 80.8, 41.8],
-            [2,  30.9, 69.5, 32.4],
-            [3,  25.4,   57, 25.7],
-            [4,  11.7, 18.8, 10.5],
-            [5,  11.9, 17.6, 10.4],
-            [6,   8.8, 13.6,  7.7],
-            [7,   7.6, 12.3,  9.6],
-            [8,  12.3, 29.2, 10.6],
-            [9,  16.9, 42.9, 14.8],
-            [10, 12.8, 30.9, 11.6],
-            [11,  5.3,  7.9,  4.7],
-            [12,  6.6,  8.4,  5.2],
-            [13,  4.8,  6.3,  3.6],
-            [14,  4.2,  6.2,  3.4]
-          ]);
+          {% for col in graphCols %}
+            data.addColumn('number', '{{col}}');
+          {% endfor %}
+          data.addRows({{graphData}});
 
           var options = {
             chart: {
-              title: 'Box Office Earnings in First Two Weeks of Opening',
-              subtitle: 'in millions of dollars (USD)'
+              title: 'Top Exchanges for {{coin}}',
+              subtitle: 'in {{currency}}'
             },
-            height: 500
+            height: 500,
+            vAxis: { 
+                format: '{{currency}} #'
+            }
           };
 
           var chart = new google.charts.Line(document.getElementById('compare-graph'));

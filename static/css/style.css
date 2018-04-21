@@ -280,9 +280,8 @@ img.single-testimonial-profile{
 .currency-analysis-desc{
 	margin-top: 20px;
 	color:#000;
-	padding-left: 68px;
-	font-size:22px
-
+	font-size:22px;
+  text-align: center;
 }
 
 .subscribe-button{
@@ -505,4 +504,10 @@ img.single-testimonial-profile{
   bottom:150px;
   border:15px solid transparent;
   border-top-color:#fff;
+}
+.change_password{
+  display:none;
+}
+#change_password{
+text-decoration:underline;cursor:pointer;
 }

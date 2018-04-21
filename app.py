@@ -4,6 +4,7 @@ from flaskext.mysql import MySQL
 from werkzeug import generate_password_hash, check_password_hash
 from datetime import datetime
 import requests
+from random import shuffle
 
 mysql = MySQL() 
 app = Flask(__name__)
@@ -18,8 +19,9 @@ app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 mysql.init_app(app)
 
 #  ---- App settings ----- #
-appCoins = ['BTC','ETH','LTC','XRP','EOS']
-appCoins = ['BTC','ETH']
+appCoins = {'BTC' : 'Bitcoin',
+'ETH' : 'Ethereum'
+}
 appExchanges = ['Kraken','Bitstamp','Cexio','Coinbase','Exmo']
 appCurrencies = ['USD','EUR']
 # --- END ------#
@@ -40,9 +42,74 @@ def compare():
         return redirect(url_for('login'))
 
     _coin = request.args.get('coin')
-    _currency = request.args.get('_currency')
+    _currency = request.args.get('currency')
+    graphCols,graphRawData,graphData = [],[],[]
     
-    return render_template('compare.html',title='CoinPanda | Compare Currency')
+    if not _coin:
+        _coin = "BTC"
+    
+    if not _currency:
+        _currency = "USD"
+
+    if _coin and _currency:
+        minAvg, minExc = 9999999999999,""
+        for e in appExchanges:
+            url = "https://min-api.cryptocompare.com/data/histoday?fsym="+ _coin + "&tsym=" + _currency + "&limit=6&e=" + e
+            r = requests.get(url).json()
+            
+            if 'Response' in r and r['Response'] == "Error":
+                pass
+            else:
+                resList = r['Data']
+                tmp = []
+                for obj in resList:
+                    tmp.append(obj['close'])
+
+                tmpAvg = reduce(lambda x, y: x + y, tmp) / len(tmp)
+                
+                if tmpAvg < minAvg:
+                    minAvg = tmpAvg
+                    minExc = e
+
+                graphRawData.append(tmp)
+                graphCols.append(e)
+        
+        for x in range(1,8):
+            tmp =[x]
+            for i,e in enumerate(appExchanges):
+                tmp.append(graphRawData[i][x-1])
+
+            graphData.append(tmp)
+
+    return render_template('compare.html',coins=appCoins,minExc=minExc,coin=_coin,currency=_currency,graphData = json.dumps(graphData),graphCols = graphCols,title='CoinPanda | Compare Currency')
+
+@app.route('/currency_specific')
+def currency_specific():
+    if 'name' not in session:
+        return redirect(url_for('login'))
+
+    _coin = request.args.get('coin')
+    _coinName = appCoins.get(_coin)
+    _exc = request.args.get('exc')
+    _currency = request.args.get('currency')
+    graphData = []
+    
+    if _exc and _coin and _currency:
+        url = "https://min-api.cryptocompare.com/data/histoday?fsym="+ _coin + "&tsym=" + _currency + "&limit=6&e=" + _exc
+        r = requests.get(url).json()
+            
+        if 'Response' in r and r['Response'] == "Error":
+            pass
+        else:
+            resList = r['Data']
+            todayData = resList[0]
+            resList = resList[::-1] # reverse the list
+
+            for i,obj in enumerate(resList):
+                graphData.append([i+1,obj['close']])
+
+        shuffle(appExchanges)
+    return render_template('currency_specific.html',coinName=_coinName,exchanges= appExchanges,todayData=todayData,coin=_coin,exc = _exc,currency=_currency,graphData = json.dumps(graphData),title='CoinPanda | Currency Specific')
 
 @app.route('/dashboard')
 def dashboard():
@@ -133,7 +200,7 @@ def dashboard():
 
     #data3 = json.dumps(data3)
     conn.close()
-    return render_template('home.html',data1=data1,data2=data2,data3=data3,data4=data4,data5=data5,title='CoinPanda | My Investment Portfolio')
+    return render_template('home.html',coins=appCoins,currencies=appCurrencies,exchanges= appExchanges,data1=data1,data2=data2,data3=data3,data4=data4,data5=data5,title='CoinPanda | My Investment Portfolio')
 
 @app.route('/test')
 def update_currencies():
@@ -278,24 +345,36 @@ def delete_investment():
 
     conn.close()
 
-
-@app.route('/currency_specific')
-def currency_specific():
-    if 'name' not in session:
-        return redirect(url_for('login'))
-
-    return render_template('currency_specific.html',title='CoinPanda | Currency Specific')
-
-@app.route('/profile')
+@app.route('/profile', methods=['GET', 'POST'])
 def profile():
     if 'name' not in session:
         return redirect(url_for('login'))
 
-    return render_template('edit.html',title='CoinPanda | Edit Profile')
+    uid = str(session['uid'])
 
-@app.errorhandler(404)
-def error(e):
-    return render_template('404.html',title='CoinPanda | ERROR')
+    try:
+        conn = mysql.connect()
+        cur = conn.cursor()
+
+        if request.method == 'POST':
+             return json.dumps(request.form)
+    
+        # Widget-1
+        cur.execute("""SELECT FName,Lname,Email,Company,Address1,
+            Address2,TimeZone,Image
+            FROM tblUser
+            WHERE UID = %s;
+            """,format(uid))
+
+        userData = cur.fetchone()
+
+    except ServerError as e:
+        return json.dumps({'error': 1, 'message' : str(e)})
+
+    conn.close()
+
+    #return json.dumps(userData)
+    return render_template('edit.html',userData=userData,title='CoinPanda | Edit Profile')
 
 #   Login
 @app.route('/login', methods=['GET', 'POST'])
@@ -337,7 +416,7 @@ def login():
     conn.close()
     return render_template('login.html',log_error=3,title='CoinPanda | Login')
 
-
+# Logout route
 @app.route('/logout')
 def logout():
     session.pop('email', None)
@@ -346,6 +425,7 @@ def logout():
 
     return redirect(url_for('login'))
 
+# Register route
 @app.route('/register',methods=['POST','GET'])
 def signUp():
     try:
@@ -380,7 +460,11 @@ def signUp():
 
     conn.close()
     return render_template('login.html',reg_error=3,title='CoinPanda | Sign Up')
-# End login
+
+# 404 page error route
+@app.errorhandler(404)
+def error(e):
+    return render_template('404.html',title='CoinPanda | ERROR')
 
 if __name__ == "__main__":
     app.run(port=8080, host='0.0.0.0',debug=True,threaded=True)

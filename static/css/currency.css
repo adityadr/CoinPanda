@@ -13,6 +13,20 @@ a {
 a:hover {
   color: #e69000;
 }
+#compare-graph{
+  padding: 15px;
+}
+.price li a{
+  font-size: 1.95em;
+  cursor:pointer;
+}
+.price li.active {
+    background: #f9f9f9 none repeat scroll 0 0;
+    border: 1px solid #ffa000;
+}
+.price li.active a{
+  color: #000;
+}
 #currency-container{
 	border: 1px solid #ccc;
 	margin-top:20px;
@@ -35,7 +49,6 @@ a:hover {
 	text-align: left;
 }
 #portfolio-container{
-	border: 1px solid #ccc;
 }
 #currency-header-container, #portfolio-header-container{
 	background-color: #1a2130;
@@ -43,10 +56,10 @@ a:hover {
     color: #fff;
 }
 #investment-stats .box_parent{
-    padding: 1em;
+    padding: 1em 0.5em;
 }
 #investment-stats .box{
-	border: 1px solid #e4e4e4;
+	border: 1px solid #ccc;
     border-radius: 2px;
     box-shadow: 0 1px 0 0 rgba(0,0,0,.05);
     background-color: #fff;
@@ -209,11 +222,13 @@ textarea {
 
 .price {
     list-style-type: none;
-    border: 1px solid #eee;
     margin: 0;
     padding: 0;
     -webkit-transition: 0.3s;
     transition: 0.3s;
+    border: 1px solid #ccc;
+    background: #fff;
+    min-height: 470px;
 }
 
 .price:hover {
@@ -221,7 +236,7 @@ textarea {
 }
 
 .price .header {
-    background-color: #111;
+    background-color: #1a2130;
     color: white;
     font-size: 25px;
 }

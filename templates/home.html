@@ -185,10 +185,9 @@
                            <div class="col-sm-6">
                               <select class="form-control" id="coin" name="status">
                                  <option>Select</option>
-                                 <option value="BTC">Bitcoin</option>
-                                 <option value="ETH">Ethereum</option>
-                                 <option value="XRP">Ripple</option>
-                                 <option value="LTC">Litecoin</option>
+                                  {% for c,coinName in coins.items() %}
+                                  <option value="{{c}}">{{coinName}}</option>
+                                  {% endfor %}
                               </select>
                            </div>
                         </div>
@@ -197,9 +196,9 @@
                            <div class="col-sm-6">
                               <select class="form-control" id="exchange" name="status">
                                  <option>Select</option>
-                                 <option value="BITSTAMP">BITSTAMP</option>
-                                 <option value="CEX">CEX</option>
-                                 <option value="BISQ">BISQ</option>
+                                  {% for e in exchanges %}
+                                 <option value="{{e}}">{{e}}</option>
+                                 <{% endfor %}
                               </select>
                            </div>
                         </div>
@@ -208,8 +207,9 @@
                            <div class="col-sm-6">
                               <select class="form-control" id="currency" name="status">
                                  <option>Select</option>
-                                 <option value="USD">USD</option>
-                                 <option value="EUR">EUR</option>
+                                 {% for curr in currencies %}
+                                 <option value="{{curr}}">{{curr}}</option>
+                                 <{% endfor %}
                               </select>
                            </div>
                         </div>

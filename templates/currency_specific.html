@@ -3,23 +3,20 @@
    <link rel="stylesheet" href="{{ url_for('static', filename='css/currency.css') }}" />
    {% endblock %}
    {% block body %}
-     <h2 style="text-align:center">BitCoin Price Trend</h2>
-      <p style="text-align:center">Please see the trend below</p>
+     <h2 style="text-align:center">{{coinName}} Price Analysis</h2>
       <div class="clearfix" id="top-container">
          <div class="columns">
             <ul class="price">
                <li class="header">Top 5 exchanges</li>
-               <li><a style="font-size:20px" href="https://www.coinbase.com/join">CoinBase</a></li>
-               <li><a style="font-size:20px" href="https://www.coinmama.com/">CoinMama</a></li>
-               <li><a style="font-size:20px" href="https://www.buybitcoinworldwide.com/exchanges/localbitcoins/">Local bit coins</a></li>
-               <li><a style="font-size:20px" href="https://www.bitquick.co/?a=98201">BitQuick</a></li>
-               <li><a style="font-size:20px" href="https://www.kraken.com/">Kraken</a></li>
+               {% for e in exchanges %}
+               <li {% if e == exc %} class="active" {% endif %} ><a href="?coin={{coin}}&exc={{e}}&currency={{currency}}">{{e}}</a></li>
+               {% endfor %}
             </ul>
          </div>
          <div class="columns">
             <ul class="price">
                <li class="header" >Last week trend</li>
-               <p><img src="{{ url_for('static', filename='img/Lastweektrendcharts.png') }}"  style="float:max-height"  width="100%" height="335"></p>
+               <div id="compare-graph"></div>
             </ul>
          </div>
       </div>
@@ -28,36 +25,66 @@
          <div class="clearfix" id="investment-stats">
             <div class="box_parent col-md-3 col-lg-3 col-sm-6 col-xs-6">
                <div class="box">
-                  <h3 class="header">Lowest last 24 hours</h3>
-                  <span class="num">$4980.6</span>
+                  <h3 class="header">Lowest last 24hr</h3>
+                  <span class="num">{{todayData['low']}}</span>
                </div>
             </div>
             <div class="box_parent col-md-3 col-lg-3 col-sm-6 col-xs-6">
                <div class="box">
-                  <h3 class="header">Last 24 hours volume</h3>
-                  <span class="num">$549800.6</span>
+                  <h3 class="header">Last 24hr volume</h3>
+                  <span class="num">{{todayData['volumeto']}}</span>
                </div>
             </div>
             <div class="box_parent col-md-3 col-lg-3 col-sm-6 col-xs-6">
                <div class="box">
-                  <h3 class="header">Best open price available</h3>
-                  <span class="num">$5498.6</span>
+                  <h3 class="header">Best open price </h3>
+                  <span class="num">{{todayData['close']}}</span>
                </div>
             </div>
             <div class="box_parent col-md-3 col-lg-3 col-sm-6 col-xs-6">
                <div class="box">
-                  <h3 class="header">Highest last 24 hours</h3>
-                  <span class="num">$5598.6</span>
+                  <h3 class="header">Highest last 24hr</h3>
+                  <span class="num">{{todayData['high']}}</span>
                </div>
             </div>
          </div>
          <div class="box_parent col-md-12 col-lg-12 col-sm-12 col-xs-12"></div>
+         <div style="height:20px" class="clearfix"></div>
          <div class="box">
             <button type="button" class="btn btn-primary">Buy now!</button>
          </div>
-         <div style="height:20px" class="clearfix"></div>
+         <div class="clearfix"></div>
       </div>
-      <div style="height:20px" class="clearfix"></div>
+      <div class="clearfix"></div>
+   {% endblock %}
+   {% block javascript %}
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+        google.charts.load('current', {'packages':['line']});
+        google.charts.setOnLoadCallback(drawChart);
+        console.log({{graphData}});        
+        function drawChart() {
+          var data = new google.visualization.DataTable();
+          data.addColumn('number', 'Day');
+          data.addColumn('number', '{{exc}}');
+          data.addRows({{graphData}});
+
+          var options = {
+            chart: {
+              title: 'Last week trend - {{coin}}',
+              subtitle: 'in {{currency}}'
+            },
+            height: 350,
+            vAxis: { 
+                format: '{{currency}} #'
+            },
+            hAxis: { ticks: [1,2,3,7] }
+          };
+
+          var chart = new google.charts.Line(document.getElementById('compare-graph'));
+          chart.draw(data, google.charts.Line.convertOptions(options));
+        }
+    </script>
    {% endblock %}
    </body>
 </html>
