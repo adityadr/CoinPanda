@@ -32,7 +32,7 @@
                   {% endif %}
                      <tr class="{{cl}}">
                         <td scope="row">{{ loop.index }}</td>
-                        <td><a target="_blank" href="/compare?coin={{ obj['Symbol']}}&currency={{obj['Currency']}}">{{ obj['Cryptocurrency']}}</a></td>
+                        <td><a target="_blank" href="/compare?coin={{ obj['Symbol']}}&currency={{obj['Currency']}}">{{ obj['Cryptocurrency']}}-{{obj['Currency']}}</a></td>
                         <td>{{obj['Currency']}} {{obj['CurrentRate']}}</td>
                         <td>{{ obj['Source']}}</td>
                         <td class="hidden-xs">{{ (obj['Details']['VOLUME24HOUR']) | float | round(2) }}</td>

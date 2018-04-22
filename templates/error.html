@@ -1,0 +1,28 @@
+   {% extends "template_website.html" %}
+   {% block title %} 
+      CoinPanda | Not Found 
+   {% endblock %}
+   {% block css %}
+       	<link rel="stylesheet" type="text/css" href="{{url_for('static',filename='css/404.css')}}">
+   {% endblock %}
+   {% block body %}
+      <div id="wrap" class="container">
+			<div  class="error">
+				<p class="p first">{{code1}}</p>
+				<span class="dracula">
+					<div class="con">
+						<img src="{{url_for('static',filename='img/FallingPanda.png')}}" alt="404"/>
+					</div>
+				</span>
+				<p class="p">{{code2}}</p>
+				<div class="page-ms">
+					<p class="page-msg">{{message}}</p>
+					<a href="/">
+						<img class="coin" src="{{url_for('static',filename='img/ErrorPageCoin.png')}}">
+						&nbsp;
+					</a>  
+				</div>
+			</div>
+			<!-- 	<p>Auto back to home page</p> -->
+		</div>
+   {% endblock %}

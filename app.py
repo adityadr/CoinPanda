@@ -93,8 +93,10 @@ def compare():
                 for obj in resList:
                     tmp.append(obj['close'])
 
+                # Get average from the list
                 tmpAvg = reduce(lambda x, y: x + y, tmp) / len(tmp)
                 
+                # Get the minimum average
                 if tmpAvg < minAvg:
                     minAvg = tmpAvg
                     minExc = e
@@ -555,10 +557,24 @@ def signUp():
     conn.close()
     return render_template('login.html',reg_error=3,title='CoinPanda | Sign Up')
 
-# 404 page error route
+# This function determines the type of error (Eg: HTTP 404, HTTP 500) and displays the 
+# appropriate message to redirect the user
 @app.errorhandler(404)
-def error(e):
-    return render_template('404.html',title='CoinPanda | ERROR')
+def error(e):    
+    if e.code == 404:
+        code1 = 4 
+        code2 = 4
+        message = "Looks like you lost your way chasing coins, pick this coin to get back on track"
+    elif e.code == 500:
+        message = "Oops! You were not supposed to be here, lets take you back to safety. Grab the coin below"
+        code1 = 5
+        code2 = 0
+    else:       
+        message = "Couldn't process your request, pick this coin to get back on track"
+        code1 = ''
+        code2 = ''
+
+    return render_template('error.html',code1=code1,code2=code2,message=message,title='CoinPanda | ERROR')
 
 # Lanch the app on port 8080
 if __name__ == "__main__":
