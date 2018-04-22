@@ -23,7 +23,7 @@
                <span class="icon-bar"></span>
                <span class="icon-bar"></span>
                </button>
-               <a class="site-logo navbar-left" href="#">
+               <a class="site-logo navbar-left" href="/">
                		<img class="logo" src="{{ url_for('static', filename='img/LogowithName.png') }}">
                </a>
             </div>
@@ -52,7 +52,11 @@
 					      <li><a href="https://www.ethereum.org/" target="_blank">Ethereum</a></li>
 					      <li><a href="https://ripple.com/" target="_blank">Ripple</a></li>
 					   </ul>
-					</li>
+					   </li>
+                  <li>
+                     <a href="/contact" class="hidden-xs">Contact Us</a>
+                     <a href="/contact" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">Contact Us</a>
+                  </li>
                   <li>
                      <a href="/login" class="hidden-xs">Sign-in</a>
                      <a href="/login" class="visible-xs" data-toggle="collapse" data-target=".navbar-collapse">Sign-in</a>

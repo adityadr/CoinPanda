@@ -6,9 +6,13 @@
          <!-- left column -->
          <div class="col-md-3">
             <div class="text-center">
-               <img src="{{ url_for('static', filename='img/alpha.jpeg') }}" height="148px" width="150px"  class="avatar img-circle" alt="avatar">
+               <img onerror="this.onerror=null;this.src='/static/tmp/default.png';" src="{{ url_for('static', filename='tmp/') }}{{userData[7]}}" height="148px" width="150px"  class="avatar img-circle" alt="avatar">
                <h6>Upload a different photo...</h6>
-               <input type="file" class="form-control">
+               <form class="form-horizontal" method="post" enctype="multipart/form-data" action="" role="form">
+                  <input type="file" name="Image" class="form-control">
+                  <div style="height:20px" class="clearfix"></div>
+                  <input type="submit" class="btn btn-primary"  value="Upload">
+               </form>
             </div>
          </div>
          <!-- edit form column -->
@@ -18,50 +22,50 @@
                <div class="form-group">
                   <label class="col-lg-3 control-label">First name:</label>
                   <div class="col-lg-8">
-                     <input name="Fname" class="form-control" type="text" value="{{userData[0]}}">
+                     <input required name="FName" class="form-control" type="text" value="{{userData[0]}}">
                   </div>
                </div>
                <div class="form-group">
                   <label class="col-lg-3 control-label">Last name:</label>
                   <div class="col-lg-8">
-                     <input class="form-control" type="text" value="{{userData[1]}}">
+                     <input required name="LName" class="form-control" type="text" value="{{userData[1]}}">
                   </div>
                </div>
                <div class="form-group">
                   <label class="col-lg-3 control-label">Company:</label>
                   <div class="col-lg-8">
-                     <input class="form-control" type="text" value="{{userData[3]}}">
+                     <input required name="Company" class="form-control" type="text" value="{{userData[3]}}">
                   </div>
                </div>
                <div class="form-group">
                   <label class="col-lg-3 control-label">Address 1: </label>
                   <div class="col-lg-8">
-                     <input class="form-control" type="text" value="{{userData[4]}}">
+                     <input required name="Address1" class="form-control" type="text" value="{{userData[4]}}">
                   </div>
                </div>
                <div class="form-group">
                   <label class="col-lg-3 control-label">Address 2:</label>
                   <div class="col-lg-8">
-                     <input class="form-control" type="text" value="{{userData[5]}}">
+                     <input required name="Address2" class="form-control" type="text" value="{{userData[5]}}">
                   </div>
                </div>
                <div class="form-group">
                   <label class="col-lg-3 control-label">Email:</label>
                   <div class="col-lg-8">
-                     <input class="form-control" disabled=true type="text" value="{{userData[2]}}">
+                     <input required name="Email" class="form-control" disabled=true type="text" value="{{userData[2]}}">
                   </div>
                </div>
                <div class="form-group">
                   <label class="col-lg-3 control-label">Time Zone:</label>
                   <div class="col-lg-8">
                      <div class="ui-select">
-                        <select id="user_time_zone" class="form-control">
+                        <select required name="TimeZone" id="user_time_zone" class="form-control">
                            <option {% if userData[6] == "Hawaii" %} selected=true {% endif %} value="Hawaii">(GMT-10:00) Hawaii</option>
                            <option {% if userData[6] == "Alaska" %} selected=true {% endif %} value="Alaska">(GMT-09:00) Alaska</option>
                            <option {% if userData[6] == "Pacific Time (US &amp; Canada)" %} selected=true {% endif %} value="Pacific Time (US &amp; Canada)">(GMT-08:00) Pacific Time (US &amp; Canada)</option>
                            <option {% if userData[6] == "Arizona" %} selected=true {% endif %} value="Arizona">(GMT-07:00) Arizona</option>
                            <option {% if userData[6] == "Mountain Time (US &amp; Canada)" %} selected=true {% endif %} value="Mountain Time (US &amp; Canada)">(GMT-07:00) Mountain Time (US &amp; Canada)</option>
-                           <option {% if userData[6] == "Central Time (US &amp; Canada)" %} selected=true {% endif %} value="Central Time (US &amp; Canada)" selected="selected">(GMT-06:00) Central Time (US &amp; Canada)</option>
+                           <option {% if userData[6] == "Central Time (US &amp; Canada)" %} selected=true {% endif %} value="Central Time (US &amp; Canada)">(GMT-06:00) Central Time (US &amp; Canada)</option>
                            <option {% if userData[6] == "Eastern Time (US &amp; Canada)" %} selected=true {% endif %} value="Eastern Time (US &amp; Canada)">(GMT-05:00) Eastern Time (US &amp; Canada)</option>
                            <option {% if userData[6] == "Indiana (East)" %} selected=true {% endif %} value="Indiana (East)">(GMT-05:00) Indiana (East)</option>
                         </select>
@@ -77,20 +81,20 @@
                <div class="change_password form-group">
                   <label class="col-md-3 control-label">Password:</label>
                   <div class="col-md-8">
-                     <input class="form-control" placeholder="Type new password.." type="password" value="">
+                     <input name="Password" class="form-control" placeholder="Type new password.." type="password" value="">
                   </div>
                </div>
                <div class="change_password form-group">
                   <label class="col-md-3 control-label">Confirm password:</label>
                   <div class="col-md-8">
-                     <input class="form-control" placeholder="Type new password.." type="password" value="{{userData[8]}}">
+                     <input name="PasswordMatch" class="form-control" placeholder="Type new password.." type="password" value="{{userData[8]}}">
                   </div>
                </div>
                <div style="height:20px" class="clearfix"></div>
                <div class="form-group">
                   <label class="col-md-3 control-label"></label>
                   <div class="col-md-8">
-                     <input type="button" class="btn btn-primary col-xs-5"  value="Save Changes">
+                     <input type="submit" class="btn btn-primary col-xs-5"  value="Save Changes">
                      <span></span>
                      <input type="reset" class="btn btn-default col-xs-5 pull-right" value="Cancel">
                   </div>

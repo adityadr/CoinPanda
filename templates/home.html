@@ -34,7 +34,7 @@
                         <td scope="row">{{ loop.index }}</td>
                         <td><a target="_blank" href="/compare?coin={{ obj['Symbol']}}&currency={{obj['Currency']}}">{{ obj['Cryptocurrency']}}</a></td>
                         <td>{{obj['Currency']}} {{obj['CurrentRate']}}</td>
-                        <td><a href="#">{{ obj['Source']}}</a></td>
+                        <td>{{ obj['Source']}}</td>
                         <td class="hidden-xs">{{ (obj['Details']['VOLUME24HOUR']) | float | round(2) }}</td>
                         <td class="hidden-xs">{{obj['Details']['HIGH24HOUR'] | float | round(2) }}</td>
                         <td class="hidden-xs">{{obj['Details']['LOW24HOUR'] | float | round(2) }}</td>
@@ -183,7 +183,7 @@
                         <div class="form-group">
                            <label for="status" class="col-sm-6 control-label">Select coin</label>
                            <div class="col-sm-6">
-                              <select class="form-control" id="coin" name="status">
+                              <select data-exchanges="{{appCoinsExchanges}}" class="form-control" id="coin" name="status">
                                  <option>Select</option>
                                   {% for c,coinName in coins.items() %}
                                   <option value="{{c}}">{{coinName}}</option>
@@ -194,10 +194,10 @@
                         <div class="form-group">
                            <label for="status" class="col-sm-6 control-label">Select exchange</label>
                            <div class="col-sm-6">
-                              <select class="form-control" id="exchange" name="status">
+                              <select disabled="true" class="form-control" id="exchange" name="status">
                                  <option>Select</option>
                                   {% for e in exchanges %}
-                                 <option value="{{e}}">{{e}}</option>
+                                 <option class="exchanges exchange_{{e}}" value="{{e}}">{{e}}</option>
                                  <{% endfor %}
                               </select>
                            </div>
@@ -266,7 +266,7 @@
          });
          $('#add-investment').on('click', function (e) {
             $("#coin").val("").attr('disabled',false);
-            $("#exchange").val("").attr('disabled',false);
+            //$("#exchange").val("").attr('disabled',false);
             $("#currency").val("").attr('disabled',false);
             $("#units").val('');
             $("#amount").val("");
@@ -275,6 +275,21 @@
             $('#changeInvestment .modal-title').html('Add Investment');
             $('#changeInvestment #save_investment').removeClass('update');
             $('#changeInvestment').modal('show'); 
+         });
+         $('#coin').on('change', function (e) {
+            var selCoin  = $("#coin").val();
+            var excs = $(this).data('exchanges');
+            var selExc = excs[selCoin];
+
+            console.log(selCoin);
+            console.log(selExc);
+
+            $('#changeInvestment #exchange option.exchanges').hide();
+            
+            for(var i in selExc){
+               $('.exchange_' + selExc[i]).show();
+            }
+            $("#exchange").val("").attr('disabled',false);
          });
          $('#changeInvestment #save_investment').on('click', function (e) {
             var coin = $("#coin").val();

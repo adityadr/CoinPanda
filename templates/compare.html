@@ -8,27 +8,26 @@
            <h1> Top exchanges for {{coin}}</h1>
         </div>
         <div id="compare-container-body">
-            <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2 dropdown">
-               <select class="pull-left btn btn-dropdown dropdown-toggle">
-                <option>Select</option>
-                {% for c,coinName in coins.items() %}
-                <option {% if coin == c %} selected=true {% endif %} value="{{c}}">{{coinName}}</option>
-                {% endfor %}
-                </select>
+            <div class="clearfix">
+                <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2 dropdown">
+                   <select onchange="document.location.href=this.value" class="pull-left btn btn-dropdown dropdown-toggle">
+                    <option>Select</option>
+                    {% for c,coinName in coins.items() %}
+                    <option {% if coin == c %} selected=true {% endif %} value="?coin={{c}}&currency={{currency}}">{{coinName}}</option>
+                    {% endfor %}
+                    </select>
+                 </div>
              </div>
-             <div class="col-md-10 col-lg-10 col-sm-10 col-xs-10">
-                <button type="button" class="pull-right btn btn-primary"/>Subscribe</button>
-             </div>
-             <div style-"height:20px" class="clearfix"></div>
-             <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12"> 
-                <div id="compare-graph"></div>
-             </div>
-             <div style-"height:20px" class="clearfix"></div>
-             <div class="col-md-8 col-lg-8 col-sm-8 col-xs-12 text-left col-centered currency-analysis-desc">ChulBul says <strong><i>{{minExc}}</i></strong> is the best place at this time to buy {{coin}}. Get a detailed analysis by following the link below</p>
-             </div>
-             <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2">
+             <div style="height:20px" class="clearfix"></div>
+             <div class="row">
+                <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12"> 
+                    <div id="compare-graph"></div>
+                </div>
              </div>
              <div class="clearfix"></div>
+             <div class="col-md-8 col-lg-8 col-sm-8 col-xs-12 text-left col-centered currency-analysis-desc">ChulBul says <strong><i>{{minExc}}</i></strong> is the best place at this time to buy {{coin}}. Get a detailed analysis by following the link below
+             </div>
+             <div style="height:20px" class="clearfix"></div>
              <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4"></div>
              <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
                 <a href="/currency_specific?coin={{coin}}&exc={{minExc}}&currency={{currency}}" type="button" class="btn btn-primary "/>Know more</a>
@@ -42,9 +41,6 @@
     <script type="text/javascript">
         google.charts.load('current', {'packages':['line']});
         google.charts.setOnLoadCallback(drawChart);
-        console.log({{graphData}});
-        console.log('{{minExc}}');
-        //console.log($.parseJSON({{graphCols}}));
 
         function drawChart() {
           var data = new google.visualization.DataTable();
@@ -60,6 +56,8 @@
               subtitle: 'in {{currency}}'
             },
             height: 500,
+            pointSize: 20,
+            pointsVisible: true,
             vAxis: { 
                 format: '{{currency}} #'
             }

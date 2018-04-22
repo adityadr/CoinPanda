@@ -3,7 +3,9 @@
   margin: 0;
   box-sizing: border-box;
 }
-
+html, body {
+    background-color: #000;
+}
 *::before,
 *::after {
     content: '';
@@ -42,7 +44,7 @@ body{
 .error .p {
 	height: 100%;
 	color: #ffa000; 
-	font-size: 280px;
+	font-size: 18vw;
 	margin: 0px 100px;
 	display: inline-block;
 }
@@ -169,4 +171,29 @@ body{
 	color: #fff; 
 	font-size: 30px;
 	margin-bottom: 20px;
+}
+@media only screen and (max-width:768px){
+  .dracula img {
+    width: 105px;
+    height: 105px;
+    margin-left: 20%;
+  }
+  .dracula {
+    width: auto;
+    height: 105px;
+  }
+  .con {
+    width: 200px;
+    height: 200px;
+    margin: 0;
+  }
+  .error .p {
+    margin: auto; 
+  }
+  .page-ms {
+    margin-top: 100px;
+  }
+  .error .p.first {
+    margin-right: 0px; 
+}
 }
