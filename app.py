@@ -5,6 +5,8 @@ from flask import Flask, session, render_template, json, request, redirect, url_
 from flaskext.mysql import MySQL
 from werkzeug import generate_password_hash, check_password_hash
 from datetime import datetime
+from werkzeug.exceptions import HTTPException
+
 #library for making API calls using python
 import requests
 #library for randomizer
@@ -217,10 +219,11 @@ def dashboard():
 
     #  Data for Widget 5: Total profit pie chart
     cur.execute("""
-        SELECT i.Cryptocurrency, (i.InvestmentVolume * c.CurrentRate)- (i.InvestmentValue) as Profit
+        SELECT i.Cryptocurrency, SUM((i.InvestmentVolume * c.CurrentRate)- (i.InvestmentValue)) as Profit
         FROM tblInvestment i
         INNER JOIN tblCurrency c ON i.CID=c.CID
         WHERE UID = %s and (i.InvestmentVolume * c.CurrentRate)- (i.InvestmentValue)>0
+        GROUP BY i.Cryptocurrency 
         """, format(uid))
 
     for row in cur.fetchall():

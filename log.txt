@@ -3,70 +3,14 @@ nohup: ignoring input
  * Restarting with stat
  * Debugger is active!
  * Debugger PIN: 596-033-396
-47.218.214.91 - - [22/Apr/2018 23:44:36] "GET /error HTTP/1.1" 200 -
-47.218.214.91 - - [22/Apr/2018 23:44:36] "GET /static/css/404.css HTTP/1.1" 200 -
-47.218.214.91 - - [22/Apr/2018 23:44:36] "GET /static/css/style.css HTTP/1.1" 200 -
-47.218.214.91 - - [22/Apr/2018 23:44:36] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 -
-47.218.214.91 - - [22/Apr/2018 23:44:37] "GET /static/img/FallingPanda.png HTTP/1.1" 200 -
-47.218.214.91 - - [22/Apr/2018 23:44:37] "GET /static/img/ErrorPageCoin.png HTTP/1.1" 200 -
-47.218.214.91 - - [22/Apr/2018 23:44:37] "GET /static/img/LogowithName.png HTTP/1.1" 200 -
-47.218.214.91 - - [22/Apr/2018 23:45:08] "GET /contact HTTP/1.1" 200 -
-47.218.214.91 - - [22/Apr/2018 23:45:09] "GET /static/css/contact.css HTTP/1.1" 200 -
-47.218.214.91 - - [22/Apr/2018 23:45:15] "GET /error HTTP/1.1" 200 -
-47.218.214.91 - - [22/Apr/2018 23:45:26] "GET /error HTTP/1.1" 200 -
-47.218.214.91 - - [22/Apr/2018 23:45:26] "GET /static/css/style.css HTTP/1.1" 200 -
-47.218.214.91 - - [22/Apr/2018 23:45:26] "GET /static/css/404.css HTTP/1.1" 200 -
-47.218.214.91 - - [22/Apr/2018 23:45:26] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 -
-47.218.214.91 - - [22/Apr/2018 23:45:26] "GET /static/img/LogowithName.png HTTP/1.1" 200 -
-47.218.214.91 - - [22/Apr/2018 23:45:26] "GET /static/img/FallingPanda.png HTTP/1.1" 200 -
-47.218.214.91 - - [22/Apr/2018 23:45:26] "GET /static/img/ErrorPageCoin.png HTTP/1.1" 200 -
-47.218.214.91 - - [22/Apr/2018 23:45:27] "GET /static/img/Favicon.png HTTP/1.1" 200 -
-47.218.214.91 - - [22/Apr/2018 23:45:30] "GET /error HTTP/1.1" 200 -
-47.218.214.91 - - [22/Apr/2018 23:45:30] "GET /static/css/style.css HTTP/1.1" 200 -
-47.218.214.91 - - [22/Apr/2018 23:45:30] "GET /static/css/404.css HTTP/1.1" 200 -
-47.218.214.91 - - [22/Apr/2018 23:45:30] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 -
-47.218.214.91 - - [22/Apr/2018 23:45:30] "GET /static/img/FallingPanda.png HTTP/1.1" 200 -
-47.218.214.91 - - [22/Apr/2018 23:45:30] "GET /static/img/LogowithName.png HTTP/1.1" 200 -
-47.218.214.91 - - [22/Apr/2018 23:45:30] "GET /static/img/ErrorPageCoin.png HTTP/1.1" 200 -
-47.218.214.91 - - [22/Apr/2018 23:45:32] "GET /static/img/Favicon.png HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 00:25:07] "GET /sdsd HTTP/1.1" 404 -
  * Detected change in '/home/ubuntu/CoinPanda/app.py', reloading
  * Restarting with stat
  * Debugger is active!
  * Debugger PIN: 596-033-396
- * Detected change in '/home/ubuntu/CoinPanda/app.py', reloading
-Exception in thread Thread-1 (most likely raised during interpreter shutdown):
-Traceback (most recent call last):
-  File "/usr/lib/python2.7/threading.py", line 810, in __bootstrap_inner
-  File "/usr/lib/python2.7/threading.py", line 763, in run
-  File "/usr/local/lib/python2.7/dist-packages/werkzeug/serving.py", line 777, in inner
-  File "/usr/local/lib/python2.7/dist-packages/werkzeug/serving.py", line 612, in serve_forever
-  File "/usr/lib/python2.7/SocketServer.py", line 235, in serve_forever
-<type 'exceptions.AttributeError'>: 'NoneType' object has no attribute 'select'
- * Restarting with stat
- * Debugger is active!
- * Debugger PIN: 596-033-396
-47.218.214.91 - - [22/Apr/2018 23:45:47] "GET /error HTTP/1.1" 200 -
-47.218.214.91 - - [22/Apr/2018 23:45:47] "GET /static/css/404.css HTTP/1.1" 200 -
-47.218.214.91 - - [22/Apr/2018 23:45:47] "GET /static/css/style.css HTTP/1.1" 200 -
-47.218.214.91 - - [22/Apr/2018 23:45:47] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 -
-47.218.214.91 - - [22/Apr/2018 23:45:47] "GET /static/img/FallingPanda.png HTTP/1.1" 200 -
-47.218.214.91 - - [22/Apr/2018 23:45:47] "GET /static/img/LogowithName.png HTTP/1.1" 200 -
-47.218.214.91 - - [22/Apr/2018 23:45:47] "GET /static/img/ErrorPageCoin.png HTTP/1.1" 200 -
-47.218.214.91 - - [22/Apr/2018 23:45:48] "GET /static/img/Favicon.png HTTP/1.1" 200 -
- * Detected change in '/home/ubuntu/CoinPanda/app.py', reloading
- * Restarting with stat
- * Debugger is active!
- * Debugger PIN: 596-033-396
-47.218.214.91 - - [22/Apr/2018 23:46:03] "GET /error HTTP/1.1" 200 -
-47.218.214.91 - - [22/Apr/2018 23:46:03] "GET /static/css/404.css HTTP/1.1" 200 -
-47.218.214.91 - - [22/Apr/2018 23:46:03] "GET /static/css/style.css HTTP/1.1" 200 -
-47.218.214.91 - - [22/Apr/2018 23:46:05] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 -
-47.218.214.91 - - [22/Apr/2018 23:46:05] "GET /static/img/FallingPanda.png HTTP/1.1" 200 -
-47.218.214.91 - - [22/Apr/2018 23:46:05] "GET /static/img/LogowithName.png HTTP/1.1" 200 -
-47.218.214.91 - - [22/Apr/2018 23:46:05] "GET /static/img/ErrorPageCoin.png HTTP/1.1" 200 -
-47.218.214.91 - - [22/Apr/2018 23:46:07] "GET /static/img/Favicon.png HTTP/1.1" 200 -
- * Detected change in '/home/ubuntu/CoinPanda/app.py', reloading
- * Restarting with stat
- * Debugger is active!
- * Debugger PIN: 596-033-396
-47.218.214.91 - - [22/Apr/2018 23:47:38] "GET /error HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 00:25:16] "GET /sdsd HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 00:25:18] "GET /login HTTP/1.1" 302 -
+47.218.214.91 - - [23/Apr/2018 00:25:18] "GET /dashboard HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 00:25:27] "GET /compare?coin=XRP&currency=EUR HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 00:25:27] "GET /static/img/Favicon.png HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 00:25:32] "GET /compare?coin=LTC&currency=EUR HTTP/1.1" 200 -
