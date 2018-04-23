@@ -1,11 +1,15 @@
 # -*- coding: utf-8 -*-
 # Import all necessary packages
+#library for creating web appplications in Python
 from flask import Flask, session, render_template, json, request, redirect, url_for, escape
 from flaskext.mysql import MySQL
 from werkzeug import generate_password_hash, check_password_hash
 from datetime import datetime
+#library for making API calls using python
 import requests
+#library for randomizer
 from random import shuffle
+#library for file upload utilities
 from werkzeug.utils import secure_filename
 import os
 import collections
@@ -15,7 +19,7 @@ UPLOAD_FOLDER = 'static/tmp'
 ALLOWED_EXTENSIONS = set(['png', 'jpg', 'jpeg', 'gif'])
 
 # Initialize app and database connection
-mysql = MySQL() 
+mysql = MySQL()
 app = Flask(__name__)
 
 # MySQL configurations
@@ -28,20 +32,29 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.secret_key = 'A0Zr98j/3yX R~XHH!jmN]LWX/,?RT'
 mysql.init_app(app)
 
-#  App data settings 
+#  App data settings
+#Type of crypto currencies supported and their code names
 appCoins = {'BTC' : 'Bitcoin',
 'ETH' : 'Ethereum',
 'LTC' : 'LiteCoin',
 'XRP' : 'Ripple'
 }
+
+#different exchanges supported by Coin Panda
 appExchanges = ['Bitstamp','Cexio','Coinbase','Exmo','Kraken']
+
+#Coin and Exchange pair denoting which coin is present on which exchange
 appCoinsExchanges = {'BTC' : ['Kraken','Bitstamp','Cexio','Coinbase','Exmo'],
 'ETH' : ['Kraken','Bitstamp'],
 'LTC' : ['Kraken','Bitstamp','Cexio','Coinbase','Exmo'],
 'XRP' : ['Kraken','Bitstamp','Cexio']
 }
+
+#currencies supported by CoinPanda
 appCurrencies = ['USD','EUR']
 appCoins = collections.OrderedDict(sorted(appCoins.items()))
+
+#Destination URLs for all the crypto currency websites
 appWebsites = {'Kraken' : 'https://www.kraken.com/',
 'Bitstamp' : 'https://www.bitstamp.net/',
 'Cexio' : 'https://cex.io/',
@@ -72,19 +85,21 @@ def compare():
     _coin = request.args.get('coin')
     _currency = request.args.get('currency')
     graphCols,graphRawData,graphData = [],[],[]
-    
+
+#Default value if no coin is selected
     if not _coin:
         _coin = "BTC"
-    
+#Default value is no currency is selected
     if not _currency:
         _currency = "USD"
 
     if _coin and _currency:
         minAvg, minExc = 9999999999999,""
+        #Generating API request endpoint
         for e in appExchanges:
             url = "https://min-api.cryptocompare.com/data/histoday?fsym="+ _coin + "&tsym=" + _currency + "&limit=6&e=" + e
             r = requests.get(url).json()
-            
+
             if 'Response' in r and r['Response'] == "Error":
                 pass
             else:
@@ -95,7 +110,7 @@ def compare():
 
                 # Get average from the list
                 tmpAvg = reduce(lambda x, y: x + y, tmp) / len(tmp)
-                
+
                 # Get the minimum average
                 if tmpAvg < minAvg:
                     minAvg = tmpAvg
@@ -103,7 +118,7 @@ def compare():
 
                 graphRawData.append(tmp)
                 graphCols.append(e)
-                
+
         for x in range(1,8):
             tmp =[x]
             for i,e in enumerate(graphCols):
@@ -125,11 +140,11 @@ def currency_specific():
     _exc = request.args.get('exc')
     _currency = request.args.get('currency')
     graphData = []
-    
+
     if _exc and _coin and _currency:
         url = "https://min-api.cryptocompare.com/data/histoday?fsym="+ _coin + "&tsym=" + _currency + "&limit=6&e=" + _exc
         r = requests.get(url).json()
-            
+
         if 'Response' in r and r['Response'] == "Error":
             pass
         else:
@@ -146,7 +161,7 @@ def currency_specific():
     return render_template('currency_specific.html',appWebsite=appWebsite,coinName=_coinName,exchanges= appExchanges,todayData=todayData,coin=_coin,exc = _exc,currency=_currency,graphData = json.dumps(graphData),title='CoinPanda | Currency Specific')
 
 # This is the first page visible to the user containing
-# the dashboard / investment portfolio of the user.
+# the dashboard, displays the investment portfolio of the user.
 @app.route('/dashboard')
 def dashboard():
     if 'name' not in session:
@@ -155,31 +170,32 @@ def dashboard():
     uid = session['uid']
     data1,data2,data3,data4,data5 = [],[],[],[],[]
 
-    # Check if currencies table needs update
+    # Check if currencies table needs update,
     conn = mysql.connect()
     cur = conn.cursor()
     _curr_time = datetime.now()
     cur.execute("SELECT UpdateDate FROM tblCurrency ORDER BY UpdateDate DESC LIMIT 1;")
     _time_since = int((_curr_time - cur.fetchone()[0]).total_seconds() / 60)
     conn.close()
-
+#The currency rates are updated every 15 minutes,
+#if the last update time was more than 15 minutes ago, a new request is made to the API to fetch latest rates
     if _time_since >= 15:
         res = update_currencies()
 
     conn = mysql.connect()
     cur = conn.cursor()
-    
-    # Widget-1 data
+
+    # Widget-1: Currency Markets Data
     cur.execute("SELECT Cryptocurrency,Currency,Source,CurrentRate,Details,Symbol FROM tblCurrency ORDER BY Cryptocurrency ASC, Currency DESC;")
 
     for row in cur.fetchall():
-        obj ={'Cryptocurrency' : row[0], 'Symbol' : row[5], 'Currency' : row[1], 'Source' : row[2], 
+        obj ={'Cryptocurrency' : row[0], 'Symbol' : row[5], 'Currency' : row[1], 'Source' : row[2],
         'CurrentRate' : row[3], 'Details': json.loads(str(row[4]))}
         data1.append(obj)
 
-    # Widget-2,3,4 data
+    # Data for Widget 2: Total InvestmentDate, Widget 3: Net Worth, Widget 4: Profit
     cur.execute("""
-        SELECT SUM(i.InvestmentValue) as TotalInvestment 
+        SELECT SUM(i.InvestmentValue) as TotalInvestment
         , SUM(i.InvestmentVolume * c.CurrentRate) as NetWorth
         , SUM(i.InvestmentVolume * c.CurrentRate)- SUM(i.InvestmentValue) as Profit
         FROM tblInvestment i
@@ -188,29 +204,29 @@ def dashboard():
         """, format(uid))
     data2 = cur.fetchone()
 
-    # Widget 5 data
+    # Data for Widget 5: Total investment pie chart
     cur.execute("""
         SELECT UID, Cryptocurrency, SUM(InvestmentValue)
         FROM tblInvestment
         GROUP BY Cryptocurrency,UID
         HAVING UID=%s;
         """, format(uid))
-    
+
     for row in cur.fetchall():
         data3.append(row)
 
-    # Widget 6 data
+    #  Data for Widget 5: Total profit pie chart
     cur.execute("""
         SELECT i.Cryptocurrency, (i.InvestmentVolume * c.CurrentRate)- (i.InvestmentValue) as Profit
         FROM tblInvestment i
         INNER JOIN tblCurrency c ON i.CID=c.CID
         WHERE UID = %s and (i.InvestmentVolume * c.CurrentRate)- (i.InvestmentValue)>0
         """, format(uid))
-    
+
     for row in cur.fetchall():
         data4.append(row)
 
-    # Widget-7 data
+    #  Data for Widget 7: Investment tiles (portfolio items)
     cur.execute("""
         SELECT c.Cryptocurrency
         , c.Symbol
@@ -230,7 +246,7 @@ def dashboard():
         INNER JOIN tblCurrency c ON i.CID=c.CID
         WHERE UID = %s;
         """, format(uid))
-    
+
     for row in cur.fetchall():
         data5.append(row)
 
@@ -242,13 +258,13 @@ def dashboard():
 def update_currencies():
     baseUrl = "https://min-api.cryptocompare.com/data/pricemultifull?"
     resp = []
-    
+
     for e in appExchanges:
         coins = "fsyms=" + (",". join(appCoins))
         currencies = "&tsyms=" + (",". join(appCurrencies))
         url = baseUrl + coins + currencies + "&e=" + e
         r = requests.get(url).json()
-        
+
         if 'Response' in r and r['Response'] == "Error":
             pass
         else:
@@ -268,19 +284,19 @@ def update_currencies():
                     UPDATE tblCurrency SET CurrentRate = %s,
                     Details = %s,
                     UpdateDate = %s
-                    WHERE (Source = %s AND Symbol = %s AND Currency = %s);             
+                    WHERE (Source = %s AND Symbol = %s AND Currency = %s);
                     """,(_curr_rate,json.dumps(_detCurrObj),_curr_time,e,_coin,_currency))
-                    
+
                     conn.commit()
                     conn.close()
-        
+
     return json.dumps({'error': 0, 'message' : ''})
 
-# This function is used to ADD new investments or EDIT existing investments for a given user 
+# This function is used to ADD new investments or EDIT existing investments for a given user
 @app.route('/save_investment/<edit>',methods=['POST'])
 def save_investment(edit):
     if 'name' not in session:
-        return redirect(url_for('login')) 
+        return redirect(url_for('login'))
     try:
         if request.method == 'POST':
             conn = mysql.connect()
@@ -297,7 +313,7 @@ def save_investment(edit):
             _curr_time = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
             # validate the received values
-            if _coin and _exchange and _currency and _units and _value_unit and _purchased_date:   
+            if _coin and _exchange and _currency and _units and _value_unit and _purchased_date:
                 if edit == "1":
                     # Get and verify investment id
                     _invId = request.form['invId']
@@ -309,21 +325,21 @@ def save_investment(edit):
 
                     # Update investment with id
                     cur.execute("""
-                    UPDATE tblInvestment SET 
+                    UPDATE tblInvestment SET
                     InvestmentValue = %s,
                     InvestmentVolume= %s,
                     InvestmentDate= %s,
                     InvestmentRate= %s,
-                    UpdateDate= %s 
+                    UpdateDate= %s
                     WHERE IID = %s;
-                    """, 
+                    """,
                     ((_units*_value_unit),_units,_purchased_date,_value_unit,_curr_time,format(_invId)))
 
                 else:
-                    # Get CID
-                    cur.execute("SELECT CID,Cryptocurrency FROM tblCurrency WHERE (Source=%s AND Symbol=%s AND Currency = %s);", 
+                    # Get Currency ID
+                    cur.execute("SELECT CID,Cryptocurrency FROM tblCurrency WHERE (Source=%s AND Symbol=%s AND Currency = %s);",
                     (_exchange,_coin,_currency,))
-                    
+
                     currObj = cur.fetchone()
                     _cid = currObj[0]
                     _crypto = currObj[1]
@@ -335,11 +351,11 @@ def save_investment(edit):
                     # Create new record in the investment table
                     cur.execute("""
                     INSERT INTO tblInvestment(UID,CID,Cryptocurrency,Currency,InvestmentValue,
-                    InvestmentVolume,InvestmentDate,InvestmentRate,InsertDate,UpdateDate) 
-                    values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)""", 
+                    InvestmentVolume,InvestmentDate,InvestmentRate,InsertDate,UpdateDate)
+                    values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)""",
                     (session['uid'],_cid,_crypto,_currency,(_units*_value_unit),_units,_purchased_date,_value_unit,
                     _curr_time,_curr_time,))
-                
+
                 conn.commit()
                 conn.close()
 
@@ -353,16 +369,16 @@ def save_investment(edit):
 
     conn.close()
 
-# This function is used to DELETE existing investments for a given user 
+# This function is used to DELETE existing investments for a given user
 @app.route('/delete_investment/',methods=['POST'])
 def delete_investment():
     if 'name' not in session:
-        return redirect(url_for('login')) 
+        return redirect(url_for('login'))
     try:
         if request.method == 'POST':
             conn = mysql.connect()
             cur = conn.cursor()
-            
+
             _invId = request.form['invId']
 
             # Verify if record exists in the investment table
@@ -374,7 +390,7 @@ def delete_investment():
 
             # Delete record from the investment table
             cur.execute("DELETE FROM tblInvestment WHERE IID = %s;", format(_invId))
-            
+
             # Commit changes and close DB connection
             conn.commit()
             conn.close()
@@ -406,19 +422,19 @@ def profile():
             if 'Image' in request.files:
                 file = request.files['Image']
                 if file and allowed_file(file.filename):
-                    # Upload user image and update record 
+                    # Upload user image and update record
                     filename = secure_filename(file.filename)
                     file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-                    
+
                     cur.execute("""
-                        UPDATE tblUser SET 
+                        UPDATE tblUser SET
                         Image = %s
                         WHERE UID= %s;
                         """,(filename,uid,))
             else:
                 # Update details in the user record table
                 cur.execute("""
-                        UPDATE tblUser SET 
+                        UPDATE tblUser SET
                         FName = %s,
                         Lname= %s,
                         Company= %s,
@@ -429,14 +445,14 @@ def profile():
                         """, (request.form['FName'],request.form['LName'],request.form['Company'],
                         request.form['Address1'],request.form['Address2'],request.form['TimeZone'],
                         uid,))
-            
+
                 # update password
                 _password = request.form['Password']
                 _passwordm = request.form['PasswordMatch']
                 if _passwordm and _password and _passwordm!='' and _password!='':
                     _hashed_password = generate_password_hash(_password)
                     cur.execute("UPDATE tblUser SET Password = %s WHERE UID = %s;", (_hashed_password,uid))
-        
+
         # Commit changes and close DB connection
         conn.commit()
         conn.close()
@@ -537,15 +553,15 @@ def signUp():
             if _fname and _lname and _email and _password:
                 # All Good, let's call MySQL
                 _hashed_password = generate_password_hash(_password)
-                cur.execute("INSERT INTO tblUser(FName,LName,Email,Password) values (%s,%s,%s,%s)", 
+                cur.execute("INSERT INTO tblUser(FName,LName,Email,Password) values (%s,%s,%s,%s)",
                 (_fname,_lname, _email, _hashed_password))
-                
+
                 # Commit changes and close DB connection
                 conn.commit()
                 conn.close()
 
                 return render_template('login.html', reg_error=0, message='Signup was successful! Please login using your credentials ...',title='CoinPanda | Sign Up')
-                
+
             else:
                 conn.close()
                 return render_template('login.html', reg_error=1, message='Error! Please fill in all details!',title='CoinPanda | Sign Up')
@@ -557,19 +573,19 @@ def signUp():
     conn.close()
     return render_template('login.html',reg_error=3,title='CoinPanda | Sign Up')
 
-# This function determines the type of error (Eg: HTTP 404, HTTP 500) and displays the 
+# This function determines the type of error (Eg: HTTP 404, HTTP 500) and displays the
 # appropriate message to redirect the user
 @app.errorhandler(404)
-def error(e):    
+def error(e):
     if e.code == 404:
-        code1 = 4 
+        code1 = 4
         code2 = 4
         message = "Looks like you lost your way chasing coins, pick this coin to get back on track"
     elif e.code == 500:
         message = "Oops! You were not supposed to be here, lets take you back to safety. Grab the coin below"
         code1 = 5
         code2 = 0
-    else:       
+    else:
         message = "Couldn't process your request, pick this coin to get back on track"
         code1 = ''
         code2 = ''
