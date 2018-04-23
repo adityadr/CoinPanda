@@ -4,6 +4,7 @@
    {% endblock %}
    {% block body %}
      <h2 style="text-align:center">{{coinName}} Price Analysis</h2>
+     <!-- This is the top exchanges data widget for selected cryptocurrency -->
       <div class="clearfix" id="top-container">
          <div class="columns">
             <ul class="price">
@@ -13,6 +14,7 @@
                {% endfor %}
             </ul>
          </div>
+          <!-- This is the last week trend widget for selected cryptocurrency -->
          <div class="columns">
             <ul class="price">
                <li class="header" >Last week trend</li>
@@ -23,24 +25,28 @@
       <div style="height:20px" class="clearfix"></div>
       <div class="clearfix" id="portfolio-container">
          <div class="clearfix" id="investment-stats">
+            <!-- This is the lowest price widget for selected cryptocurrency -->
             <div class="box_parent col-md-3 col-lg-3 col-sm-6 col-xs-6">
                <div class="box">
                   <h3 class="header">Lowest last 24hr</h3>
                   <span class="num">{{todayData['low']}}</span>
                </div>
             </div>
+            <!-- This is the volume widget for selected cryptocurrency -->
             <div class="box_parent col-md-3 col-lg-3 col-sm-6 col-xs-6">
                <div class="box">
                   <h3 class="header">Last 24hr volume</h3>
                   <span class="num">{{todayData['volumeto']}}</span>
                </div>
             </div>
+            <!-- This is the Best price widget for selected cryptocurrency -->
             <div class="box_parent col-md-3 col-lg-3 col-sm-6 col-xs-6">
                <div class="box">
                   <h3 class="header">Best open price </h3>
                   <span class="num">{{todayData['close']}}</span>
                </div>
             </div>
+            <!-- This is the Highest val widget for selected cryptocurrency -->
             <div class="box_parent col-md-3 col-lg-3 col-sm-6 col-xs-6">
                <div class="box">
                   <h3 class="header">Highest last 24hr</h3>
@@ -50,6 +56,7 @@
          </div>
          <div class="box_parent col-md-12 col-lg-12 col-sm-12 col-xs-12"></div>
          <div style="height:20px" class="clearfix"></div>
+         <!-- This is the buy now widget for selected cryptocurrency -->
          <div class="box">
             <a href="{{appWebsite}}" target="_blank" class="btn btn-primary">Buy now!</a>
          </div>
@@ -60,15 +67,18 @@
    {% block javascript %}
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
+         // Load google charts
         google.charts.load('current', {'packages':['line']});
         google.charts.setOnLoadCallback(drawChart);
-        console.log({{graphData}});        
+
+          // Draw the chart and set the chart values       
         function drawChart() {
           var data = new google.visualization.DataTable();
           data.addColumn('number', 'Day');
           data.addColumn('number', '{{exc}}');
           data.addRows({{graphData}});
 
+          //Chart options
           var options = {
             chart: {
               title: 'Last week trend - {{coin}}',
@@ -80,7 +90,7 @@
             },
             hAxis: { ticks: [1,2,3,7] }
           };
-
+          // Add chart to DOM
           var chart = new google.charts.Line(document.getElementById('compare-graph'));
           chart.draw(data, google.charts.Line.convertOptions(options));
         }

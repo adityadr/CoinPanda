@@ -3,7 +3,7 @@
       <h1>Edit Profile</h1>
       <hr>
       <div class="row">
-         <!-- left column -->
+         <!-- left column for showing user profile image upload-->
          <div class="col-md-3">
             <div class="text-center">
                <img onerror="this.onerror=null;this.src='/static/tmp/default.png';" src="{{ url_for('static', filename='tmp/') }}{{userData[7]}}" height="148px" width="150px"  class="avatar img-circle" alt="avatar">
@@ -15,10 +15,10 @@
                </form>
             </div>
          </div>
-         <!-- edit form column -->
+         <!-- edit form column for editing user profile details -->
          <div class="col-md-9 personal-info">
             <h3>Personal info</h3>
-            <form class="form-horizontal" method="post" action="" role="form">
+            <form class="form-horizontal" method="post" onsubmit="return myFunction();" action="" role="form">
                <div class="form-group">
                   <label class="col-lg-3 control-label">First name:</label>
                   <div class="col-lg-8">
@@ -81,13 +81,13 @@
                <div class="change_password form-group">
                   <label class="col-md-3 control-label">Password:</label>
                   <div class="col-md-8">
-                     <input name="Password" class="form-control" placeholder="Type new password.." type="password" value="">
+                     <input id="pass1" name="Password" class="form-control" placeholder="Type new password.." type="password" value="">
                   </div>
                </div>
                <div class="change_password form-group">
                   <label class="col-md-3 control-label">Confirm password:</label>
                   <div class="col-md-8">
-                     <input name="PasswordMatch" class="form-control" placeholder="Type new password.." type="password" value="{{userData[8]}}">
+                     <input id="pass2" name="PasswordMatch" class="form-control" placeholder="Type new password.." type="password" value="{{userData[8]}}">
                   </div>
                </div>
                <div style="height:20px" class="clearfix"></div>
@@ -105,6 +105,24 @@
    {% endblock %}
    {% block javascript %}
     <script type="text/javascript">
+      // Function to check if passwords match or not
+      function myFunction() {
+             var pass1 = document.getElementById("pass1").value;
+             var pass2 = document.getElementById("pass2").value;
+             var ok = true;
+
+             if (pass1 != pass2) {
+                 alert("Passwords Do not match");
+                 document.getElementById("pass1").style.borderColor = "#E34234";
+                 document.getElementById("pass2").style.borderColor = "#E34234";
+                 ok = false;
+             }
+             else {
+                 
+             }
+             return ok;
+         }
+      // Show passwords match options in the form
       $(document).ready(function(){
         $('#change_password').on('click', function (e) {
             $('.change_password').slideToggle('slow');

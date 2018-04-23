@@ -3,11 +3,13 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/compare.css') }}" />
    {% endblock %}
    {% block body %}
+   <!-- This is the compare div container -->
      <div id="compare-container">
         <div class="clearfix" id="compare-header-container">
            <h1> Top exchanges for {{coin}}</h1>
         </div>
         <div id="compare-container-body">
+             <!-- Select cryptocurrency -->
             <div class="clearfix">
                 <div class="col-md-2 col-lg-2 col-sm-2 col-xs-2 dropdown">
                    <select onchange="document.location.href=this.value" class="pull-left btn btn-dropdown dropdown-toggle">
@@ -19,16 +21,19 @@
                  </div>
              </div>
              <div style="height:20px" class="clearfix"></div>
+             <!-- CoinPanda cryptocurrency trend graph for popular exchanges -->
              <div class="row">
                 <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12"> 
                     <div id="compare-graph"></div>
                 </div>
              </div>
              <div class="clearfix"></div>
+             <!-- CoinPanda cryptocurrency recommendation -->
              <div class="col-md-8 col-lg-8 col-sm-8 col-xs-12 text-left col-centered currency-analysis-desc">ChulBul says <strong><i>{{minExc}}</i></strong> is the best place at this time to buy {{coin}}. Get a detailed analysis by following the link below
              </div>
              <div style="height:20px" class="clearfix"></div>
              <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4"></div>
+             <!-- Get more info about the cryptocurrency recommendation -->
              <div class="col-md-4 col-lg-4 col-sm-4 col-xs-4">
                 <a href="/currency_specific?coin={{coin}}&exc={{minExc}}&currency={{currency}}" type="button" class="btn btn-primary "/>Know more</a>
              </div>
@@ -42,14 +47,19 @@
         google.charts.load('current', {'packages':['line']});
         google.charts.setOnLoadCallback(drawChart);
 
+        // This function is used to construct trend chart
         function drawChart() {
           var data = new google.visualization.DataTable();
+          //Add columns
           data.addColumn('number', 'Day');
           {% for col in graphCols %}
             data.addColumn('number', '{{col}}');
           {% endfor %}
+
+          //Add rows for column data
           data.addRows({{graphData}});
 
+          //Chart options
           var options = {
             chart: {
               title: 'Top Exchanges for {{coin}}',
@@ -63,8 +73,8 @@
             }
           };
 
+          // Add chart to DOM
           var chart = new google.charts.Line(document.getElementById('compare-graph'));
-
           chart.draw(data, google.charts.Line.convertOptions(options));
         }
     </script>

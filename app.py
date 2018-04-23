@@ -73,11 +73,6 @@ class ServerError(Exception):pass
 def main():
     return render_template('index.html',title='CoinPanda | Home')
 
-# This function handles Contact us page url route
-@app.route('/contact')
-def contact():
-    return render_template('ContactUs.html',title='CoinPanda | Contact Us')
-
 # This function handles currency comparison page requests
 @app.route('/compare')
 def compare():
@@ -575,6 +570,15 @@ def signUp():
 
     conn.close()
     return render_template('login.html',reg_error=3,title='CoinPanda | Sign Up')
+
+# This function handles Contact us page url route
+@app.route('/contact', methods=['GET', 'POST'])
+def contact():
+    message = ''
+    if len(request.form) > 0:
+        message = 'Thanks for contacting us! We have received your message and will reach out to you!'
+    
+    return render_template('ContactUs.html',message = message, title='CoinPanda | Contact Us')
 
 # This function determines the type of error (Eg: HTTP 404, HTTP 500) and displays the
 # appropriate message to redirect the user
