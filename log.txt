@@ -394,3 +394,706 @@ IOError: [Errno 110] Connection timed out
 47.218.214.91 - - [23/Apr/2018 03:02:56] "GET /static/css/currency.css HTTP/1.1" 200 -
 47.218.214.91 - - [23/Apr/2018 03:02:58] "GET /currency_specific?coin=ETH&exc=Cexio&currency=USD HTTP/1.1" 200 -
 47.218.214.91 - - [23/Apr/2018 03:03:01] "GET /currency_specific?coin=ETH&exc=Kraken&currency=USD HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 03:04:18] "POST /profile HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 03:04:18] "GET /static/css/style.css HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 03:04:18] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 03:04:18] "GET /static/img/LogowithName.png HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 03:04:18] "GET /static/tmp/28870384_1743865702302008_1442463093529168602_n.jpg HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 03:04:20] "GET /dashboard HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 03:04:20] "GET /static/font/cryptocoins.css HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 03:04:20] "GET /static/css/style.css HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 03:04:20] "GET /static/css/home.css HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 03:04:20] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 03:04:21] "GET /static/font/cryptocoins.woff2 HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 03:04:21] "GET /static/img/LogowithName.png HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 03:14:17] "GET /currency_specific?coin=ETH&exc=Kraken&currency=USDsdfsdf HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1997, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1985, in wsgi_app
+    response = self.handle_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1540, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python2.7/dist-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/home/ubuntu/CoinPanda/app.py", line 158, in currency_specific
+    return render_template('currency_specific.html',appWebsite=appWebsite,coinName=_coinName,exchanges= appExchanges,todayData=todayData,coin=_coin,exc = _exc,currency=_currency,graphData = json.dumps(graphData),title='CoinPanda | Currency Specific')
+UnboundLocalError: local variable 'todayData' referenced before assignment
+47.218.214.91 - - [23/Apr/2018 03:14:18] "GET /currency_specific?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 03:14:18] "GET /currency_specific?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 03:14:18] "GET /currency_specific?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 03:14:18] "GET /currency_specific?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 03:14:18] "GET /currency_specific?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 03:14:18] "GET /currency_specific?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 03:14:30] "GET /agdg HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 03:14:32] "GET / HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 03:15:18] "GET /dashboardjkbasca HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 03:15:18] "GET /static/css/404.css HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 03:15:18] "GET /static/img/FallingPanda.png HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 03:15:18] "GET /static/img/ErrorPageCoin.png HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 03:15:39] "GET /compare HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 03:15:47] "GET /compare234 HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 03:15:55] "GET /compare HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 03:18:08] "GET /dashboard HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 03:21:19] "GET /profile HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 03:27:38] "GET /compare HTTP/1.1" 200 -
+18.219.89.182 - - [23/Apr/2018 03:27:46] "GET / HTTP/1.1" 200 -
+18.219.89.182 - - [23/Apr/2018 03:27:46] "GET /robots.txt HTTP/1.1" 200 -
+18.219.89.182 - - [23/Apr/2018 03:27:46] "GET /static/img/Favicon.png HTTP/1.1" 200 -
+18.219.89.182 - - [23/Apr/2018 03:27:46] "GET /static/css/style.css HTTP/1.1" 200 -
+18.219.89.182 - - [23/Apr/2018 03:27:46] "GET /static/img/LogowithName.png HTTP/1.1" 200 -
+18.219.89.182 - - [23/Apr/2018 03:27:46] "GET /contact HTTP/1.1" 200 -
+18.219.89.182 - - [23/Apr/2018 03:27:46] "GET /login HTTP/1.1" 200 -
+18.219.89.182 - - [23/Apr/2018 03:27:46] "GET /static/img/1.png HTTP/1.1" 200 -
+18.219.89.182 - - [23/Apr/2018 03:27:46] "GET /static/img/trusted.png HTTP/1.1" 200 -
+18.219.89.182 - - [23/Apr/2018 03:27:46] "GET /static/img/HighAvailability.png HTTP/1.1" 200 -
+18.219.89.182 - - [23/Apr/2018 03:27:46] "GET /static/img/ExchangeIndependent.png HTTP/1.1" 200 -
+18.219.89.182 - - [23/Apr/2018 03:27:46] "GET /static/img/SimpleIntegration.png HTTP/1.1" 200 -
+18.219.89.182 - - [23/Apr/2018 03:27:46] "GET /static/img/alpha.jpeg HTTP/1.1" 200 -
+18.219.89.182 - - [23/Apr/2018 03:27:46] "GET /static/img/apu.jpeg HTTP/1.1" 200 -
+18.219.89.182 - - [23/Apr/2018 03:27:46] "GET /static/img/adi.jpg HTTP/1.1" 200 -
+18.219.89.182 - - [23/Apr/2018 03:27:46] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 -
+18.219.89.182 - - [23/Apr/2018 03:27:46] "GET /static/js/chat.js HTTP/1.1" 200 -
+18.219.89.182 - - [23/Apr/2018 03:27:46] "GET /static/img/Background.gif HTTP/1.1" 200 -
+18.219.89.182 - - [23/Apr/2018 03:27:47] "GET /static/css/contact.css HTTP/1.1" 200 -
+18.219.89.182 - - [23/Apr/2018 03:27:47] "GET /static/css/login.css HTTP/1.1" 200 -
+18.219.89.182 - - [23/Apr/2018 03:27:47] "GET /dashboard HTTP/1.1" 302 -
+18.219.89.182 - - [23/Apr/2018 03:27:47] "GET /login HTTP/1.1" 200 -
+18.219.89.182 - - [23/Apr/2018 03:27:47] "GET /compare HTTP/1.1" 302 -
+18.219.89.182 - - [23/Apr/2018 03:27:47] "GET /login HTTP/1.1" 200 -
+18.219.89.182 - - [23/Apr/2018 03:27:47] "GET /static/js/login.js HTTP/1.1" 200 -
+18.219.89.182 - - [23/Apr/2018 03:29:55] "GET / HTTP/1.1" 200 -
+18.219.89.182 - - [23/Apr/2018 03:29:55] "GET /robots.txt HTTP/1.1" 200 -
+18.219.89.182 - - [23/Apr/2018 03:29:55] "GET /static/img/Favicon.png HTTP/1.1" 200 -
+18.219.89.182 - - [23/Apr/2018 03:29:55] "GET /static/css/style.css HTTP/1.1" 200 -
+18.219.89.182 - - [23/Apr/2018 03:29:55] "GET /static/img/LogowithName.png HTTP/1.1" 200 -
+18.219.89.182 - - [23/Apr/2018 03:29:55] "GET /contact HTTP/1.1" 200 -
+18.219.89.182 - - [23/Apr/2018 03:29:55] "GET /login HTTP/1.1" 200 -
+18.219.89.182 - - [23/Apr/2018 03:29:55] "GET /static/img/1.png HTTP/1.1" 200 -
+18.219.89.182 - - [23/Apr/2018 03:29:55] "GET /static/img/trusted.png HTTP/1.1" 200 -
+18.219.89.182 - - [23/Apr/2018 03:29:55] "GET /static/img/HighAvailability.png HTTP/1.1" 200 -
+18.219.89.182 - - [23/Apr/2018 03:29:55] "GET /static/img/ExchangeIndependent.png HTTP/1.1" 200 -
+18.219.89.182 - - [23/Apr/2018 03:29:55] "GET /static/img/SimpleIntegration.png HTTP/1.1" 200 -
+18.219.89.182 - - [23/Apr/2018 03:29:55] "GET /static/img/alpha.jpeg HTTP/1.1" 200 -
+18.219.89.182 - - [23/Apr/2018 03:29:55] "GET /static/img/apu.jpeg HTTP/1.1" 200 -
+18.219.89.182 - - [23/Apr/2018 03:29:55] "GET /static/img/adi.jpg HTTP/1.1" 200 -
+18.219.89.182 - - [23/Apr/2018 03:29:55] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 -
+18.219.89.182 - - [23/Apr/2018 03:29:55] "GET /static/js/chat.js HTTP/1.1" 200 -
+18.219.89.182 - - [23/Apr/2018 03:29:55] "GET /static/img/Background.gif HTTP/1.1" 200 -
+18.219.89.182 - - [23/Apr/2018 03:29:55] "GET /static/css/contact.css HTTP/1.1" 200 -
+18.219.89.182 - - [23/Apr/2018 03:29:55] "GET /static/css/login.css HTTP/1.1" 200 -
+18.219.89.182 - - [23/Apr/2018 03:29:55] "GET /dashboard HTTP/1.1" 302 -
+18.219.89.182 - - [23/Apr/2018 03:29:55] "GET /login HTTP/1.1" 200 -
+18.219.89.182 - - [23/Apr/2018 03:29:55] "GET /compare HTTP/1.1" 302 -
+18.219.89.182 - - [23/Apr/2018 03:29:55] "GET /login HTTP/1.1" 200 -
+18.219.89.182 - - [23/Apr/2018 03:29:55] "GET /static/js/login.js HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 03:48:59] "GET / HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 03:49:01] "GET /code HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 03:49:06] "GET /static/img HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 03:49:11] "GET /static/img HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 03:49:14] "GET /static/ HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 03:49:27] "GET /static/img/Background.gif HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 03:49:30] "GET / HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 03:49:40] "GET /static/img/ HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 03:51:34] "GET /code/CoinPandaCode.zip HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 03:52:24] "GET /static/tmp/CoinPandaCode.zip HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 04:00:19] "GET /login HTTP/1.1" 302 -
+47.218.214.91 - - [23/Apr/2018 04:00:21] "GET /login HTTP/1.1" 302 -
+47.218.214.91 - - [23/Apr/2018 04:00:22] "GET /dashboard HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 04:00:23] "GET /login HTTP/1.1" 302 -
+47.218.214.91 - - [23/Apr/2018 04:00:23] "GET /dashboard HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 04:00:23] "GET /dashboard HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 04:00:27] "GET /logout HTTP/1.1" 302 -
+47.218.214.91 - - [23/Apr/2018 04:00:27] "GET /login HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 04:00:42] "POST /login HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 04:00:59] "POST /login HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 04:01:12] "POST /login HTTP/1.1" 302 -
+47.218.214.91 - - [23/Apr/2018 04:01:12] "GET /dashboard HTTP/1.1" 200 -
+46.174.191.30 - - [23/Apr/2018 04:01:15] "GET / HTTP/1.0" 200 -
+47.218.214.91 - - [23/Apr/2018 04:10:21] "HEAD /code/CoinPandaCode.zip HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 04:10:21] "GET /code/CoinPandaCode.zip HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 04:10:22] "GET /code/CoinPandaCode.zip HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 04:10:22] "GET /static/css/404.css HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 04:10:22] "GET /static/img/ErrorPageCoin.png HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 04:10:22] "GET /static/img/FallingPanda.png HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 04:10:39] "GET /code/CoinPandaCode.zip HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 04:11:04] "GET /code/CoinPandaCode.zip HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 04:12:16] "GET /static/img/ HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 04:13:01] "HEAD /static/tmp/CoinPandaCode.zip HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 04:13:01] "GET /static/tmp/CoinPandaCode.zip HTTP/1.1" 200 -
+Error on request:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/serving.py", line 270, in run_wsgi
+    execute(self.server.app)
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/serving.py", line 261, in execute
+    write(data)
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/serving.py", line 242, in write
+    self.wfile.write(data)
+IOError: [Errno 104] Connection reset by peer
+47.218.214.91 - - [23/Apr/2018 04:13:02] "GET /static/tmp/CoinPandaCode.zip HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 04:13:11] "HEAD /static/tmp/CoinPandaCode.zip HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 04:13:11] "GET /static/tmp/CoinPandaCode.zip HTTP/1.1" 200 -
+Error on request:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/serving.py", line 270, in run_wsgi
+    execute(self.server.app)
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/serving.py", line 261, in execute
+    write(data)
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/serving.py", line 242, in write
+    self.wfile.write(data)
+IOError: [Errno 104] Connection reset by peer
+47.218.214.91 - - [23/Apr/2018 04:13:12] "GET /static/tmp/CoinPandaCode.zip HTTP/1.1" 200 -
+Error on request:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/serving.py", line 270, in run_wsgi
+    execute(self.server.app)
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/serving.py", line 261, in execute
+    write(data)
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/serving.py", line 242, in write
+    self.wfile.write(data)
+IOError: [Errno 104] Connection reset by peer
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/SocketServer.py", line 593, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python2.7/SocketServer.py", line 334, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python2.7/SocketServer.py", line 649, in __init__
+    self.handle()
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/serving.py", line 293, in handle
+    rv = BaseHTTPRequestHandler.handle(self)
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 340, in handle
+    self.handle_one_request()
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/serving.py", line 324, in handle_one_request
+    self.raw_requestline = self.rfile.readline()
+IOError: [Errno 104] Connection reset by peer
+47.218.214.91 - - [23/Apr/2018 04:35:36] "GET / HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 04:41:19] "GET / HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 04:42:59] "GET /static/tmp/CoinPandaCode.zip HTTP/1.1" 200 -
+Error on request:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/serving.py", line 270, in run_wsgi
+    execute(self.server.app)
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/serving.py", line 261, in execute
+    write(data)
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/serving.py", line 242, in write
+    self.wfile.write(data)
+IOError: [Errno 104] Connection reset by peer
+47.218.214.91 - - [23/Apr/2018 04:43:02] "GET /static/tmp/CoinPandaCode.zip HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 04:43:08] "GET /static/tmp/CoinPandaCode.zip HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 04:49:51] "GET /static/tmp/CoinPandaCode.zipyou HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 05:40:19] "GET / HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 05:40:20] "GET /static/js/chat.js HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 05:40:20] "GET /static/img/1.png HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 05:40:21] "GET /static/img/trusted.png HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 05:40:21] "GET /static/img/HighAvailability.png HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 05:40:21] "GET /static/img/ExchangeIndependent.png HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 05:40:21] "GET /static/img/Background.gif HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 05:40:21] "GET /static/img/SimpleIntegration.png HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 05:40:22] "GET /static/img/alpha.jpeg HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 05:40:22] "GET /static/img/apu.jpeg HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 05:40:22] "GET /static/img/adi.jpg HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 05:41:05] "GET /login HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 05:41:05] "GET /static/css/login.css HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 05:41:05] "GET /static/js/login.js HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 05:41:20] "POST /login HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 05:41:43] "POST /login HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 05:42:00] "POST /login HTTP/1.1" 200 -
+/usr/local/lib/python2.7/dist-packages/pymysql/cursors.py:165: Warning: (1364, u"Field 'InsertDate' doesn't have a default value")
+  result = self._query(query)
+47.218.214.91 - - [23/Apr/2018 05:43:12] "POST /register HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 05:43:20] "POST /login HTTP/1.1" 302 -
+47.218.214.91 - - [23/Apr/2018 05:43:23] "GET /dashboard HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 05:43:23] "GET /static/font/cryptocoins.css HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 05:43:24] "GET /static/css/home.css HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 05:43:58] "POST /save_investment/0 HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 05:43:59] "GET /dashboard HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 05:44:00] "GET /static/font/cryptocoins.woff2 HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 05:44:50] "POST /save_investment/0 HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 05:44:51] "GET /dashboard HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 05:45:24] "POST /save_investment/0 HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 05:45:25] "GET /dashboard HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 05:45:52] "GET /compare?coin=BTC&currency=USD HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 05:45:52] "GET /static/css/compare.css HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 05:46:03] "GET /compare?coin=LTC&currency=USD HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 05:46:10] "GET /dashboard HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 05:46:12] "GET / HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 05:46:12] "GET /static/js/chat.js HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 05:46:22] "GET /error HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 05:46:40] "GET / HTTP/1.1" 200 -
+47.218.214.91 - - [23/Apr/2018 05:46:40] "GET /static/js/chat.js HTTP/1.1" 200 -
+45.76.77.233 - - [23/Apr/2018 06:17:31] "GET /computer/(master)/script HTTP/1.1" 200 -
+66.249.80.22 - - [23/Apr/2018 06:36:33] "GET / HTTP/1.1" 200 -
+61.176.193.24 - - [23/Apr/2018 06:41:06] "GET /manager/html HTTP/1.1" 200 -
+31.207.47.86 - - [23/Apr/2018 06:43:54] "HEAD /cli HTTP/1.1" 200 -
+46.174.191.29 - - [23/Apr/2018 06:56:14] "GET / HTTP/1.0" 200 -
+60.191.38.77 - - [23/Apr/2018 07:55:18] "GET / HTTP/1.1" 200 -
+45.76.77.233 - - [23/Apr/2018 09:46:17] "GET /script HTTP/1.1" 200 -
+162.243.148.173 - - [23/Apr/2018 10:32:33] "GET / HTTP/1.1" 200 -
+128.199.198.93 - - [23/Apr/2018 11:06:53] "GET / HTTP/1.1" 200 -
+139.162.111.98 - - [23/Apr/2018 11:17:44] "GET / HTTP/1.1" 200 -
+139.162.79.87 - - [23/Apr/2018 11:54:10] "GET / HTTP/1.1" 200 -
+46.174.191.30 - - [23/Apr/2018 12:03:05] "GET / HTTP/1.0" 200 -
+31.207.47.86 - - [23/Apr/2018 13:46:16] "HEAD /invoker/readonly HTTP/1.1" 200 -
+5.101.40.83 - - [23/Apr/2018 14:22:44] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00/*\xe0\x00\x00\x00\x00\x00Cookie:')
+5.101.40.83 - - [23/Apr/2018 14:22:44] "  /*‡     Cookie: mstshash=Administr" 400 -
+209.126.136.4 - - [23/Apr/2018 14:28:00] "GET / HTTP/1.1" 200 -
+107.77.161.5 - - [23/Apr/2018 14:48:10] "GET /dashboard HTTP/1.1" 302 -
+107.77.161.5 - - [23/Apr/2018 14:48:10] "GET /login HTTP/1.1" 200 -
+107.77.161.5 - - [23/Apr/2018 14:48:10] "GET /static/css/login.css HTTP/1.1" 304 -
+107.77.161.5 - - [23/Apr/2018 14:48:10] "GET /static/css/style.css HTTP/1.1" 304 -
+107.77.161.5 - - [23/Apr/2018 14:48:10] "GET /static/img/LogowithName.png HTTP/1.1" 304 -
+107.77.161.5 - - [23/Apr/2018 14:48:10] "GET /static/js/login.js HTTP/1.1" 304 -
+107.77.161.5 - - [23/Apr/2018 14:48:10] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 -
+46.174.191.31 - - [23/Apr/2018 17:29:09] "GET / HTTP/1.0" 200 -
+75.109.215.176 - - [23/Apr/2018 17:32:00] "GET / HTTP/1.1" 200 -
+75.109.215.176 - - [23/Apr/2018 17:32:00] "GET /static/css/style.css HTTP/1.1" 304 -
+75.109.215.176 - - [23/Apr/2018 17:32:00] "GET /static/img/LogowithName.png HTTP/1.1" 200 -
+75.109.215.176 - - [23/Apr/2018 17:32:00] "GET /static/img/1.png HTTP/1.1" 200 -
+75.109.215.176 - - [23/Apr/2018 17:32:00] "GET /static/img/trusted.png HTTP/1.1" 200 -
+75.109.215.176 - - [23/Apr/2018 17:32:00] "GET /static/img/HighAvailability.png HTTP/1.1" 200 -
+75.109.215.176 - - [23/Apr/2018 17:32:01] "GET /static/img/ExchangeIndependent.png HTTP/1.1" 200 -
+75.109.215.176 - - [23/Apr/2018 17:32:01] "GET /static/img/alpha.jpeg HTTP/1.1" 200 -
+75.109.215.176 - - [23/Apr/2018 17:32:01] "GET /static/img/SimpleIntegration.png HTTP/1.1" 200 -
+75.109.215.176 - - [23/Apr/2018 17:32:01] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 -
+75.109.215.176 - - [23/Apr/2018 17:32:01] "GET /static/img/Background.gif HTTP/1.1" 200 -
+75.109.215.176 - - [23/Apr/2018 17:32:01] "GET /static/js/chat.js HTTP/1.1" 200 -
+75.109.215.176 - - [23/Apr/2018 17:32:01] "GET /static/img/apu.jpeg HTTP/1.1" 200 -
+75.109.215.176 - - [23/Apr/2018 17:32:01] "GET /static/img/adi.jpg HTTP/1.1" 200 -
+75.109.215.176 - - [23/Apr/2018 17:32:04] "GET /login HTTP/1.1" 302 -
+75.109.215.176 - - [23/Apr/2018 17:32:07] "GET /dashboard HTTP/1.1" 200 -
+75.109.215.176 - - [23/Apr/2018 17:32:09] "GET /static/font/cryptocoins.css HTTP/1.1" 304 -
+75.109.215.176 - - [23/Apr/2018 17:32:09] "GET /static/css/home.css HTTP/1.1" 304 -
+75.109.215.176 - - [23/Apr/2018 17:32:11] "GET /static/font/cryptocoins.woff2 HTTP/1.1" 304 -
+75.109.215.176 - - [23/Apr/2018 17:32:35] "POST /save_investment/0 HTTP/1.1" 200 -
+75.109.215.176 - - [23/Apr/2018 17:32:37] "GET /dashboard HTTP/1.1" 200 -
+75.109.215.176 - - [23/Apr/2018 17:32:51] "POST /delete_investment/ HTTP/1.1" 200 -
+75.109.215.176 - - [23/Apr/2018 17:32:53] "GET /dashboard HTTP/1.1" 200 -
+75.109.215.176 - - [23/Apr/2018 17:33:24] "GET /compare HTTP/1.1" 200 -
+75.109.215.176 - - [23/Apr/2018 17:33:25] "GET /static/css/compare.css HTTP/1.1" 304 -
+75.109.215.176 - - [23/Apr/2018 17:33:31] "GET /compare?coin=XRP&currency=USD HTTP/1.1" 200 -
+75.109.215.176 - - [23/Apr/2018 17:33:40] "GET /compare?coin=BTC&currency=USD HTTP/1.1" 200 -
+75.109.215.176 - - [23/Apr/2018 17:33:49] "GET /currency_specific?coin=BTC&exc=Exmo&currency=USD HTTP/1.1" 200 -
+75.109.215.176 - - [23/Apr/2018 17:33:49] "GET /static/css/currency.css HTTP/1.1" 304 -
+75.109.215.176 - - [23/Apr/2018 17:33:52] "GET /currency_specific?coin=BTC&exc=Kraken&currency=USD HTTP/1.1" 200 -
+75.109.215.176 - - [23/Apr/2018 17:33:56] "GET /currency_specific?coin=BTC&exc=Cexio&currency=USD HTTP/1.1" 200 -
+75.109.215.176 - - [23/Apr/2018 17:34:14] "GET /dashboard HTTP/1.1" 200 -
+75.109.215.176 - - [23/Apr/2018 17:34:19] "GET / HTTP/1.1" 200 -
+75.109.215.176 - - [23/Apr/2018 17:34:19] "GET /static/js/chat.js HTTP/1.1" 200 -
+75.109.215.176 - - [23/Apr/2018 17:34:25] "GET /contact HTTP/1.1" 200 -
+75.109.215.176 - - [23/Apr/2018 17:34:25] "GET /static/css/contact.css HTTP/1.1" 200 -
+75.109.215.176 - - [23/Apr/2018 17:34:46] "GET /contact HTTP/1.1" 200 -
+165.91.12.74 - - [23/Apr/2018 17:39:15] "GET /contact HTTP/1.1" 200 -
+165.91.12.74 - - [23/Apr/2018 17:39:16] "GET /static/css/contact.css HTTP/1.1" 200 -
+165.91.12.74 - - [23/Apr/2018 17:39:16] "GET /static/css/style.css HTTP/1.1" 304 -
+165.91.12.74 - - [23/Apr/2018 17:39:16] "GET /static/img/LogowithName.png HTTP/1.1" 304 -
+165.91.12.74 - - [23/Apr/2018 17:39:16] "GET /static/js/bootstrap.min.js HTTP/1.1" 304 -
+165.91.12.74 - - [23/Apr/2018 17:39:18] "GET /contact HTTP/1.1" 200 -
+165.91.12.74 - - [23/Apr/2018 17:39:25] "GET / HTTP/1.1" 200 -
+165.91.12.74 - - [23/Apr/2018 17:39:25] "GET /static/img/1.png HTTP/1.1" 304 -
+165.91.12.74 - - [23/Apr/2018 17:39:25] "GET /static/img/trusted.png HTTP/1.1" 304 -
+165.91.12.74 - - [23/Apr/2018 17:39:25] "GET /static/img/ExchangeIndependent.png HTTP/1.1" 304 -
+165.91.12.74 - - [23/Apr/2018 17:39:25] "GET /static/img/HighAvailability.png HTTP/1.1" 304 -
+165.91.12.74 - - [23/Apr/2018 17:39:25] "GET /static/img/alpha.jpeg HTTP/1.1" 304 -
+165.91.12.74 - - [23/Apr/2018 17:39:25] "GET /static/img/SimpleIntegration.png HTTP/1.1" 304 -
+165.91.12.74 - - [23/Apr/2018 17:39:25] "GET /static/js/chat.js HTTP/1.1" 200 -
+165.91.12.74 - - [23/Apr/2018 17:39:25] "GET /static/img/Background.gif HTTP/1.1" 304 -
+165.91.12.74 - - [23/Apr/2018 17:39:25] "GET /static/img/apu.jpeg HTTP/1.1" 304 -
+165.91.12.74 - - [23/Apr/2018 17:39:25] "GET /static/img/adi.jpg HTTP/1.1" 304 -
+165.91.12.74 - - [23/Apr/2018 17:39:34] "GET /login HTTP/1.1" 302 -
+165.91.12.74 - - [23/Apr/2018 17:39:34] "GET /dashboard HTTP/1.1" 200 -
+165.91.12.74 - - [23/Apr/2018 17:39:34] "GET /static/font/cryptocoins.css HTTP/1.1" 304 -
+165.91.12.74 - - [23/Apr/2018 17:39:34] "GET /static/css/home.css HTTP/1.1" 304 -
+165.91.12.74 - - [23/Apr/2018 17:39:34] "GET /static/font/cryptocoins.woff2 HTTP/1.1" 304 -
+165.91.12.74 - - [23/Apr/2018 17:39:36] "GET /logout HTTP/1.1" 302 -
+165.91.12.74 - - [23/Apr/2018 17:39:36] "GET /login HTTP/1.1" 200 -
+165.91.12.74 - - [23/Apr/2018 17:39:36] "GET /static/css/login.css HTTP/1.1" 304 -
+165.91.12.74 - - [23/Apr/2018 17:39:36] "GET /static/js/login.js HTTP/1.1" 304 -
+165.91.12.74 - - [23/Apr/2018 17:39:48] "GET / HTTP/1.1" 200 -
+165.91.12.74 - - [23/Apr/2018 17:39:48] "GET /static/js/chat.js HTTP/1.1" 200 -
+165.91.12.74 - - [23/Apr/2018 17:39:50] "GET /contact HTTP/1.1" 200 -
+165.91.12.74 - - [23/Apr/2018 17:40:04] "GET /contact HTTP/1.1" 200 -
+165.91.12.74 - - [23/Apr/2018 17:40:05] "GET /static/img/Favicon.png HTTP/1.1" 200 -
+165.91.12.74 - - [23/Apr/2018 17:42:25] "GET /contact HTTP/1.1" 200 -
+165.91.12.74 - - [23/Apr/2018 17:42:25] "GET /static/css/style.css HTTP/1.1" 200 -
+165.91.12.74 - - [23/Apr/2018 17:42:25] "GET /static/css/contact.css HTTP/1.1" 200 -
+165.91.12.74 - - [23/Apr/2018 17:42:25] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 -
+165.91.12.74 - - [23/Apr/2018 17:42:25] "GET /static/img/LogowithName.png HTTP/1.1" 200 -
+165.91.12.74 - - [23/Apr/2018 17:42:41] "GET /contact HTTP/1.1" 200 -
+165.91.12.74 - - [23/Apr/2018 17:42:41] "GET /static/css/contact.css HTTP/1.1" 200 -
+165.91.12.74 - - [23/Apr/2018 17:42:41] "GET /static/css/style.css HTTP/1.1" 200 -
+165.91.12.74 - - [23/Apr/2018 17:42:41] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 -
+165.91.12.74 - - [23/Apr/2018 17:42:42] "GET /static/img/LogowithName.png HTTP/1.1" 200 -
+165.91.12.74 - - [23/Apr/2018 17:43:17] "GET /contact HTTP/1.1" 200 -
+165.91.12.74 - - [23/Apr/2018 17:43:17] "GET /static/img/Favicon.png HTTP/1.1" 200 -
+165.91.12.74 - - [23/Apr/2018 17:43:19] "GET /contact HTTP/1.1" 200 -
+165.91.12.74 - - [23/Apr/2018 17:43:19] "GET /static/img/Favicon.png HTTP/1.1" 200 -
+165.91.12.74 - - [23/Apr/2018 17:43:49] "POST /contact HTTP/1.1" 200 -
+165.91.12.74 - - [23/Apr/2018 17:43:58] "GET / HTTP/1.1" 200 -
+165.91.12.74 - - [23/Apr/2018 17:43:58] "GET /static/js/chat.js HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:19:22] "GET / HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:19:22] "GET /static/css/style.css HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:19:22] "GET /static/js/chat.js HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:19:22] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:19:22] "GET /static/img/1.png HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:19:22] "GET /static/img/trusted.png HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:19:22] "GET /static/img/LogowithName.png HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:19:22] "GET /static/img/HighAvailability.png HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:19:23] "GET /static/img/ExchangeIndependent.png HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:19:23] "GET /static/img/SimpleIntegration.png HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:19:23] "GET /static/img/alpha.jpeg HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:19:23] "GET /static/img/apu.jpeg HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:19:23] "GET /static/img/adi.jpg HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:19:23] "GET /static/img/Background.gif HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:19:25] "GET /static/img/Favicon.png HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:19:33] "GET /login HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:19:33] "GET /static/css/login.css HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:19:33] "GET /static/js/login.js HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:19:36] "GET / HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:19:36] "GET /static/js/chat.js HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:19:54] "GET /login HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:20:10] "POST /login HTTP/1.1" 302 -
+165.91.227.33 - - [23/Apr/2018 18:20:13] "GET /dashboard HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:20:13] "GET /static/font/cryptocoins.css HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:20:13] "GET /static/css/home.css HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:20:14] "GET /static/font/cryptocoins.woff2 HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:20:51] "POST /save_investment/0 HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:20:53] "GET /dashboard HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:21:39] "GET / HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:21:39] "GET /static/js/chat.js HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:21:41] "GET /login HTTP/1.1" 302 -
+165.91.227.33 - - [23/Apr/2018 18:21:41] "GET /dashboard HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:21:46] "GET /compare HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:21:46] "GET /static/css/compare.css HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:21:52] "GET /compare?coin=LTC&currency=USD HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:22:15] "GET /compare HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:22:18] "GET /dashboard HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:22:23] "GET /compare?coin=BTC&currency=USD HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:22:25] "GET /dashboard HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:22:33] "GET /compare?coin=BTC&currency=USD HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:22:38] "GET /compare HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:22:45] "GET /dashboard HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:22:51] "GET /compare?coin=BTC&currency=USD HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:22:56] "GET /compare HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:22:58] "GET /dashboard HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:23:08] "GET /dashboard HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:23:15] "POST /delete_investment/ HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:23:16] "GET /dashboard HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:23:23] "GET /profile HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:23:23] "GET /static/tmp/2.jpg HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:23:30] "GET /compare HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:23:39] "GET /compare HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:23:42] "GET /currency_specific?coin=BTC&exc=Exmo&currency=USD HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:23:43] "GET /static/css/currency.css HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:23:51] "GET /currency_specific?coin=BTC&exc=Cexio&currency=USD HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:23:53] "GET /currency_specific?coin=BTC&exc=Bitstamp&currency=USD HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:24:12] "GET /currency_specific?coin=BTC&exc=Exmo&currency=USD HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:24:19] "GET /currency_specific?coin=BTC&exc=Bitstamp&currency=USD HTTP/1.1" 200 -
+165.91.227.33 - - [23/Apr/2018 18:24:32] "GET /logout HTTP/1.1" 302 -
+165.91.227.33 - - [23/Apr/2018 18:24:32] "GET /login HTTP/1.1" 200 -
+46.174.191.32 - - [23/Apr/2018 18:25:03] "GET / HTTP/1.0" 200 -
+111.121.193.209 - - [23/Apr/2018 19:13:33] "GET /manager/html HTTP/1.1" 200 -
+111.121.193.209 - - [23/Apr/2018 19:13:34] code 400, message Bad request syntax ('\x16\x03\x01\x00H\x01\x00\x00D\x03\x01Z\xde0D\xb6#\xc4\x9d\xb22\x13~\x9e\x93\x08\xffw\xf1hz\x9bx\xf0\x91\xc2\xfe-]A\xa32|\x00\x00\x16\x00\x04\x00\x05\x00')
+111.121.193.209 - - [23/Apr/2018 19:13:34] " H  DZﬁ0D∂#ƒù≤2~ûìˇwÒhzõxë¬˛-]A£2|     " 400 -
+111.121.193.209 - - [23/Apr/2018 19:13:34] code 400, message Bad request syntax ('\x16\x03\x01\x00H\x01\x00\x00D\x03\x01Z\xde0E\x12K\xf0_\x976=\x94x\x17y\xb1_\xa1\xd1\xd7\xb7;\xe0\x94-\xf6O\xe2\x18\x15S\x02\x00\x00\x16\x00\x04\x00\x05\x00')
+111.121.193.209 - - [23/Apr/2018 19:13:34] " H  DZﬁ0EK_ó6=îxy±_°—◊∑;‡î-ˆO‚S     " 400 -
+115.231.222.210 - - [23/Apr/2018 19:36:50] "GET /manager/html HTTP/1.1" 200 -
+183.131.83.36 - - [23/Apr/2018 19:54:17] "GET /manager/html HTTP/1.1" 200 -
+165.91.12.148 - - [23/Apr/2018 22:41:05] "GET / HTTP/1.1" 200 -
+165.91.12.148 - - [23/Apr/2018 22:41:06] "GET /static/js/chat.js HTTP/1.1" 200 -
+165.91.12.148 - - [23/Apr/2018 22:43:14] "GET /login HTTP/1.1" 200 -
+165.91.12.148 - - [23/Apr/2018 22:43:35] "POST /login HTTP/1.1" 302 -
+165.91.12.148 - - [23/Apr/2018 22:43:38] "GET /dashboard HTTP/1.1" 200 -
+165.91.12.148 - - [23/Apr/2018 22:43:51] "GET /dashboard HTTP/1.1" 200 -
+165.91.12.148 - - [23/Apr/2018 22:43:52] "GET /static/img/Favicon.png HTTP/1.1" 200 -
+165.91.12.148 - - [23/Apr/2018 22:43:58] "GET /dashboard HTTP/1.1" 200 -
+165.91.12.148 - - [23/Apr/2018 22:44:14] "POST /delete_investment/ HTTP/1.1" 200 -
+165.91.12.148 - - [23/Apr/2018 22:44:16] "GET /dashboard HTTP/1.1" 200 -
+165.91.12.148 - - [23/Apr/2018 22:45:24] "POST /save_investment/0 HTTP/1.1" 200 -
+165.91.12.148 - - [23/Apr/2018 22:45:26] "GET /dashboard HTTP/1.1" 200 -
+165.91.12.148 - - [23/Apr/2018 22:46:15] "GET /compare?coin=BTC&currency=USD HTTP/1.1" 200 -
+165.91.12.148 - - [23/Apr/2018 22:46:15] "GET /static/css/compare.css HTTP/1.1" 304 -
+165.91.12.148 - - [23/Apr/2018 22:46:27] "GET /compare?coin=BTC&currency=USD HTTP/1.1" 200 -
+165.91.12.148 - - [23/Apr/2018 22:46:38] "GET /compare?coin=LTC&currency=USD HTTP/1.1" 200 -
+165.91.12.148 - - [23/Apr/2018 22:46:44] "GET /compare?coin=ETH&currency=USD HTTP/1.1" 200 -
+165.91.12.148 - - [23/Apr/2018 22:46:52] "GET /compare?coin=BTC&currency=USD HTTP/1.1" 200 -
+165.91.12.148 - - [23/Apr/2018 22:46:57] "GET /compare?coin=ETH&currency=USD HTTP/1.1" 200 -
+165.91.12.148 - - [23/Apr/2018 22:47:27] "GET /currency_specific?coin=ETH&exc=Exmo&currency=USD HTTP/1.1" 200 -
+165.91.12.148 - - [23/Apr/2018 22:47:27] "GET /static/css/currency.css HTTP/1.1" 200 -
+165.91.12.148 - - [23/Apr/2018 22:47:34] "GET /currency_specific?coin=ETH&exc=Cexio&currency=USD HTTP/1.1" 200 -
+165.91.12.148 - - [23/Apr/2018 22:47:36] "GET /currency_specific?coin=ETH&exc=Bitstamp&currency=USD HTTP/1.1" 200 -
+165.91.12.148 - - [23/Apr/2018 22:47:38] "GET /currency_specific?coin=ETH&exc=Kraken&currency=USD HTTP/1.1" 200 -
+165.91.12.148 - - [23/Apr/2018 22:47:45] "GET /currency_specific?coin=ETH&exc=Cexio&currency=USD HTTP/1.1" 200 -
+165.91.12.148 - - [23/Apr/2018 22:47:53] "GET /profile HTTP/1.1" 200 -
+165.91.12.148 - - [23/Apr/2018 22:47:53] "GET /static/tmp/2.jpg HTTP/1.1" 200 -
+165.91.12.148 - - [23/Apr/2018 22:48:05] "GET /dashboard HTTP/1.1" 200 -
+165.91.12.148 - - [23/Apr/2018 22:48:06] "GET /dashboard HTTP/1.1" 200 -
+165.91.12.148 - - [23/Apr/2018 22:48:11] "GET /compare HTTP/1.1" 200 -
+165.91.12.148 - - [23/Apr/2018 22:48:17] "GET /logout HTTP/1.1" 302 -
+165.91.12.148 - - [23/Apr/2018 22:48:17] "GET /login HTTP/1.1" 200 -
+165.91.12.148 - - [23/Apr/2018 22:48:22] "GET / HTTP/1.1" 200 -
+165.91.12.148 - - [23/Apr/2018 22:48:22] "GET /static/js/chat.js HTTP/1.1" 200 -
+165.91.12.122 - - [23/Apr/2018 22:51:02] "GET / HTTP/1.1" 200 -
+165.91.12.122 - - [23/Apr/2018 22:51:02] "GET /static/css/style.css HTTP/1.1" 200 -
+165.91.12.122 - - [23/Apr/2018 22:51:02] "GET /static/img/LogowithName.png HTTP/1.1" 200 -
+165.91.12.122 - - [23/Apr/2018 22:51:02] "GET /static/img/1.png HTTP/1.1" 200 -
+165.91.12.122 - - [23/Apr/2018 22:51:02] "GET /static/img/trusted.png HTTP/1.1" 200 -
+165.91.12.122 - - [23/Apr/2018 22:51:02] "GET /static/img/HighAvailability.png HTTP/1.1" 200 -
+165.91.12.122 - - [23/Apr/2018 22:51:02] "GET /static/img/ExchangeIndependent.png HTTP/1.1" 200 -
+165.91.12.122 - - [23/Apr/2018 22:51:02] "GET /static/img/SimpleIntegration.png HTTP/1.1" 200 -
+165.91.12.122 - - [23/Apr/2018 22:51:03] "GET /static/img/Background.gif HTTP/1.1" 200 -
+165.91.12.122 - - [23/Apr/2018 22:51:03] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 -
+165.91.12.122 - - [23/Apr/2018 22:51:03] "GET /static/js/chat.js HTTP/1.1" 200 -
+165.91.12.122 - - [23/Apr/2018 22:51:03] "GET /static/img/alpha.jpeg HTTP/1.1" 200 -
+165.91.12.122 - - [23/Apr/2018 22:51:03] "GET /static/img/apu.jpeg HTTP/1.1" 200 -
+165.91.12.122 - - [23/Apr/2018 22:51:03] "GET /static/img/adi.jpg HTTP/1.1" 200 -
+165.91.12.122 - - [23/Apr/2018 22:51:05] "GET /static/img/Favicon.png HTTP/1.1" 200 -
+165.91.12.122 - - [23/Apr/2018 22:51:20] "GET /contact HTTP/1.1" 200 -
+165.91.12.122 - - [23/Apr/2018 22:51:20] "GET /static/css/contact.css HTTP/1.1" 200 -
+165.91.12.122 - - [23/Apr/2018 22:51:24] "GET /dashboard HTTP/1.1" 302 -
+165.91.12.122 - - [23/Apr/2018 22:51:24] "GET /login HTTP/1.1" 200 -
+165.91.12.122 - - [23/Apr/2018 22:51:24] "GET /static/css/login.css HTTP/1.1" 200 -
+165.91.12.122 - - [23/Apr/2018 22:51:24] "GET /static/js/login.js HTTP/1.1" 200 -
+165.91.12.122 - - [23/Apr/2018 22:51:43] "POST /login HTTP/1.1" 200 -
+165.91.12.122 - - [23/Apr/2018 22:51:59] "POST /login HTTP/1.1" 302 -
+165.91.12.122 - - [23/Apr/2018 22:52:00] "GET /dashboard HTTP/1.1" 200 -
+165.91.12.122 - - [23/Apr/2018 22:52:00] "GET /static/font/cryptocoins.css HTTP/1.1" 200 -
+165.91.12.122 - - [23/Apr/2018 22:52:00] "GET /static/css/home.css HTTP/1.1" 200 -
+165.91.12.122 - - [23/Apr/2018 22:52:00] "GET /static/font/cryptocoins.woff2 HTTP/1.1" 200 -
+165.91.12.122 - - [23/Apr/2018 22:52:11] "GET /compare HTTP/1.1" 200 -
+165.91.12.122 - - [23/Apr/2018 22:52:11] "GET /static/css/compare.css HTTP/1.1" 200 -
+165.91.12.122 - - [23/Apr/2018 22:52:14] "GET / HTTP/1.1" 200 -
+165.91.12.122 - - [23/Apr/2018 22:52:14] "GET /static/js/chat.js HTTP/1.1" 200 -
+165.91.12.122 - - [23/Apr/2018 22:52:20] "GET /login HTTP/1.1" 302 -
+165.91.12.122 - - [23/Apr/2018 22:52:20] "GET /dashboard HTTP/1.1" 200 -
+165.91.12.122 - - [23/Apr/2018 22:52:24] "GET /logout HTTP/1.1" 302 -
+165.91.12.122 - - [23/Apr/2018 22:52:24] "GET /login HTTP/1.1" 200 -
+165.91.12.148 - - [23/Apr/2018 22:58:40] "GET /login HTTP/1.1" 200 -
+165.91.12.148 - - [23/Apr/2018 22:58:48] "POST /login HTTP/1.1" 302 -
+165.91.12.148 - - [23/Apr/2018 22:58:51] "GET /dashboard HTTP/1.1" 200 -
+165.91.12.148 - - [23/Apr/2018 23:01:51] "POST /save_investment/0 HTTP/1.1" 200 -
+165.91.12.148 - - [23/Apr/2018 23:01:53] "GET /dashboard HTTP/1.1" 200 -
+165.91.12.148 - - [23/Apr/2018 23:03:32] "GET /compare?coin=BTC&currency=USD HTTP/1.1" 200 -
+165.91.12.148 - - [23/Apr/2018 23:06:35] "GET /currency_specific?coin=BTC&exc=Exmo&currency=USD HTTP/1.1" 200 -
+165.91.12.148 - - [23/Apr/2018 23:06:51] "GET /currency_specific?coin=BTC&exc=Cexio&currency=USD HTTP/1.1" 200 -
+165.91.12.148 - - [23/Apr/2018 23:08:07] "GET /profile HTTP/1.1" 200 -
+165.91.12.148 - - [23/Apr/2018 23:08:17] "GET /dashboard HTTP/1.1" 200 -
+165.91.12.148 - - [23/Apr/2018 23:08:53] "POST /delete_investment/ HTTP/1.1" 200 -
+165.91.12.148 - - [23/Apr/2018 23:08:56] "GET /dashboard HTTP/1.1" 200 -
+190.94.135.241 - - [23/Apr/2018 23:30:09] "GET / HTTP/1.1" 200 -
+190.94.135.241 - - [23/Apr/2018 23:30:09] "GET / HTTP/1.1" 200 -
+190.94.135.241 - - [23/Apr/2018 23:30:09] "GET / HTTP/1.0" 200 -
+190.94.135.241 - - [23/Apr/2018 23:30:10] "GET /cgi-bin/index.cgi HTTP/1.1" 200 -
+92.154.88.116 - - [24/Apr/2018 00:09:22] "GET / HTTP/1.1" 200 -
+92.154.88.116 - - [24/Apr/2018 00:09:22] "GET / HTTP/1.1" 200 -
+92.154.88.116 - - [24/Apr/2018 00:09:22] "GET / HTTP/1.0" 200 -
+92.154.88.116 - - [24/Apr/2018 00:09:22] "GET /cgi-bin/index.cgi HTTP/1.1" 200 -
+46.174.191.29 - - [24/Apr/2018 00:13:48] "GET / HTTP/1.0" 200 -
+185.216.140.41 - - [24/Apr/2018 00:22:42] "GET / HTTP/1.1" 200 -
+184.105.247.196 - - [24/Apr/2018 00:32:12] "GET / HTTP/1.1" 200 -
+46.174.191.30 - - [24/Apr/2018 01:40:39] "GET / HTTP/1.0" 200 -
+47.90.203.164 - - [24/Apr/2018 02:35:40] "GET / HTTP/1.1" 200 -
+47.90.203.164 - - [24/Apr/2018 02:35:40] "GET / HTTP/1.1" 200 -
+47.90.203.164 - - [24/Apr/2018 02:35:40] "GET / HTTP/1.0" 200 -
+47.90.203.164 - - [24/Apr/2018 02:35:40] "GET /cgi-bin/index.cgi HTTP/1.1" 200 -
+66.102.7.134 - - [24/Apr/2018 02:40:12] "GET /login HTTP/1.1" 200 -
+66.102.7.134 - - [24/Apr/2018 02:40:12] "GET /static/img/Favicon.png HTTP/1.1" 200 -
+191.100.8.198 - - [24/Apr/2018 04:30:23] "GET / HTTP/1.1" 200 -
+191.100.8.198 - - [24/Apr/2018 04:30:23] "GET / HTTP/1.1" 200 -
+191.100.8.198 - - [24/Apr/2018 04:30:23] "GET / HTTP/1.0" 200 -
+191.100.8.198 - - [24/Apr/2018 04:30:24] "GET /cgi-bin/index.cgi HTTP/1.1" 200 -
+167.99.160.35 - - [24/Apr/2018 05:05:18] "GET / HTTP/1.1" 200 -
+167.99.160.35 - - [24/Apr/2018 05:05:18] "GET / HTTP/1.1" 200 -
+167.99.160.35 - - [24/Apr/2018 05:05:18] "GET / HTTP/1.0" 200 -
+167.99.160.35 - - [24/Apr/2018 05:05:18] "GET /cgi-bin/index.cgi HTTP/1.1" 200 -
+5.39.216.195 - - [24/Apr/2018 05:12:32] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00/*\xe0\x00\x00\x00\x00\x00Cookie:')
+5.39.216.195 - - [24/Apr/2018 05:12:32] "  /*‡     Cookie: mstshash=Administr" 400 -
+61.176.222.170 - - [24/Apr/2018 06:02:58] "GET /ip_js.php?IP=18.219.89.182&DK=8080&DD=ASNIAOUFMOMZJIBD HTTP/1.1" 200 -
+46.174.191.30 - - [24/Apr/2018 06:32:01] "GET / HTTP/1.0" 200 -
+66.102.7.130 - - [24/Apr/2018 07:42:21] "GET / HTTP/1.1" 200 -
+46.174.191.31 - - [24/Apr/2018 10:00:49] "GET / HTTP/1.0" 200 -
+190.94.138.73 - - [24/Apr/2018 12:44:47] "GET / HTTP/1.1" 200 -
+190.94.138.73 - - [24/Apr/2018 12:44:48] "GET / HTTP/1.1" 200 -
+190.94.138.73 - - [24/Apr/2018 12:44:48] "GET / HTTP/1.0" 200 -
+190.94.138.73 - - [24/Apr/2018 12:44:48] "GET /cgi-bin/index.cgi HTTP/1.1" 200 -
+196.52.43.92 - - [24/Apr/2018 13:06:07] "GET / HTTP/1.0" 200 -
+103.214.48.116 - - [24/Apr/2018 13:16:25] "GET /manager/html HTTP/1.1" 200 -
+191.100.8.90 - - [24/Apr/2018 13:48:21] "GET / HTTP/1.1" 200 -
+191.100.8.90 - - [24/Apr/2018 13:48:22] "GET / HTTP/1.1" 200 -
+191.100.8.90 - - [24/Apr/2018 13:48:22] "GET / HTTP/1.0" 200 -
+191.100.8.90 - - [24/Apr/2018 13:48:23] "GET /cgi-bin/index.cgi HTTP/1.1" 200 -
+46.174.191.30 - - [24/Apr/2018 13:58:01] "GET / HTTP/1.0" 200 -
+190.94.136.146 - - [24/Apr/2018 14:56:59] "GET / HTTP/1.1" 200 -
+190.94.136.146 - - [24/Apr/2018 14:57:00] "GET / HTTP/1.1" 200 -
+190.94.136.146 - - [24/Apr/2018 14:57:00] "GET / HTTP/1.0" 200 -
+190.94.136.146 - - [24/Apr/2018 14:57:00] "GET /cgi-bin/index.cgi HTTP/1.1" 200 -
+31.131.251.196 - - [24/Apr/2018 15:31:38] code 400, message Bad HTTP/0.9 request type ('\x03\x00\x00/*\xe0\x00\x00\x00\x00\x00Cookie:')
+31.131.251.196 - - [24/Apr/2018 15:31:38] "  /*‡     Cookie: mstshash=Administr" 400 -
+46.174.191.32 - - [24/Apr/2018 16:03:52] "GET / HTTP/1.0" 200 -
+31.184.193.154 - - [24/Apr/2018 19:03:04] "GET / HTTP/1.0" 200 -
+Error on request:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/serving.py", line 270, in run_wsgi
+    execute(self.server.app)
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/serving.py", line 261, in execute
+    write(data)
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/serving.py", line 242, in write
+    self.wfile.write(data)
+IOError: [Errno 104] Connection reset by peer
+118.123.12.177 - - [24/Apr/2018 19:11:49] "GET http://www.baidu.com/?rands=_91842117608333762538884 HTTP/1.1" 200 -
+118.123.12.177 - - [24/Apr/2018 19:11:49] "GET http://www.so.com/?rands=_1498546508615779401883376 HTTP/1.1" 200 -
+118.123.12.177 - - [24/Apr/2018 19:11:50] "GET http://www.search.com/?rands=_818451026428155811106256 HTTP/1.1" 200 -
+222.186.34.77 - - [24/Apr/2018 19:40:02] "GET /script HTTP/1.1" 200 -
+47.203.88.161 - - [24/Apr/2018 19:43:08] "GET http://httpheader.net/ HTTP/1.1" 200 -
+47.203.88.161 - - [24/Apr/2018 19:43:18] code 400, message Bad request syntax ('\x04\x01\x00P\xc0c\xf660\x00')
+47.203.88.161 - - [24/Apr/2018 19:43:18] " P¿cˆ60 " 400 -
+47.203.88.161 - - [24/Apr/2018 19:43:28] code 400, message Bad request syntax ('\x05\x01\x00')
+47.203.88.161 - - [24/Apr/2018 19:43:28] " " 400 -
+47.203.88.161 - - [24/Apr/2018 19:43:39] code 400, message Bad request syntax ('\x05\x01\x00')
+47.203.88.161 - - [24/Apr/2018 19:43:39] " " 400 -
+201.238.155.141 - - [24/Apr/2018 21:40:26] "GET / HTTP/1.1" 200 -
+201.238.155.141 - - [24/Apr/2018 21:40:26] "GET / HTTP/1.1" 200 -
+201.238.155.141 - - [24/Apr/2018 21:40:27] "GET / HTTP/1.0" 200 -
+201.238.155.141 - - [24/Apr/2018 21:40:27] "GET /cgi-bin/index.cgi HTTP/1.1" 200 -
+139.162.111.98 - - [24/Apr/2018 22:13:29] "GET / HTTP/1.1" 200 -
+169.54.244.78 - - [24/Apr/2018 22:19:54] "GET / HTTP/1.1" 200 -
+46.174.191.29 - - [24/Apr/2018 23:03:28] "GET / HTTP/1.0" 200 -
+35.201.173.203 - - [24/Apr/2018 23:33:02] "GET / HTTP/1.1" 200 -
+184.105.139.68 - - [25/Apr/2018 00:31:12] "GET / HTTP/1.1" 200 -
+46.174.191.31 - - [25/Apr/2018 02:00:17] "GET / HTTP/1.0" 200 -
+66.102.7.132 - - [25/Apr/2018 02:54:51] "GET /login HTTP/1.1" 200 -
+66.102.7.134 - - [25/Apr/2018 02:54:52] "GET /static/img/Favicon.png HTTP/1.1" 200 -
+43.251.99.5 - - [25/Apr/2018 04:28:31] "GET / HTTP/1.1" 200 -
+46.174.191.30 - - [25/Apr/2018 06:24:49] "GET / HTTP/1.0" 200 -
+191.180.103.185 - - [25/Apr/2018 08:07:00] "GET /cgi/common.cgi HTTP/1.1" 200 -
+191.180.103.185 - - [25/Apr/2018 08:07:00] "GET /stssys.htm HTTP/1.1" 200 -
+191.180.103.185 - - [25/Apr/2018 08:07:01] "GET / HTTP/1.1" 200 -
+191.180.103.185 - - [25/Apr/2018 08:07:01] "POST /command.php HTTP/1.1" 200 -
+46.174.191.30 - - [25/Apr/2018 09:47:04] "GET / HTTP/1.0" 200 -
+46.174.191.30 - - [25/Apr/2018 12:21:04] "GET / HTTP/1.0" 200 -
+31.184.193.154 - - [25/Apr/2018 12:22:59] "GET / HTTP/1.0" 200 -
+46.174.191.30 - - [25/Apr/2018 15:00:52] "GET / HTTP/1.0" 200 -
+180.97.106.39 - - [25/Apr/2018 17:23:33] "HEAD http://180.163.113.82/check_proxy HTTP/1.1" 200 -
+82.79.52.138 - - [25/Apr/2018 17:27:46] "GET /manager/html HTTP/1.1" 200 -
+66.102.7.130 - - [25/Apr/2018 17:36:52] "GET / HTTP/1.1" 200 -
+139.162.79.87 - - [25/Apr/2018 18:10:02] "GET / HTTP/1.1" 200 -
+46.174.191.29 - - [25/Apr/2018 21:00:31] "GET / HTTP/1.0" 200 -
+46.174.191.28 - - [25/Apr/2018 22:25:39] "GET / HTTP/1.0" 200 -
+180.97.106.163 - - [25/Apr/2018 23:57:01] code 400, message Bad request syntax ('\x04\x01\x00P\xb4\xa3qR\x00')
+180.97.106.163 - - [25/Apr/2018 23:57:01] " P¥£qR " 400 -
+74.82.47.4 - - [26/Apr/2018 00:10:07] "GET / HTTP/1.1" 200 -
+180.97.106.39 - - [26/Apr/2018 00:21:53] code 400, message Bad request syntax ('\x05\x02\x00\x02')
+180.97.106.39 - - [26/Apr/2018 00:21:53] " " 400 -
+52.151.24.33 - - [26/Apr/2018 01:48:31] "GET / HTTP/1.1" 200 -
+47.218.236.238 - - [26/Apr/2018 02:48:39] "GET / HTTP/1.1" 200 -
+47.218.236.238 - - [26/Apr/2018 02:48:39] "GET /static/css/style.css HTTP/1.1" 200 -
+47.218.236.238 - - [26/Apr/2018 02:48:39] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 -
+47.218.236.238 - - [26/Apr/2018 02:48:39] "GET /static/js/chat.js HTTP/1.1" 200 -
+47.218.236.238 - - [26/Apr/2018 02:48:39] "GET /static/img/LogowithName.png HTTP/1.1" 200 -
+47.218.236.238 - - [26/Apr/2018 02:48:39] "GET /static/img/1.png HTTP/1.1" 200 -
+47.218.236.238 - - [26/Apr/2018 02:48:39] "GET /static/img/trusted.png HTTP/1.1" 200 -
+47.218.236.238 - - [26/Apr/2018 02:48:39] "GET /static/img/HighAvailability.png HTTP/1.1" 200 -
+47.218.236.238 - - [26/Apr/2018 02:48:39] "GET /static/img/ExchangeIndependent.png HTTP/1.1" 200 -
+47.218.236.238 - - [26/Apr/2018 02:48:39] "GET /static/img/SimpleIntegration.png HTTP/1.1" 200 -
+47.218.236.238 - - [26/Apr/2018 02:48:39] "GET /static/img/alpha.jpeg HTTP/1.1" 200 -
+47.218.236.238 - - [26/Apr/2018 02:48:39] "GET /static/img/Background.gif HTTP/1.1" 200 -
+47.218.236.238 - - [26/Apr/2018 02:48:39] "GET /static/img/apu.jpeg HTTP/1.1" 200 -
+47.218.236.238 - - [26/Apr/2018 02:48:40] "GET /static/img/adi.jpg HTTP/1.1" 200 -
+47.218.236.238 - - [26/Apr/2018 02:48:41] "GET /login HTTP/1.1" 200 -
+Error on request:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/serving.py", line 270, in run_wsgi
+    execute(self.server.app)
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/serving.py", line 261, in execute
+    write(data)
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/serving.py", line 242, in write
+    self.wfile.write(data)
+IOError: [Errno 32] Broken pipe
+47.218.236.238 - - [26/Apr/2018 02:48:41] "GET /static/css/login.css HTTP/1.1" 200 -
+47.218.236.238 - - [26/Apr/2018 02:48:42] "GET /static/js/login.js HTTP/1.1" 200 -
+47.218.236.238 - - [26/Apr/2018 02:48:44] "POST /login HTTP/1.1" 302 -
+47.218.236.238 - - [26/Apr/2018 02:48:46] "GET /dashboard HTTP/1.1" 200 -
+47.218.236.238 - - [26/Apr/2018 02:48:47] "GET /static/font/cryptocoins.css HTTP/1.1" 200 -
+47.218.236.238 - - [26/Apr/2018 02:48:47] "GET /static/css/home.css HTTP/1.1" 200 -
+47.218.236.238 - - [26/Apr/2018 02:48:47] "GET /static/font/cryptocoins.woff2 HTTP/1.1" 200 -
+115.231.218.194 - - [26/Apr/2018 02:54:08] "GET /manager/html HTTP/1.1" 200 -
+46.174.191.31 - - [26/Apr/2018 03:17:38] "GET / HTTP/1.0" 200 -
+66.102.7.132 - - [26/Apr/2018 03:46:46] "GET /login HTTP/1.1" 200 -
+107.161.80.33 - - [26/Apr/2018 04:19:45] "GET /manager/html HTTP/1.1" 200 -
+46.174.191.32 - - [26/Apr/2018 05:48:53] "GET / HTTP/1.0" 200 -
+46.174.191.31 - - [26/Apr/2018 08:45:04] "GET / HTTP/1.0" 200 -
+164.52.6.186 - - [26/Apr/2018 09:39:18] code 400, message Bad request syntax ('\x16\x03\x01\x01"\x01\x00\x01\x1e\x03\x03W\xd6m\xb9\x81\x800\xd6\\W\xae\xf0?\x9f\xe4\xcf}\xa4\xdd\xd3}\x9fe\x98\x07zh\x10\x88\x07\x87\xb5\x00\x00\x88\xc00\xc0,\xc0(\xc0$\xc0\x14\xc0')
+164.52.6.186 - - [26/Apr/2018 09:39:18] "" W÷mπÅÄ0÷\WÆ?ü‰œ}§›”}üeòzhàáµ  à¿0¿,¿(¿$¿¿" 400 -
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/SocketServer.py", line 593, in process_request_thread
+    self.finish_request(request, client_address)
+  File "/usr/lib/python2.7/SocketServer.py", line 334, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/usr/lib/python2.7/SocketServer.py", line 649, in __init__
+    self.handle()
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/serving.py", line 293, in handle
+    rv = BaseHTTPRequestHandler.handle(self)
+  File "/usr/lib/python2.7/BaseHTTPServer.py", line 340, in handle
+    self.handle_one_request()
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/serving.py", line 324, in handle_one_request
+    self.raw_requestline = self.rfile.readline()
+IOError: [Errno 104] Connection reset by peer
+164.52.6.186 - - [26/Apr/2018 09:39:21] "GET / HTTP/1.1" 200 -
+46.174.191.31 - - [26/Apr/2018 12:32:21] "GET / HTTP/1.0" 200 -
+165.227.58.178 - - [26/Apr/2018 13:15:57] "GET / HTTP/1.1" 200 -
+31.184.193.154 - - [26/Apr/2018 16:03:19] "GET / HTTP/1.0" 200 -
+Error on request:
+Traceback (most recent call last):
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/serving.py", line 270, in run_wsgi
+    execute(self.server.app)
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/serving.py", line 261, in execute
+    write(data)
+  File "/usr/local/lib/python2.7/dist-packages/werkzeug/serving.py", line 242, in write
+    self.wfile.write(data)
+IOError: [Errno 104] Connection reset by peer
+222.186.34.77 - - [26/Apr/2018 17:18:16] "GET /script HTTP/1.1" 200 -
+66.102.7.134 - - [26/Apr/2018 17:52:48] "GET / HTTP/1.1" 200 -
+66.102.7.132 - - [26/Apr/2018 17:52:49] "GET /static/img/Favicon.png HTTP/1.1" 200 -
+46.174.191.28 - - [26/Apr/2018 19:09:03] "GET / HTTP/1.0" 200 -
+158.85.81.125 - - [26/Apr/2018 19:51:53] "GET / HTTP/1.1" 200 -
+46.174.191.28 - - [26/Apr/2018 20:08:23] "GET / HTTP/1.0" 200 -
+216.218.206.69 - - [27/Apr/2018 00:16:38] "GET / HTTP/1.1" 200 -
+46.174.191.31 - - [27/Apr/2018 01:09:22] "GET / HTTP/1.0" 200 -
+196.52.43.64 - - [27/Apr/2018 01:13:19] "GET / HTTP/1.0" 200 -
+128.199.161.96 - - [27/Apr/2018 02:04:59] "GET / HTTP/1.1" 200 -
+46.174.191.31 - - [27/Apr/2018 06:25:54] "GET / HTTP/1.0" 200 -
+66.102.7.134 - - [27/Apr/2018 07:20:06] "GET /login HTTP/1.1" 200 -
+31.207.47.86 - - [27/Apr/2018 08:39:10] "HEAD /cli HTTP/1.1" 200 -
+46.174.191.32 - - [27/Apr/2018 10:08:05] "GET / HTTP/1.0" 200 -
+31.184.193.154 - - [27/Apr/2018 10:15:01] "GET / HTTP/1.0" 200 -
+107.170.236.68 - - [27/Apr/2018 10:30:47] "GET / HTTP/1.1" 200 -
+46.174.191.29 - - [27/Apr/2018 11:21:23] "GET / HTTP/1.0" 200 -
+31.207.47.86 - - [27/Apr/2018 13:10:34] "HEAD /invoker/readonly HTTP/1.1" 200 -
+47.203.88.161 - - [27/Apr/2018 15:36:00] "GET http://httpheader.net/ HTTP/1.1" 200 -
+47.203.88.161 - - [27/Apr/2018 15:36:10] code 400, message Bad request syntax ('\x04\x01\x00P\xc0c\xf660\x00')
+47.203.88.161 - - [27/Apr/2018 15:36:10] " P¿cˆ60 " 400 -
+47.203.88.161 - - [27/Apr/2018 15:36:20] code 400, message Bad request syntax ('\x05\x01\x00')
+47.203.88.161 - - [27/Apr/2018 15:36:20] " " 400 -
+47.203.88.161 - - [27/Apr/2018 15:36:31] code 400, message Bad request syntax ('\x05\x01\x00')
+47.203.88.161 - - [27/Apr/2018 15:36:31] " " 400 -
+47.218.236.238 - - [27/Apr/2018 16:29:47] "GET / HTTP/1.1" 200 -
+47.218.236.238 - - [27/Apr/2018 16:29:48] "GET /static/css/style.css HTTP/1.1" 200 -
+47.218.236.238 - - [27/Apr/2018 16:29:48] "GET /static/js/bootstrap.min.js HTTP/1.1" 200 -
+47.218.236.238 - - [27/Apr/2018 16:29:48] "GET /static/img/LogowithName.png HTTP/1.1" 200 -
+47.218.236.238 - - [27/Apr/2018 16:29:48] "GET /static/img/1.png HTTP/1.1" 200 -
+47.218.236.238 - - [27/Apr/2018 16:29:48] "GET /static/img/trusted.png HTTP/1.1" 200 -
+47.218.236.238 - - [27/Apr/2018 16:29:48] "GET /static/js/chat.js HTTP/1.1" 200 -
+47.218.236.238 - - [27/Apr/2018 16:29:48] "GET /static/img/HighAvailability.png HTTP/1.1" 200 -
+47.218.236.238 - - [27/Apr/2018 16:29:48] "GET /static/img/Background.gif HTTP/1.1" 200 -
+47.218.236.238 - - [27/Apr/2018 16:29:48] "GET /static/img/ExchangeIndependent.png HTTP/1.1" 200 -
+47.218.236.238 - - [27/Apr/2018 16:29:48] "GET /static/img/alpha.jpeg HTTP/1.1" 200 -
+47.218.236.238 - - [27/Apr/2018 16:29:48] "GET /static/img/SimpleIntegration.png HTTP/1.1" 200 -
+47.218.236.238 - - [27/Apr/2018 16:29:48] "GET /static/img/apu.jpeg HTTP/1.1" 200 -
+47.218.236.238 - - [27/Apr/2018 16:29:48] "GET /static/img/adi.jpg HTTP/1.1" 200 -
